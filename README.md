@@ -1,5 +1,7 @@
 # protoc-gen-vectorizer (Draft)
 
+## Introduction
+
 [Protocol Buffers](https://en.wikipedia.org/wiki/Protocol_Buffers) are widely used serialization format in real applications. 
 And we usually need to develop applications based on these messages.
 
@@ -62,3 +64,17 @@ message Person {
 ```
 
 Then, the plugin will generate related code for us to vectorize the message into vector (`Double[]`) properly.
+
+## Build
+
+## Usage
+
+## API Documentation
+
+### Field Annotation
+
+- `@categoric`: This field is categoric.
+- `@numeric`: This field is numeric.
+- `@bin [denominator]`: This field will be devided by denominator and replaced by the quotient.
+- `@split [delimiter]`: This field wlil be splitted by the given delimiter.
+- `@interaction [symbol]`: This field is a part of interaction. Fields with the same interaction symbol will be combined to the interacted feature.
