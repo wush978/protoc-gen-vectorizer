@@ -46,7 +46,7 @@ There are three details here:
 - The age will be assigned to one of ten groups (0~9, 10~19, ..., 80~89, and 90+).
 - The sex will be assigned to one of three groups (missing, male, and femail).
 
-This kind of **glue code** introduces much techical debt to the system ([Sculley et al., 2015](http://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems)).
+This kind of **glue code** introduces techical debt to the system ([Sculley et al., 2015](http://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems)).
 
 With this plugin, we could comment the field as follow:
 
