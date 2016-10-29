@@ -71,6 +71,10 @@ Then, the plugin will generate related code for us to vectorize the message into
 
 ## API Documentation
 
+### File Annotation
+
+- `@hash [size]`: The size of the vector.
+
 ### Field Annotation
 
 - `@categoric`: This field is categoric.
