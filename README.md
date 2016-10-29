@@ -78,3 +78,4 @@ Then, the plugin will generate related code for us to vectorize the message into
 - `@bin [denominator]`: This field will be devided by denominator and replaced by the quotient.
 - `@split [delimiter]`: This field wlil be splitted by the given delimiter.
 - `@interaction [symbol]`: This field is a part of interaction. Fields with the same interaction symbol will be combined to the interacted feature.
+- `@user [function identity]`: This field will be transformed by the given static function.
