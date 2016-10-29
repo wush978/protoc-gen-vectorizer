@@ -73,13 +73,13 @@ Then, the plugin will generate related code for us to vectorize the message into
 
 ### File Annotation
 
-- `@hash [size]`: The size of the vector.
+- `@hash [(int32) size]`: The size of the vector.
 
 ### Field Annotation
 
 - `@categoric`: This field is categoric.
 - `@numeric`: This field is numeric.
-- `@bin [denominator]`: This field will be devided by denominator and replaced by the quotient.
-- `@split [delimiter]`: This field wlil be splitted by the given delimiter.
-- `@interaction [symbol]`: This field is a part of interaction. Fields with the same interaction symbol will be combined to the interacted feature.
-- `@user [function identity]`: This field will be transformed by the given static function.
+- `@bin [(duoble) denominator]`: This field will be devided by denominator and replaced by the quotient.
+- `@split [(string) delimiter]`: This field wlil be splitted by the given delimiter.
+- `@interaction [(string) symbol]`: This field is a part of interaction. Fields with the same interaction symbol will be combined to the interacted feature.
+- `@user [(string) function identity]`: This field will be transformed by the given static function.
