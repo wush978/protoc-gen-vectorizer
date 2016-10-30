@@ -9,7 +9,7 @@ To develop a machine learning application, we need to convert these messages to 
 before doing machine learning things.
 
 This is a vectorizer generator plugin for the Google Protocol Buffers compiler
-(`protoc`). The plugin can generate source code which will convert the serialized message into 
+(`protoc`). The plugin can generate source code (java) which will convert the serialized message into 
 mathematical vector. You only need to comment your schema files(`.proto`) properly.
 
 For example, here is a protobuf schema:
@@ -71,15 +71,42 @@ Then, the plugin will generate related code for us to vectorize the message into
 
 ## API Documentation
 
+For each annotation, the prefix should be: `//'`. This is inspired by [roxygen2](https://cran.r-project.org/web/packages/roxygen2/index.html).
+
 ### File Annotation
 
 - `@hash [(int32) size]`: The size of the vector.
 
 ### Field Annotation
 
-- `@categoric`: This field is categoric.
-- `@numeric`: This field is numeric.
+
+
+- `@categoric`: This field is categoric.  The value will be converted to string before vectorization. 
+    - (TODO: the explanation of categoric field)
+    - For `optional` field, the missing data will be skipped.
+    - For `repeated` field, each value will be converted to corresponding result.
+- `@numeric`: This field is numeric. The value should be numeric or an error will be thrown. 
+    - For `optional` field, the missing data will be 0, and an indicator variable (of existence) will be generated. 
+    - For `repeated` field, the plugin will fail. Please transform the field to single value properly by `@user` and the chain rule.
 - `@bin [(duoble) denominator]`: This field will be devided by denominator and replaced by the quotient.
+    - For `optional` field, the missing data will be skipped.
+    - For `repeated` field, the repeated
 - `@split [(string) delimiter]`: This field wlil be splitted by the given delimiter.
 - `@interaction [(string) symbol]`: This field is a part of interaction. Fields with the same interaction symbol will be combined to the interacted feature.
-- `@user [(string) function identity]`: This field will be transformed by the given static function.
+- `@user [(string) function identity, (string) returned type]`: This field will be transformed by the given static function.
+    - For `required` field, the plugin will generate `ReturnedType ClassName.FunctionName(T value)`
+    - For `optional` field, the plugin will generate `com.google.common.base.Optional[ReturnedType] ClassName.Function(com.google.common.base.Optional[T] value)`.
+    -  (TODO) For `repeated` field, the plugin will generate ??.
+
+#### Chain Rule
+
+The user can annotated the same field with multiple symbols. For example:
+
+```
+//'@bin 10
+//'@categoric
+optional int32 age;
+```
+
+The vectorizer will apply `@bin 10` first, then send the output to `@categoric`.
+required int32
