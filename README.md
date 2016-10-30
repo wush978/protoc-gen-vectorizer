@@ -108,5 +108,4 @@ The user can annotated the same field with multiple symbols. For example:
 optional int32 age;
 ```
 
-The vectorizer will apply `@bin 10` first, then send the output to `@categoric`.
-required int32
+The vectorizer will apply `@bin 10` first, then send the output to `@categoric`. Therefore, the order of annotation matters.
