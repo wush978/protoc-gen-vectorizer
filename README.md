@@ -57,8 +57,9 @@ message Person {
   // we won't predict the value based on name
   required string name = 1;
   //'@bin 10
+  //'@categorical 0 1 2 3 4 5 6 7 8 9
   required int32 age = 2;
-  //'@equal 
+  //'@categorical
   optional string sex = 3;
 }
 ```
@@ -81,11 +82,11 @@ For each annotation, the prefix should be: `//'`. This is inspired by [roxygen2]
 
 
 
-- `@categoric`: This field is categoric.  The value will be converted to string before vectorization. 
-    - (TODO: the explanation of categoric field)
+- `@categorical [(optional string) level1] [(optional string) level2] ...`: This field is categorical.  The value will be converted to string before vectorization. 
+    - (TODO: the explanation of categorical field)
     - For `optional` field, the missing data will be skipped.
     - For `repeated` field, each value will be converted to corresponding result.
-- `@numeric`: This field is numeric. The value should be numeric or an error will be thrown. 
+- `@numerical`: This field is numeric. The value should be numeric or an error will be thrown. 
     - For `optional` field, the missing data will be 0, and an indicator variable (of existence) will be generated. 
     - For `repeated` field, the plugin will fail. Please transform the field to single value properly by `@user` and the chain rule.
 - `@bin [(duoble) denominator]`: This field will be devided by denominator and replaced by the quotient.
@@ -104,8 +105,8 @@ The user can annotated the same field with multiple symbols. For example:
 
 ```
 //'@bin 10
-//'@categoric
+//'@categorical
 optional int32 age;
 ```
 
-The vectorizer will apply `@bin 10` first, then send the output to `@categoric`. Therefore, the order of annotation matters.
+The vectorizer will apply `@bin 10` first, then send the output to `@categorical`. Therefore, the order of annotation matters.
