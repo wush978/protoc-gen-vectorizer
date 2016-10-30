@@ -5,6 +5,7 @@
  *      Author: wush
  */
 
+#include <google/protobuf/command_line_interface.h>
 #include <VectorizerGenerator.h>
 
 int main(int argc, char* argv[]) {
