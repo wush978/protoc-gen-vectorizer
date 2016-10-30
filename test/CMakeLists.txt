@@ -1,0 +1,6 @@
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/test)
+find_package (Boost COMPONENTS unit_test_framework REQUIRED)
+include_directories(${PROTOBUF_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/../include)
+add_definitions (-DBOOST_TEST_DYN_LINK)
+add_executable (TestVectorizerGenerator VectorizerGenerator_test.cpp)
+target_link_libraries (TestVectorizerGenerator ProtocGenVectorizer ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})

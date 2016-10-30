@@ -1,1 +1,7 @@
-add_executable(ProtocGenVectorizer main.cpp)
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+find_package(Protobuf REQUIRED)
+find_package(Boost REQUIRED)
+include_directories(${PROTOBUF_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/../include)
+add_library(ProtocGenVectorizer  VectorizerGenerator.cpp)
+add_executable(protoc main.cpp)
+target_link_libraries(protoc ProtocGenVectorizer ${PROTOBUF_LIBRARIES} ${PROTOBUF_PROTOC_LIBRARIES})
