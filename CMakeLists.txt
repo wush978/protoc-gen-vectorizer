@@ -15,6 +15,6 @@ file(COPY test/project DESTINATION ${PROJECT_BINARY_DIR}/test)
 
 find_package (Maven)
 
-add_test(TestVectorizerGenerator test/TestVectorizerGenerator test/proto/person.proto --vec_java_out=test/project/src/main/java/)
+add_test(TestVectorizerGenerator test/TestVectorizerGenerator)
 add_test(CompileGenratedCode bash -c "cd test/project && mvn compile")
  
