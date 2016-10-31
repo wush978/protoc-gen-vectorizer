@@ -6,10 +6,3 @@ include_directories(${PROTOBUF_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS} ${CMAKE_CURRE
 add_definitions (-DBOOST_TEST_DYN_LINK)
 add_executable (TestVectorizerGenerator VectorizerGenerator_test.cpp)
 target_link_libraries (TestVectorizerGenerator ProtocGenVectorizer ${PROTOBUF_LIBRARIES} ${PROTOBUF_PROTOC_LIBRARIES} ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
-
-# copy testing protos
-file(COPY proto DESTINATION ${PROJECT_BINARY_DIR}/test)
-
-find_package (Maven)
-
-

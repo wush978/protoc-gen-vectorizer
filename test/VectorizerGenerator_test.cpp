@@ -5,9 +5,24 @@
  *      Author: wush
  */
 
-#include <google/protobuf/command_line_interface.h>
+#include <google/protobuf/compiler/command_line_interface.h>
 #include <VectorizerGenerator.h>
 
+using google::protobuf::compiler::CommandLineInterface;
+
 int main(int argc, char* argv[]) {
-  return 0;
+  int fargc = 3;
+  const char* const fargv[] = {
+    "",
+    "test/proto/person.proto",
+    "--vec_java_out=test/project/src/main/java/"
+  };
+
+  CommandLineInterface cli;
+
+  // Support generation of vectorizer
+  vectorizer::VectorizerGenerator generator;
+  cli.RegisterGenerator("--vec_java_out", &generator, "Generate Vectorizer file");
+
+  return cli.Run(fargc, fargv);
 }
