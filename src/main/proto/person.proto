@@ -1,0 +1,9 @@
+package test;
+
+message Person {
+  required string id = 1;
+  //'@categorical
+  required int32 age = 2;
+  //'@categorical
+  required string sex = 3;
+}

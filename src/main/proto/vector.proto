@@ -1,0 +1,9 @@
+package io.github.wush978.vectorizer;
+
+message SparseVector {
+
+    repeated string index = 1;
+
+    repeated double value = 2;
+
+}
