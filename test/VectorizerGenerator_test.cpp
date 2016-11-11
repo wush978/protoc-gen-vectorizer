@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
   int fargc = 3;
   const char* const fargv[] = {
     "",
-    "test/proto/person.proto",
+    "test/project/src/main/proto/person.proto",
     "--vec_java_out=test/project/src/main/java/"
   };
 
