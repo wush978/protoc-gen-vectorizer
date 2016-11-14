@@ -22,10 +22,13 @@
 #include <map>
 #include <boost/variant.hpp>
 #include <google/protobuf/compiler/code_generator.h>
+#include <FileVectorization.h>
 
 namespace vectorizer {
 
 class VectorizerGenerator: public google::protobuf::compiler::CodeGenerator {
+
+  mutable std::vector<std::shared_ptr<FileVectorization> > operations;
 
 public:
 

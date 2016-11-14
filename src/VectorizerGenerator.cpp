@@ -18,77 +18,77 @@
 #include <VectorizerGenerator.h>
 #include <unordered_map>
 #include <google/protobuf/descriptor.h>
+#include <FileVectorization.h>
 
 namespace gp = google::protobuf;
 
 namespace vectorizer {
 
-VectorizerGenerator::VectorizerGenerator() {
-}
+VectorizerGenerator::VectorizerGenerator() : operations() { }
 
-VectorizerGenerator::~VectorizerGenerator() {
-}
+VectorizerGenerator::~VectorizerGenerator() { }
 
-/**
- * Extract annotations from a message or field
- */
-template<typename Descriptor>
-void extractAnnotation(const Descriptor *descriptor,
-    std::string *error) {
+///**
+// * Extract annotations from a message or field
+// */
+//template<typename Descriptor>
+//void extractAnnotation(const Descriptor *descriptor,
+//    std::string *error) {
+////
+////  gp::SourceLocation sourceLocation;
+////
+////  std::string debug = descriptor->DebugString();
+////
+////  std::string leading = sourceLocation.leading_comments;
+////
+////  std::string trailing = sourceLocation.trailing_comments;
 //
-//  gp::SourceLocation sourceLocation;
+//  //TODO
 //
-//  std::string debug = descriptor->DebugString();
+//}
 //
-//  std::string leading = sourceLocation.leading_comments;
+//static void addField(const gp::FieldDescriptor *descriptor, std::string* error) {
+//}
 //
-//  std::string trailing = sourceLocation.trailing_comments;
-
-  //TODO
-
-}
-
-static void addField(const gp::FieldDescriptor *descriptor, std::string* error) {
-}
-
-static void addMessage(const gp::Descriptor *descriptor, std::string* error) {
-
-//  Message message;
-//  message["message_name"] = descriptor->name();
-//  message["message_long_name"] = longName(descriptor);
-//  message["message_full_name"] = descriptor->full_name();
-//  message["message_annotation"] = extractAnnotation(descriptor, error);
+//static void addMessage(const gp::Descriptor *descriptor, std::string* error) {
 //
-  // Add fields
-//  Fields fields;
-  for(int i = 0;i < descriptor->field_count();i++) {
-    addField(descriptor->field(i), error);
-  }
-//  message["message_fields"] = fields;
-//  messages->emplace_back(std::move(message));
-}
-
-static void addFile(const gp::FileDescriptor *file, std::string* error) {
-
-//  FileInfo fileInfo;
+////  Message message;
+////  message["message_name"] = descriptor->name();
+////  message["message_long_name"] = longName(descriptor);
+////  message["message_full_name"] = descriptor->full_name();
+////  message["message_annotation"] = extractAnnotation(descriptor, error);
+////
+//  // Add fields
+////  Fields fields;
+//  for(int i = 0;i < descriptor->field_count();i++) {
+//    addField(descriptor->field(i), error);
+//  }
+////  message["message_fields"] = fields;
+////  messages->emplace_back(std::move(message));
+//}
 //
-//  fileInfo["file_name"] = file->name();
-//  fileInfo["file_package"] = file->package();
+//static void addFile(const gp::FileDescriptor *file, std::string* error) {
 //
-//  Messages messages;
+//  FileVectorization
+////  FileInfo fileInfo;
+////
+////  fileInfo["file_name"] = file->name();
+////  fileInfo["file_package"] = file->package();
+////
+////  Messages messages;
+////
+//  for (int i = 0; i < file->message_type_count(); i++) {
+//    addMessage(file->message_type(i), error);
+//  }
+////  fileInfo["file_messages"] = messages;
+////
+////  fileInfos->emplace_back(std::move(fileInfo));
+////
+//}
 //
-  for (int i = 0; i < file->message_type_count(); i++) {
-    addMessage(file->message_type(i), error);
-  }
-//  fileInfo["file_messages"] = messages;
-//
-//  fileInfos->emplace_back(std::move(fileInfo));
-//
-}
-
-static bool render(gp::compiler::GeneratorContext *context, std::string *error) {
-  return true;
-}
+//static bool render(gp::compiler::GeneratorContext *context, std::string *error) {
+//  return true;
+//}
 
 bool VectorizerGenerator::Generate(const google::protobuf::FileDescriptor* file,
     const std::string& parameter,
@@ -101,12 +101,12 @@ bool VectorizerGenerator::Generate(const google::protobuf::FileDescriptor* file,
     }
     bool isLast = file == pParsedFiles->back();
 
-    addFile(file, error);
+    operations.emplace_back(new FileVectorization(file, error));
     if (error->size() > 0) return false;
 
     if (isLast) {
-      if (!render(generator_context, error)) {
-        return false;
+      for(std::shared_ptr<FileVectorization>& pFV : operations) {
+        pFV->generate(generator_context);
       }
     }
     return true;
