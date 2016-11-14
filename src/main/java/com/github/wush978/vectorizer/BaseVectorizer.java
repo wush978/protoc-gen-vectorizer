@@ -1,4 +1,4 @@
-package io.github.wush978.vectorizer;
+package com.github.wush978.vectorizer;
 
 /**
  * Created by wush on 2016/11/9.

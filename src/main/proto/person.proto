@@ -1,4 +1,4 @@
-package test;
+package com.github.wush978.test;
 
 message Person {
   required string id = 1;

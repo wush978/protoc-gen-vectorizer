@@ -31,9 +31,9 @@
 	<scm>
 		<connection>scm:git:git://github.com/wush978/protoc-gen-vectorizer.git#java</connection>
 		<developerConnection>scm:git:ssh://github.com:wush978/protoc-gen-vectorizer.git#java</developerConnection>
-		<url>http://github.com/wush978/protoc-gen-vectorizer/tree/java</url>
+		<url>https://github.com/wush978/protoc-gen-vectorizer/tree/java</url>
 	</scm>
-	
+
 	<properties>
 		<mavenVersion>3.0</mavenVersion>
 	</properties>

@@ -1,10 +1,10 @@
-package io.github.wush978.reference;
+package com.github.wush978.reference;
 
-import io.github.wush978.vectorizer.Vector;
+import com.github.wush978.vectorizer.Vector;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-import io.github.wush978.test.PersonOuterClass;
+import com.github.wush978.test.PersonOuterClass;
 
 /**
  * Created by wush on 2016/11/9.
