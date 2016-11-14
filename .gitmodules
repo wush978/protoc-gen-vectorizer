@@ -1,3 +1,0 @@
-[submodule "test/project"]
-	path = test/project
-	url = https://github.com/wush978/protoc-gen-vectorizer.git
