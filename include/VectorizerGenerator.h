@@ -40,15 +40,6 @@ public:
 
 };
 
-typedef std::vector< std::string > Annotation;
-typedef std::vector< std::vector<std::string> > AnnotationVec;
-typedef std::map<std::string, boost::variant< std::string, AnnotationVec > > Field;
-typedef std::vector< Field > Fields;
-typedef std::map<std::string, boost::variant< std::string, AnnotationVec, Fields > > Message;
-typedef std::vector< Message > Messages;
-typedef std::map<std::string, boost::variant< std::string, AnnotationVec, Messages > > FileInfo;
-typedef std::vector< FileInfo > FileInfos;
-
 }
 
 #endif /* VECTORIZERGENERATOR_H_ */

@@ -16,6 +16,7 @@
  */
 
 #include <google/protobuf/compiler/command_line_interface.h>
+#include <google/protobuf/compiler/java/java_generator.h>
 #include <VectorizerGenerator.h>
 
 using namespace google::protobuf::compiler;
@@ -23,9 +24,13 @@ using namespace google::protobuf::compiler;
 int main(int argc, char* argv[]) {
   CommandLineInterface cli;
 
+  // Support generation of java code
+  java::JavaGenerator java_generator;
+  cli.RegisterGenerator("--java_out", &java_generator, "Generate java source file.");
+
   // Support generation of vectorizer
   vectorizer::VectorizerGenerator generator;
-  cli.RegisterGenerator("--vec_java_out", &generator, "Generate Vectorizer file");
+  cli.RegisterGenerator("--vec_java_out", &generator, "Generate vectorization of java file");
 
   return cli.Run(argc, argv);
 }

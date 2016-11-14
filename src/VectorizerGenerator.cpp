@@ -29,30 +29,12 @@ VectorizerGenerator::VectorizerGenerator() {
 VectorizerGenerator::~VectorizerGenerator() {
 }
 
-static FileInfos fileInfos;
-
-/**
- * Extract the long name of the message.
- */
-template<typename T>
-static std::string longName(const T *descriptor) {
-  if (!descriptor) {
-    return std::string();
-  } else if (!descriptor->containing_type()) {
-    return descriptor->name();
-  }
-  return longName(descriptor->containing_type()).append(".").append(
-      descriptor->name());
-}
-
 /**
  * Extract annotations from a message or field
  */
 template<typename Descriptor>
-AnnotationVec extractAnnotation(const Descriptor *descriptor,
+void extractAnnotation(const Descriptor *descriptor,
     std::string *error) {
-
-  AnnotationVec annotations;
 //
 //  gp::SourceLocation sourceLocation;
 //
@@ -64,57 +46,44 @@ AnnotationVec extractAnnotation(const Descriptor *descriptor,
 
   //TODO
 
-  return annotations;
-
 }
 
-//template AnnotationVec extractAnnotation<gp::FileDescriptor>(const gp::FileDescriptor *descriptor, std::string* error) {
-//  AnnotationVec annotations;
-//  // TODO
-//  return annotations;
-//}
-
-static void addField(const gp::FieldDescriptor *descriptor, Fields *fields, std::string* error) {
-  Field field;
-  field["field_name"] = descriptor->name();
-  field["field_annotation"] = extractAnnotation(descriptor, error);
-  fields->emplace_back(std::move(field));
+static void addField(const gp::FieldDescriptor *descriptor, std::string* error) {
 }
 
-static void addMessage(const gp::Descriptor *descriptor, Messages* messages,
-    std::string* error) {
+static void addMessage(const gp::Descriptor *descriptor, std::string* error) {
 
-  Message message;
-  message["message_name"] = descriptor->name();
-  message["message_long_name"] = longName(descriptor);
-  message["message_full_name"] = descriptor->full_name();
-  message["message_annotation"] = extractAnnotation(descriptor, error);
-
+//  Message message;
+//  message["message_name"] = descriptor->name();
+//  message["message_long_name"] = longName(descriptor);
+//  message["message_full_name"] = descriptor->full_name();
+//  message["message_annotation"] = extractAnnotation(descriptor, error);
+//
   // Add fields
-  Fields fields;
+//  Fields fields;
   for(int i = 0;i < descriptor->field_count();i++) {
-    addField(descriptor->field(i), &fields, error);
+    addField(descriptor->field(i), error);
   }
-  message["message_fields"] = fields;
-  messages->emplace_back(std::move(message));
+//  message["message_fields"] = fields;
+//  messages->emplace_back(std::move(message));
 }
 
-static void addFile(const gp::FileDescriptor *file, FileInfos* fileInfos, std::string* error) {
+static void addFile(const gp::FileDescriptor *file, std::string* error) {
 
-  FileInfo fileInfo;
-
-  fileInfo["file_name"] = file->name();
-  fileInfo["file_package"] = file->package();
-
-  Messages messages;
-
+//  FileInfo fileInfo;
+//
+//  fileInfo["file_name"] = file->name();
+//  fileInfo["file_package"] = file->package();
+//
+//  Messages messages;
+//
   for (int i = 0; i < file->message_type_count(); i++) {
-    addMessage(file->message_type(i), &messages, error);
+    addMessage(file->message_type(i), error);
   }
-  fileInfo["file_messages"] = messages;
-
-  fileInfos->emplace_back(std::move(fileInfo));
-
+//  fileInfo["file_messages"] = messages;
+//
+//  fileInfos->emplace_back(std::move(fileInfo));
+//
 }
 
 static bool render(gp::compiler::GeneratorContext *context, std::string *error) {
@@ -132,7 +101,9 @@ bool VectorizerGenerator::Generate(const google::protobuf::FileDescriptor* file,
     }
     bool isLast = file == pParsedFiles->back();
 
-    addFile(file, &fileInfos, error);
+    addFile(file, error);
+    if (error->size() > 0) return false;
+
     if (isLast) {
       if (!render(generator_context, error)) {
         return false;

@@ -14,8 +14,8 @@ int main(int argc, char* argv[]) {
   int fargc = 3;
   const char* const fargv[] = {
     "",
-    "test/project/src/main/proto/person.proto",
-    "--vec_java_out=test/project/src/main/java/"
+    "test/project/protobuf-vectorizer/src/main/proto/person.proto",
+    "--vec_java_out=test/project/test-vectorizer/src/main/java/"
   };
 
   CommandLineInterface cli;
