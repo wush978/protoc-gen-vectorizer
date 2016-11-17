@@ -14,6 +14,18 @@ import java.util.Map;
  */
 public class Vectorizer extends BaseVectorizer {
 
+    public static Vector.SparseVector.Builder apply(PersonOuterClass.Person.Education src) {
+
+        Vector.SparseVector.Builder builder = Vector.SparseVector.newBuilder();
+
+        String prefix = src.getClass().getCanonicalName() + ".";
+
+        categorical(prefix + "school_name" + src.getSchoolName(), builder);
+
+        return builder;
+
+    }
+
     public static Vector.SparseVector.Builder apply(PersonOuterClass.Person.Contact src) {
 
         Vector.SparseVector.Builder builder = Vector.SparseVector.newBuilder();
@@ -48,6 +60,10 @@ public class Vectorizer extends BaseVectorizer {
         interaction.get("age\1sex").setB(src.getSex().toString());
 
         interaction.get("age\1sex").setValue(CATEGORICAL_VALUE);
+
+        for(int i = 0;i < src.getEducationCount();i++) {
+            append(builder, apply(src.getEducation(i)));
+        }
 
         append(builder, apply(src.getContact()));
 
