@@ -35,6 +35,7 @@ public final class PersonOuterClass {
     /**
      * <pre>
      *'&#64;categorical
+     *'&#64;interaction age-sex
      * </pre>
      *
      * <code>required int32 age = 2;</code>
@@ -43,6 +44,7 @@ public final class PersonOuterClass {
     /**
      * <pre>
      *'&#64;categorical
+     *'&#64;interaction age-sex
      * </pre>
      *
      * <code>required int32 age = 2;</code>
@@ -52,6 +54,7 @@ public final class PersonOuterClass {
     /**
      * <pre>
      *'&#64;categorical
+     *'&#64;interaction age-sex
      * </pre>
      *
      * <code>required string sex = 3;</code>
@@ -60,6 +63,7 @@ public final class PersonOuterClass {
     /**
      * <pre>
      *'&#64;categorical
+     *'&#64;interaction age-sex
      * </pre>
      *
      * <code>required string sex = 3;</code>
@@ -68,6 +72,7 @@ public final class PersonOuterClass {
     /**
      * <pre>
      *'&#64;categorical
+     *'&#64;interaction age-sex
      * </pre>
      *
      * <code>required string sex = 3;</code>
@@ -87,6 +92,30 @@ public final class PersonOuterClass {
      * <code>required .com.github.wush978.test.Person.Contact contact = 4;</code>
      */
     com.github.wush978.test.PersonOuterClass.Person.ContactOrBuilder getContactOrBuilder();
+
+    /**
+     * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+     */
+    java.util.List<com.github.wush978.test.PersonOuterClass.Person.Education> 
+        getEducationList();
+    /**
+     * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+     */
+    com.github.wush978.test.PersonOuterClass.Person.Education getEducation(int index);
+    /**
+     * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+     */
+    int getEducationCount();
+    /**
+     * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+     */
+    java.util.List<? extends com.github.wush978.test.PersonOuterClass.Person.EducationOrBuilder> 
+        getEducationOrBuilderList();
+    /**
+     * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+     */
+    com.github.wush978.test.PersonOuterClass.Person.EducationOrBuilder getEducationOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code com.github.wush978.test.Person}
@@ -103,6 +132,7 @@ public final class PersonOuterClass {
       id_ = "";
       age_ = 0;
       sex_ = "";
+      education_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -163,6 +193,15 @@ public final class PersonOuterClass {
               bitField0_ |= 0x00000008;
               break;
             }
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                education_ = new java.util.ArrayList<com.github.wush978.test.PersonOuterClass.Person.Education>();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              education_.add(
+                  input.readMessage(com.github.wush978.test.PersonOuterClass.Person.Education.PARSER, extensionRegistry));
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -171,6 +210,9 @@ public final class PersonOuterClass {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+          education_ = java.util.Collections.unmodifiableList(education_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -1281,6 +1323,605 @@ public final class PersonOuterClass {
 
     }
 
+    public interface EducationOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:com.github.wush978.test.Person.Education)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>required string school_name = 1;</code>
+       */
+      boolean hasSchoolName();
+      /**
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>required string school_name = 1;</code>
+       */
+      java.lang.String getSchoolName();
+      /**
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>required string school_name = 1;</code>
+       */
+      com.google.protobuf.ByteString
+          getSchoolNameBytes();
+    }
+    /**
+     * Protobuf type {@code com.github.wush978.test.Person.Education}
+     */
+    public  static final class Education extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:com.github.wush978.test.Person.Education)
+        EducationOrBuilder {
+      // Use Education.newBuilder() to construct.
+      private Education(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private Education() {
+        schoolName_ = "";
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      private Education(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 10: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                schoolName_ = bs;
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.github.wush978.test.PersonOuterClass.internal_static_com_github_wush978_test_Person_Education_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.github.wush978.test.PersonOuterClass.internal_static_com_github_wush978_test_Person_Education_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.github.wush978.test.PersonOuterClass.Person.Education.class, com.github.wush978.test.PersonOuterClass.Person.Education.Builder.class);
+      }
+
+      private int bitField0_;
+      public static final int SCHOOL_NAME_FIELD_NUMBER = 1;
+      private volatile java.lang.Object schoolName_;
+      /**
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>required string school_name = 1;</code>
+       */
+      public boolean hasSchoolName() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>required string school_name = 1;</code>
+       */
+      public java.lang.String getSchoolName() {
+        java.lang.Object ref = schoolName_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            schoolName_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>required string school_name = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSchoolNameBytes() {
+        java.lang.Object ref = schoolName_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          schoolName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        if (!hasSchoolName()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, schoolName_);
+        }
+        unknownFields.writeTo(output);
+      }
+
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, schoolName_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof com.github.wush978.test.PersonOuterClass.Person.Education)) {
+          return super.equals(obj);
+        }
+        com.github.wush978.test.PersonOuterClass.Person.Education other = (com.github.wush978.test.PersonOuterClass.Person.Education) obj;
+
+        boolean result = true;
+        result = result && (hasSchoolName() == other.hasSchoolName());
+        if (hasSchoolName()) {
+          result = result && getSchoolName()
+              .equals(other.getSchoolName());
+        }
+        result = result && unknownFields.equals(other.unknownFields);
+        return result;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptorForType().hashCode();
+        if (hasSchoolName()) {
+          hash = (37 * hash) + SCHOOL_NAME_FIELD_NUMBER;
+          hash = (53 * hash) + getSchoolName().hashCode();
+        }
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static com.github.wush978.test.PersonOuterClass.Person.Education parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.github.wush978.test.PersonOuterClass.Person.Education parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.github.wush978.test.PersonOuterClass.Person.Education parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.github.wush978.test.PersonOuterClass.Person.Education parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.github.wush978.test.PersonOuterClass.Person.Education parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.github.wush978.test.PersonOuterClass.Person.Education parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.github.wush978.test.PersonOuterClass.Person.Education parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static com.github.wush978.test.PersonOuterClass.Person.Education parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.github.wush978.test.PersonOuterClass.Person.Education parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.github.wush978.test.PersonOuterClass.Person.Education parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(com.github.wush978.test.PersonOuterClass.Person.Education prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code com.github.wush978.test.Person.Education}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:com.github.wush978.test.Person.Education)
+          com.github.wush978.test.PersonOuterClass.Person.EducationOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.github.wush978.test.PersonOuterClass.internal_static_com_github_wush978_test_Person_Education_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.github.wush978.test.PersonOuterClass.internal_static_com_github_wush978_test_Person_Education_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.github.wush978.test.PersonOuterClass.Person.Education.class, com.github.wush978.test.PersonOuterClass.Person.Education.Builder.class);
+        }
+
+        // Construct using com.github.wush978.test.PersonOuterClass.Person.Education.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        public Builder clear() {
+          super.clear();
+          schoolName_ = "";
+          bitField0_ = (bitField0_ & ~0x00000001);
+          return this;
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return com.github.wush978.test.PersonOuterClass.internal_static_com_github_wush978_test_Person_Education_descriptor;
+        }
+
+        public com.github.wush978.test.PersonOuterClass.Person.Education getDefaultInstanceForType() {
+          return com.github.wush978.test.PersonOuterClass.Person.Education.getDefaultInstance();
+        }
+
+        public com.github.wush978.test.PersonOuterClass.Person.Education build() {
+          com.github.wush978.test.PersonOuterClass.Person.Education result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public com.github.wush978.test.PersonOuterClass.Person.Education buildPartial() {
+          com.github.wush978.test.PersonOuterClass.Person.Education result = new com.github.wush978.test.PersonOuterClass.Person.Education(this);
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+            to_bitField0_ |= 0x00000001;
+          }
+          result.schoolName_ = schoolName_;
+          result.bitField0_ = to_bitField0_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof com.github.wush978.test.PersonOuterClass.Person.Education) {
+            return mergeFrom((com.github.wush978.test.PersonOuterClass.Person.Education)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(com.github.wush978.test.PersonOuterClass.Person.Education other) {
+          if (other == com.github.wush978.test.PersonOuterClass.Person.Education.getDefaultInstance()) return this;
+          if (other.hasSchoolName()) {
+            bitField0_ |= 0x00000001;
+            schoolName_ = other.schoolName_;
+            onChanged();
+          }
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          if (!hasSchoolName()) {
+            return false;
+          }
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          com.github.wush978.test.PersonOuterClass.Person.Education parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (com.github.wush978.test.PersonOuterClass.Person.Education) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+        private int bitField0_;
+
+        private java.lang.Object schoolName_ = "";
+        /**
+         * <pre>
+         *'&#64;categorical
+         * </pre>
+         *
+         * <code>required string school_name = 1;</code>
+         */
+        public boolean hasSchoolName() {
+          return ((bitField0_ & 0x00000001) == 0x00000001);
+        }
+        /**
+         * <pre>
+         *'&#64;categorical
+         * </pre>
+         *
+         * <code>required string school_name = 1;</code>
+         */
+        public java.lang.String getSchoolName() {
+          java.lang.Object ref = schoolName_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            if (bs.isValidUtf8()) {
+              schoolName_ = s;
+            }
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <pre>
+         *'&#64;categorical
+         * </pre>
+         *
+         * <code>required string school_name = 1;</code>
+         */
+        public com.google.protobuf.ByteString
+            getSchoolNameBytes() {
+          java.lang.Object ref = schoolName_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            schoolName_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <pre>
+         *'&#64;categorical
+         * </pre>
+         *
+         * <code>required string school_name = 1;</code>
+         */
+        public Builder setSchoolName(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+          schoolName_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         *'&#64;categorical
+         * </pre>
+         *
+         * <code>required string school_name = 1;</code>
+         */
+        public Builder clearSchoolName() {
+          bitField0_ = (bitField0_ & ~0x00000001);
+          schoolName_ = getDefaultInstance().getSchoolName();
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         *'&#64;categorical
+         * </pre>
+         *
+         * <code>required string school_name = 1;</code>
+         */
+        public Builder setSchoolNameBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+          schoolName_ = value;
+          onChanged();
+          return this;
+        }
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:com.github.wush978.test.Person.Education)
+      }
+
+      // @@protoc_insertion_point(class_scope:com.github.wush978.test.Person.Education)
+      private static final com.github.wush978.test.PersonOuterClass.Person.Education DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new com.github.wush978.test.PersonOuterClass.Person.Education();
+      }
+
+      public static com.github.wush978.test.PersonOuterClass.Person.Education getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      @java.lang.Deprecated public static final com.google.protobuf.Parser<Education>
+          PARSER = new com.google.protobuf.AbstractParser<Education>() {
+        public Education parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+            return new Education(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<Education> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<Education> getParserForType() {
+        return PARSER;
+      }
+
+      public com.github.wush978.test.PersonOuterClass.Person.Education getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
     private int bitField0_;
     public static final int ID_FIELD_NUMBER = 1;
     private volatile java.lang.Object id_;
@@ -1329,6 +1970,7 @@ public final class PersonOuterClass {
     /**
      * <pre>
      *'&#64;categorical
+     *'&#64;interaction age-sex
      * </pre>
      *
      * <code>required int32 age = 2;</code>
@@ -1339,6 +1981,7 @@ public final class PersonOuterClass {
     /**
      * <pre>
      *'&#64;categorical
+     *'&#64;interaction age-sex
      * </pre>
      *
      * <code>required int32 age = 2;</code>
@@ -1352,6 +1995,7 @@ public final class PersonOuterClass {
     /**
      * <pre>
      *'&#64;categorical
+     *'&#64;interaction age-sex
      * </pre>
      *
      * <code>required string sex = 3;</code>
@@ -1362,6 +2006,7 @@ public final class PersonOuterClass {
     /**
      * <pre>
      *'&#64;categorical
+     *'&#64;interaction age-sex
      * </pre>
      *
      * <code>required string sex = 3;</code>
@@ -1383,6 +2028,7 @@ public final class PersonOuterClass {
     /**
      * <pre>
      *'&#64;categorical
+     *'&#64;interaction age-sex
      * </pre>
      *
      * <code>required string sex = 3;</code>
@@ -1422,6 +2068,41 @@ public final class PersonOuterClass {
       return contact_ == null ? com.github.wush978.test.PersonOuterClass.Person.Contact.getDefaultInstance() : contact_;
     }
 
+    public static final int EDUCATION_FIELD_NUMBER = 5;
+    private java.util.List<com.github.wush978.test.PersonOuterClass.Person.Education> education_;
+    /**
+     * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+     */
+    public java.util.List<com.github.wush978.test.PersonOuterClass.Person.Education> getEducationList() {
+      return education_;
+    }
+    /**
+     * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+     */
+    public java.util.List<? extends com.github.wush978.test.PersonOuterClass.Person.EducationOrBuilder> 
+        getEducationOrBuilderList() {
+      return education_;
+    }
+    /**
+     * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+     */
+    public int getEducationCount() {
+      return education_.size();
+    }
+    /**
+     * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+     */
+    public com.github.wush978.test.PersonOuterClass.Person.Education getEducation(int index) {
+      return education_.get(index);
+    }
+    /**
+     * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+     */
+    public com.github.wush978.test.PersonOuterClass.Person.EducationOrBuilder getEducationOrBuilder(
+        int index) {
+      return education_.get(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -1448,6 +2129,12 @@ public final class PersonOuterClass {
         memoizedIsInitialized = 0;
         return false;
       }
+      for (int i = 0; i < getEducationCount(); i++) {
+        if (!getEducation(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -1465,6 +2152,9 @@ public final class PersonOuterClass {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeMessage(4, getContact());
+      }
+      for (int i = 0; i < education_.size(); i++) {
+        output.writeMessage(5, education_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -1487,6 +2177,10 @@ public final class PersonOuterClass {
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getContact());
+      }
+      for (int i = 0; i < education_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, education_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1525,6 +2219,8 @@ public final class PersonOuterClass {
         result = result && getContact()
             .equals(other.getContact());
       }
+      result = result && getEducationList()
+          .equals(other.getEducationList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1551,6 +2247,10 @@ public final class PersonOuterClass {
       if (hasContact()) {
         hash = (37 * hash) + CONTACT_FIELD_NUMBER;
         hash = (53 * hash) + getContact().hashCode();
+      }
+      if (getEducationCount() > 0) {
+        hash = (37 * hash) + EDUCATION_FIELD_NUMBER;
+        hash = (53 * hash) + getEducationList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1667,6 +2367,7 @@ public final class PersonOuterClass {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
           getContactFieldBuilder();
+          getEducationFieldBuilder();
         }
       }
       public Builder clear() {
@@ -1683,6 +2384,12 @@ public final class PersonOuterClass {
           contactBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000008);
+        if (educationBuilder_ == null) {
+          education_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        } else {
+          educationBuilder_.clear();
+        }
         return this;
       }
 
@@ -1726,6 +2433,15 @@ public final class PersonOuterClass {
           result.contact_ = contact_;
         } else {
           result.contact_ = contactBuilder_.build();
+        }
+        if (educationBuilder_ == null) {
+          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+            education_ = java.util.Collections.unmodifiableList(education_);
+            bitField0_ = (bitField0_ & ~0x00000010);
+          }
+          result.education_ = education_;
+        } else {
+          result.education_ = educationBuilder_.build();
         }
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -1785,6 +2501,32 @@ public final class PersonOuterClass {
         if (other.hasContact()) {
           mergeContact(other.getContact());
         }
+        if (educationBuilder_ == null) {
+          if (!other.education_.isEmpty()) {
+            if (education_.isEmpty()) {
+              education_ = other.education_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+            } else {
+              ensureEducationIsMutable();
+              education_.addAll(other.education_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.education_.isEmpty()) {
+            if (educationBuilder_.isEmpty()) {
+              educationBuilder_.dispose();
+              educationBuilder_ = null;
+              education_ = other.education_;
+              bitField0_ = (bitField0_ & ~0x00000010);
+              educationBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getEducationFieldBuilder() : null;
+            } else {
+              educationBuilder_.addAllMessages(other.education_);
+            }
+          }
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -1805,6 +2547,11 @@ public final class PersonOuterClass {
         }
         if (!getContact().isInitialized()) {
           return false;
+        }
+        for (int i = 0; i < getEducationCount(); i++) {
+          if (!getEducation(i).isInitialized()) {
+            return false;
+          }
         }
         return true;
       }
@@ -1908,6 +2655,7 @@ public final class PersonOuterClass {
       /**
        * <pre>
        *'&#64;categorical
+       *'&#64;interaction age-sex
        * </pre>
        *
        * <code>required int32 age = 2;</code>
@@ -1918,6 +2666,7 @@ public final class PersonOuterClass {
       /**
        * <pre>
        *'&#64;categorical
+       *'&#64;interaction age-sex
        * </pre>
        *
        * <code>required int32 age = 2;</code>
@@ -1928,6 +2677,7 @@ public final class PersonOuterClass {
       /**
        * <pre>
        *'&#64;categorical
+       *'&#64;interaction age-sex
        * </pre>
        *
        * <code>required int32 age = 2;</code>
@@ -1941,6 +2691,7 @@ public final class PersonOuterClass {
       /**
        * <pre>
        *'&#64;categorical
+       *'&#64;interaction age-sex
        * </pre>
        *
        * <code>required int32 age = 2;</code>
@@ -1956,6 +2707,7 @@ public final class PersonOuterClass {
       /**
        * <pre>
        *'&#64;categorical
+       *'&#64;interaction age-sex
        * </pre>
        *
        * <code>required string sex = 3;</code>
@@ -1966,6 +2718,7 @@ public final class PersonOuterClass {
       /**
        * <pre>
        *'&#64;categorical
+       *'&#64;interaction age-sex
        * </pre>
        *
        * <code>required string sex = 3;</code>
@@ -1987,6 +2740,7 @@ public final class PersonOuterClass {
       /**
        * <pre>
        *'&#64;categorical
+       *'&#64;interaction age-sex
        * </pre>
        *
        * <code>required string sex = 3;</code>
@@ -2007,6 +2761,7 @@ public final class PersonOuterClass {
       /**
        * <pre>
        *'&#64;categorical
+       *'&#64;interaction age-sex
        * </pre>
        *
        * <code>required string sex = 3;</code>
@@ -2024,6 +2779,7 @@ public final class PersonOuterClass {
       /**
        * <pre>
        *'&#64;categorical
+       *'&#64;interaction age-sex
        * </pre>
        *
        * <code>required string sex = 3;</code>
@@ -2037,6 +2793,7 @@ public final class PersonOuterClass {
       /**
        * <pre>
        *'&#64;categorical
+       *'&#64;interaction age-sex
        * </pre>
        *
        * <code>required string sex = 3;</code>
@@ -2169,6 +2926,246 @@ public final class PersonOuterClass {
         }
         return contactBuilder_;
       }
+
+      private java.util.List<com.github.wush978.test.PersonOuterClass.Person.Education> education_ =
+        java.util.Collections.emptyList();
+      private void ensureEducationIsMutable() {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+          education_ = new java.util.ArrayList<com.github.wush978.test.PersonOuterClass.Person.Education>(education_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.github.wush978.test.PersonOuterClass.Person.Education, com.github.wush978.test.PersonOuterClass.Person.Education.Builder, com.github.wush978.test.PersonOuterClass.Person.EducationOrBuilder> educationBuilder_;
+
+      /**
+       * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+       */
+      public java.util.List<com.github.wush978.test.PersonOuterClass.Person.Education> getEducationList() {
+        if (educationBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(education_);
+        } else {
+          return educationBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+       */
+      public int getEducationCount() {
+        if (educationBuilder_ == null) {
+          return education_.size();
+        } else {
+          return educationBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+       */
+      public com.github.wush978.test.PersonOuterClass.Person.Education getEducation(int index) {
+        if (educationBuilder_ == null) {
+          return education_.get(index);
+        } else {
+          return educationBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+       */
+      public Builder setEducation(
+          int index, com.github.wush978.test.PersonOuterClass.Person.Education value) {
+        if (educationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureEducationIsMutable();
+          education_.set(index, value);
+          onChanged();
+        } else {
+          educationBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+       */
+      public Builder setEducation(
+          int index, com.github.wush978.test.PersonOuterClass.Person.Education.Builder builderForValue) {
+        if (educationBuilder_ == null) {
+          ensureEducationIsMutable();
+          education_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          educationBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+       */
+      public Builder addEducation(com.github.wush978.test.PersonOuterClass.Person.Education value) {
+        if (educationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureEducationIsMutable();
+          education_.add(value);
+          onChanged();
+        } else {
+          educationBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+       */
+      public Builder addEducation(
+          int index, com.github.wush978.test.PersonOuterClass.Person.Education value) {
+        if (educationBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureEducationIsMutable();
+          education_.add(index, value);
+          onChanged();
+        } else {
+          educationBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+       */
+      public Builder addEducation(
+          com.github.wush978.test.PersonOuterClass.Person.Education.Builder builderForValue) {
+        if (educationBuilder_ == null) {
+          ensureEducationIsMutable();
+          education_.add(builderForValue.build());
+          onChanged();
+        } else {
+          educationBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+       */
+      public Builder addEducation(
+          int index, com.github.wush978.test.PersonOuterClass.Person.Education.Builder builderForValue) {
+        if (educationBuilder_ == null) {
+          ensureEducationIsMutable();
+          education_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          educationBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+       */
+      public Builder addAllEducation(
+          java.lang.Iterable<? extends com.github.wush978.test.PersonOuterClass.Person.Education> values) {
+        if (educationBuilder_ == null) {
+          ensureEducationIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, education_);
+          onChanged();
+        } else {
+          educationBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+       */
+      public Builder clearEducation() {
+        if (educationBuilder_ == null) {
+          education_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000010);
+          onChanged();
+        } else {
+          educationBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+       */
+      public Builder removeEducation(int index) {
+        if (educationBuilder_ == null) {
+          ensureEducationIsMutable();
+          education_.remove(index);
+          onChanged();
+        } else {
+          educationBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+       */
+      public com.github.wush978.test.PersonOuterClass.Person.Education.Builder getEducationBuilder(
+          int index) {
+        return getEducationFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+       */
+      public com.github.wush978.test.PersonOuterClass.Person.EducationOrBuilder getEducationOrBuilder(
+          int index) {
+        if (educationBuilder_ == null) {
+          return education_.get(index);  } else {
+          return educationBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+       */
+      public java.util.List<? extends com.github.wush978.test.PersonOuterClass.Person.EducationOrBuilder> 
+           getEducationOrBuilderList() {
+        if (educationBuilder_ != null) {
+          return educationBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(education_);
+        }
+      }
+      /**
+       * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+       */
+      public com.github.wush978.test.PersonOuterClass.Person.Education.Builder addEducationBuilder() {
+        return getEducationFieldBuilder().addBuilder(
+            com.github.wush978.test.PersonOuterClass.Person.Education.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+       */
+      public com.github.wush978.test.PersonOuterClass.Person.Education.Builder addEducationBuilder(
+          int index) {
+        return getEducationFieldBuilder().addBuilder(
+            index, com.github.wush978.test.PersonOuterClass.Person.Education.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.github.wush978.test.Person.Education education = 5;</code>
+       */
+      public java.util.List<com.github.wush978.test.PersonOuterClass.Person.Education.Builder> 
+           getEducationBuilderList() {
+        return getEducationFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.github.wush978.test.PersonOuterClass.Person.Education, com.github.wush978.test.PersonOuterClass.Person.Education.Builder, com.github.wush978.test.PersonOuterClass.Person.EducationOrBuilder> 
+          getEducationFieldBuilder() {
+        if (educationBuilder_ == null) {
+          educationBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.github.wush978.test.PersonOuterClass.Person.Education, com.github.wush978.test.PersonOuterClass.Person.Education.Builder, com.github.wush978.test.PersonOuterClass.Person.EducationOrBuilder>(
+                  education_,
+                  ((bitField0_ & 0x00000010) == 0x00000010),
+                  getParentForChildren(),
+                  isClean());
+          education_ = null;
+        }
+        return educationBuilder_;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -2228,6 +3225,11 @@ public final class PersonOuterClass {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_github_wush978_test_Person_Contact_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_github_wush978_test_Person_Education_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_github_wush978_test_Person_Education_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -2238,12 +3240,14 @@ public final class PersonOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\033src/main/proto/person.proto\022\027com.githu" +
-      "b.wush978.test\"\306\001\n\006Person\022\n\n\002id\030\001 \002(\t\022\013\n" +
+      "b.wush978.test\"\246\002\n\006Person\022\n\n\002id\030\001 \002(\t\022\013\n" +
       "\003age\030\002 \002(\005\022\013\n\003sex\030\003 \002(\t\0228\n\007contact\030\004 \002(\013" +
       "2\'.com.github.wush978.test.Person.Contac" +
-      "t\032\\\n\007Contact\022\017\n\007address\030\001 \001(\t\022\023\n\013postal_" +
-      "code\030\002 \001(\t\022\024\n\014phone_number\030\003 \001(\t\022\025\n\remai" +
-      "l_address\030\004 \002(\t"
+      "t\022<\n\teducation\030\005 \003(\0132).com.github.wush97" +
+      "8.test.Person.Education\032\\\n\007Contact\022\017\n\007ad" +
+      "dress\030\001 \001(\t\022\023\n\013postal_code\030\002 \001(\t\022\024\n\014phon" +
+      "e_number\030\003 \001(\t\022\025\n\remail_address\030\004 \002(\t\032 \n" +
+      "\tEducation\022\023\n\013school_name\030\001 \002(\t"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -2262,13 +3266,19 @@ public final class PersonOuterClass {
     internal_static_com_github_wush978_test_Person_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_wush978_test_Person_descriptor,
-        new java.lang.String[] { "Id", "Age", "Sex", "Contact", });
+        new java.lang.String[] { "Id", "Age", "Sex", "Contact", "Education", });
     internal_static_com_github_wush978_test_Person_Contact_descriptor =
       internal_static_com_github_wush978_test_Person_descriptor.getNestedTypes().get(0);
     internal_static_com_github_wush978_test_Person_Contact_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_wush978_test_Person_Contact_descriptor,
         new java.lang.String[] { "Address", "PostalCode", "PhoneNumber", "EmailAddress", });
+    internal_static_com_github_wush978_test_Person_Education_descriptor =
+      internal_static_com_github_wush978_test_Person_descriptor.getNestedTypes().get(1);
+    internal_static_com_github_wush978_test_Person_Education_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_github_wush978_test_Person_Education_descriptor,
+        new java.lang.String[] { "SchoolName", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
