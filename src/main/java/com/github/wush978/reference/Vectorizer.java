@@ -20,7 +20,7 @@ public class Vectorizer extends BaseVectorizer {
 
         String prefix = src.getClass().getCanonicalName() + ".";
 
-        categorical(prefix + "school_name" + src.getSchoolName(), builder);
+        categorical(getName(prefix + "school_name", src.getSchoolName()), builder);
 
         return builder;
 
@@ -33,7 +33,7 @@ public class Vectorizer extends BaseVectorizer {
         String prefix = src.getClass().getCanonicalName() + ".";
 
         if (src.hasPostalCode()) {
-            categorical(prefix + "contact" + src.getPostalCode(), builder);
+            categorical(getName(prefix + "postal_code", src.getPostalCode()), builder);
         }
 
         return builder;
