@@ -45,21 +45,21 @@ public class Vectorizer extends BaseVectorizer {
 
         Map<String, Interaction<String, String>> interaction = new HashMap();
 
-        interaction.put("age\1sex", Interaction.<String, String>of());
+        interaction.put("age-sex", Interaction.<String, String>of());
 
         String prefix = src.getClass().getCanonicalName() + ".";
 
         categorical(getName(prefix + "age", Integer.toString(src.getAge())), builder);
 
-        interaction.get("age\1sex").setA(Integer.toString(src.getAge()));
+        interaction.get("age-sex").setA(Integer.toString(src.getAge()));
 
-        interaction.get("age\1sex").setValue(CATEGORICAL_VALUE);
+        interaction.get("age-sex").setValue(CATEGORICAL_VALUE);
 
         categorical(getName(prefix + "sex", src.getSex().toString()), builder);
 
-        interaction.get("age\1sex").setB(src.getSex().toString());
+        interaction.get("age-sex").setB(src.getSex().toString());
 
-        interaction.get("age\1sex").setValue(CATEGORICAL_VALUE);
+        interaction.get("age-sex").setValue(CATEGORICAL_VALUE);
 
         for(int i = 0;i < src.getEducationCount();i++) {
             append(builder, apply(src.getEducation(i)));

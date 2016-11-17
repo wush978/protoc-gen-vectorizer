@@ -19,16 +19,19 @@ public class Interaction<A extends Comparable<A> & Serializable, B extends Compa
         return new Interaction<A, B>();
     }
 
-    public void setA(A a) {
+    public Interaction<A,B> setA(A a) {
         this.a = ComparableOptional.of(a);
+        return this;
     }
 
-    public void setB(B b) {
+    public Interaction<A,B> setB(B b) {
         this.b = ComparableOptional.of(b);
+        return this;
     }
 
-    public void setValue(Double value) {
+    public Interaction<A,B> setValue(Double value) {
         this.value = this.value * value;
+        return this;
     }
 
     public int compareTo(Interaction<A, B> o) {
