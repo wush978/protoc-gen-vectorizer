@@ -8,19 +8,22 @@
 #ifndef INCLUDE_MESSAGEFIELDVECTORIZATION_H_
 #define INCLUDE_MESSAGEFIELDVECTORIZATION_H_
 
-#include <Vectorization.h>
+#include <FieldVectorization.h>
 
 namespace vectorizer {
 
-class MessageFieldVectorization: public Vectorization {
-
-  const google::protobuf::FieldDescriptor *descriptor;
+class MessageFieldVectorization : public FieldVectorization {
 
 public:
 
-  MessageFieldVectorization() { }
+  MessageFieldVectorization(const google::protobuf::FieldDescriptor *descriptor)
+  : FieldVectorization(descriptor, nullptr) { }
 
   virtual ~MessageFieldVectorization() { }
+
+  virtual void generateContent(std::stringstream& out) {
+    out << "append(builder, apply(" << getGetter() << ", interaction));" << std::endl;
+  }
 
 };
 

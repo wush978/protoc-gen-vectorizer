@@ -12,6 +12,7 @@
 #include <string>
 #include <google/protobuf/descriptor.h>
 #include <FieldVectorization.h>
+#include <InteractionIndex.h>
 
 namespace vectorizer {
 
@@ -24,17 +25,38 @@ public:
 
   virtual ~CategoricalVectorization() { }
 
-  virtual void generate(std::stringstream& out) {
+  virtual void generateContent(std::stringstream& out) {
 
-    out << "categorical(prefix + \"" << getDescriptor()->lowercase_name() << "\" + ";
-    generate_result(out);
-    out << ", builder);" << std::endl;
+    out << "categorical(getName(prefix + \"" << getDescriptor()->lowercase_name() << "\", ";
+    generateResult(out);
+    out << "), builder);" << std::endl;
+
+    // interaction
+    const auto& reverse_index(InteractionIndex::getInstance().getInteractionReverseIndex());
+    auto p = reverse_index.find(this);
+    if (p != reverse_index.end()) {
+      for(std::shared_ptr<Interaction> interaction : p->second) {
+        if (interaction->getFields()[0] == this) {
+          generateInteraction(*interaction.get(), true, out);
+        } else if (interaction->getFields()[1] == this){
+          generateInteraction(*interaction.get(), false, out);
+        } else {
+          throw std::logic_error("Failed to find Vectorization*");
+        }
+      }
+    }
 
   }
 
 private:
 
-  void generate_result(std::stringstream& out) {
+  void generateInteraction(const Interaction& interaction, bool isFirst, std::stringstream& out) {
+    out << "interaction.get(\"" << interaction.getName() << "\").set" << (isFirst ? "A" : "B") << "(";
+    generateResult(out);
+    out << ").setValue(CATEGORICAL_VALUE);" << std::endl;
+  }
+
+  void generateResult(std::stringstream& out) {
     out << "(";
     std::string name(getDescriptor()->camelcase_name());
     if (name.size() > 0) name[0] = toupper(name[0]);
@@ -44,7 +66,7 @@ private:
       switch(getDescriptor()->type()) {
       case google::protobuf::FieldDescriptor::TYPE_DOUBLE :
       case google::protobuf::FieldDescriptor::TYPE_FLOAT :
-        out << "Double.toString(src.get" << name << "())";
+        out << getGetter();
         break;
       case google::protobuf::FieldDescriptor::TYPE_INT64 :
       case google::protobuf::FieldDescriptor::TYPE_INT32 :
@@ -56,14 +78,14 @@ private:
       case google::protobuf::FieldDescriptor::TYPE_SFIXED64 :
       case google::protobuf::FieldDescriptor::TYPE_SINT32 :
       case google::protobuf::FieldDescriptor::TYPE_SINT64 :
-        out << "Integer.toString(src.get" << name << "())";
+        out << "Integer.toString(" << getGetter() << ")";
         break;
       case google::protobuf::FieldDescriptor::TYPE_BOOL :
-        out << "Boolean.toString(src.get" << name << "())";
+        out << "Boolean.toString(" << getGetter() << ")";
         break;
       case google::protobuf::FieldDescriptor::TYPE_STRING :
       case google::protobuf::FieldDescriptor::TYPE_ENUM :
-        out << "src.get" << name << "()";
+        out << getGetter();
         break;
       default :
         throw std::invalid_argument("Unsupported field type");

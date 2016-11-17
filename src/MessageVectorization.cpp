@@ -14,6 +14,7 @@
 #include <google/protobuf/descriptor.pb.h>
 #include <MessageVectorization.h>
 #include <FileVectorization.h>
+#include <MessageFieldVectorization.h>
 #include <CategoricalVectorization.h>
 #include <NumericalVectorization.h>
 #include <InteractionIndex.h>
@@ -21,6 +22,9 @@
 namespace vectorizer {
 
 Vectorization* MessageVectorization::getVectorization(const google::protobuf::FieldDescriptor *descriptor, std::string* error) {
+  if (descriptor->type() == google::protobuf::FieldDescriptor::TYPE_MESSAGE) {
+    return new MessageFieldVectorization(descriptor);
+  }
   google::protobuf::SourceLocation source_location;
   if (!descriptor->GetSourceLocation(&source_location)) {
     error->append("Failed to get source location for field: ");
@@ -96,7 +100,7 @@ static void getMessageName(const google::protobuf::Descriptor *descriptor, std::
 void MessageVectorization::generate(std::stringstream& out) {
   std::string message_name;
   getMessageName(descriptor, message_name);
-  out << "public static com.github.wush978.vectorizer.Vector.SparseVector.Builder apply(" << message_name << " src, java.util.Map interaction) {" << std::endl;
+  out << "private static com.github.wush978.vectorizer.Vector.SparseVector.Builder apply(" << message_name << " src, java.util.Map<String, com.github.wush978.vectorizer.Interaction<String, String>> interaction) {" << std::endl;
   out << "com.github.wush978.vectorizer.Vector.SparseVector.Builder builder = com.github.wush978.vectorizer.Vector.SparseVector.newBuilder();" << std::endl;
   out << "String prefix = src.getClass().getCanonicalName() + \".\";" << std::endl;
   for(std::shared_ptr<Vectorization>& pV : operators) {
@@ -106,7 +110,16 @@ void MessageVectorization::generate(std::stringstream& out) {
   out << "return builder;" << std::endl;
   out << "}" << std::endl;
   out << "public static com.github.wush978.vectorizer.Vector.SparseVector.Builder apply(" << message_name << " src) {" << std::endl;
-  out << "return apply(src, new java.util.HashMap());" << std::endl;
+  out << "java.util.Map<String, com.github.wush978.vectorizer.Interaction<String, String>> interaction = new java.util.HashMap();" << std::endl;
+
+  const auto& index(InteractionIndex::getInstance().getInteractionIndex());
+  for(auto index_iterator = index.begin();index_iterator != index.end();index_iterator++) {
+    out << "interaction.put(\"" << index_iterator->first << "\", com.github.wush978.vectorizer.Interaction.<String, String>of());" << std::endl;
+  }
+
+  out << "com.github.wush978.vectorizer.Vector.SparseVector.Builder builder = apply(src, interaction);" << std::endl;
+  out << "apply(interaction, builder);" << std::endl;
+  out << "return builder;" << std::endl;
   out << "}" << std::endl;
 }
 

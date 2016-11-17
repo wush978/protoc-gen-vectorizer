@@ -22,7 +22,7 @@ public:
 
   virtual ~NumericalVectorization() { }
 
-  virtual void generate(std::stringstream& out) {
+  virtual void generateContent(std::stringstream& out) {
     Vectorization::generate(out);
     // TODO
   }

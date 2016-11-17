@@ -19,6 +19,7 @@
 #include <unordered_map>
 #include <google/protobuf/descriptor.h>
 #include <FileVectorization.h>
+#include <InteractionIndex.h>
 
 namespace gp = google::protobuf;
 
@@ -105,6 +106,16 @@ bool VectorizerGenerator::Generate(const google::protobuf::FileDescriptor* file,
     if (error->size() > 0) return false;
 
     if (isLast) {
+      // check interaction
+      const auto& index(InteractionIndex::getInstance().getInteractionIndex());
+      for(auto index_iterator = index.begin();index_iterator != index.end();index_iterator++) {
+        if (index_iterator->second->getFields().size() != 2) {
+          error->append("interaction: ");
+          error->append(index_iterator->first);
+          error->append(" does not contain two fields");
+          return false;
+        }
+      }
       for(std::shared_ptr<FileVectorization>& pFV : operations) {
         pFV->generate(generator_context);
       }

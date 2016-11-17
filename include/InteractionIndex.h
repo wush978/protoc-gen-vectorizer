@@ -36,18 +36,15 @@ public:
   }
 
   void set_index(const std::string& interaction_name, Vectorization* field_vectorizer) {
-    auto p_interaction = interaction_index.find(interaction_name);
-    if (p_interaction == interaction_index.end()) {
-      interaction_index.emplace(std::make_pair(interaction_name, std::shared_ptr<Interaction>(new Interaction(interaction_name))));
+    auto p_interaction = getInteractionIndex().find(interaction_name);
+    if (p_interaction == getInteractionIndex().end()) {
+      getInteractionIndex().emplace(std::make_pair(interaction_name, std::shared_ptr<Interaction>(new Interaction(interaction_name))));
     }
-    p_interaction = interaction_index.find(interaction_name);
+    p_interaction = getInteractionIndex().find(interaction_name);
 
-    p_interaction->second->incrSize();
     p_interaction->second->getFields().push_back(field_vectorizer);
-
-    auto reverse_interaction = interaction_reverse_index[field_vectorizer];
-    reverse_interaction.push_back(p_interaction->second);
-
+    auto& reverse_interaction(getInteractionReverseIndex()[field_vectorizer]);
+    reverse_interaction.emplace_back(std::shared_ptr<Interaction>(p_interaction->second));
   }
 
   std::map<std::string, std::shared_ptr<Interaction> >& getInteractionIndex() {

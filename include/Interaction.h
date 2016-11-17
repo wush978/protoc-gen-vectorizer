@@ -20,13 +20,11 @@ class Interaction {
 
   std::string name;
 
-  int size;
-
   std::vector<Vectorization*> fields;
 
 public:
 
-  Interaction(const std::string& _name) : name(_name), size(0), fields() { }
+  Interaction(const std::string& _name) : name(_name), fields() { }
 
   ~Interaction() { }
 
@@ -36,14 +34,6 @@ public:
 
   const std::string& getName() const {
     return name;
-  }
-
-  int getSize() const {
-    return size;
-  }
-
-  void incrSize() {
-    this->size++;
   }
 
 };
