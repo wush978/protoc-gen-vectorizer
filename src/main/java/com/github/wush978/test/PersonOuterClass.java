@@ -15,7 +15,7 @@ public final class PersonOuterClass {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface PersonOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:test.Person)
+      // @@protoc_insertion_point(interface_extends:com.github.wush978.test.Person)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -34,7 +34,6 @@ public final class PersonOuterClass {
 
     /**
      * <pre>
-     *'&#64;bin 10
      *'&#64;categorical
      * </pre>
      *
@@ -43,7 +42,6 @@ public final class PersonOuterClass {
     boolean hasAge();
     /**
      * <pre>
-     *'&#64;bin 10
      *'&#64;categorical
      * </pre>
      *
@@ -76,13 +74,26 @@ public final class PersonOuterClass {
      */
     com.google.protobuf.ByteString
         getSexBytes();
+
+    /**
+     * <code>required .com.github.wush978.test.Person.Contact contact = 4;</code>
+     */
+    boolean hasContact();
+    /**
+     * <code>required .com.github.wush978.test.Person.Contact contact = 4;</code>
+     */
+    com.github.wush978.test.PersonOuterClass.Person.Contact getContact();
+    /**
+     * <code>required .com.github.wush978.test.Person.Contact contact = 4;</code>
+     */
+    com.github.wush978.test.PersonOuterClass.Person.ContactOrBuilder getContactOrBuilder();
   }
   /**
-   * Protobuf type {@code test.Person}
+   * Protobuf type {@code com.github.wush978.test.Person}
    */
   public  static final class Person extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:test.Person)
+      // @@protoc_insertion_point(message_implements:com.github.wush978.test.Person)
       PersonOrBuilder {
     // Use Person.newBuilder() to construct.
     private Person(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
@@ -139,6 +150,19 @@ public final class PersonOuterClass {
               sex_ = bs;
               break;
             }
+            case 34: {
+              com.github.wush978.test.PersonOuterClass.Person.Contact.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                subBuilder = contact_.toBuilder();
+              }
+              contact_ = input.readMessage(com.github.wush978.test.PersonOuterClass.Person.Contact.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(contact_);
+                contact_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000008;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -153,14 +177,1108 @@ public final class PersonOuterClass {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return PersonOuterClass.internal_static_test_Person_descriptor;
+      return com.github.wush978.test.PersonOuterClass.internal_static_com_github_wush978_test_Person_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return PersonOuterClass.internal_static_test_Person_fieldAccessorTable
+      return com.github.wush978.test.PersonOuterClass.internal_static_com_github_wush978_test_Person_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              PersonOuterClass.Person.class, PersonOuterClass.Person.Builder.class);
+              com.github.wush978.test.PersonOuterClass.Person.class, com.github.wush978.test.PersonOuterClass.Person.Builder.class);
+    }
+
+    public interface ContactOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:com.github.wush978.test.Person.Contact)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>optional string address = 1;</code>
+       */
+      boolean hasAddress();
+      /**
+       * <code>optional string address = 1;</code>
+       */
+      java.lang.String getAddress();
+      /**
+       * <code>optional string address = 1;</code>
+       */
+      com.google.protobuf.ByteString
+          getAddressBytes();
+
+      /**
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>optional string postal_code = 2;</code>
+       */
+      boolean hasPostalCode();
+      /**
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>optional string postal_code = 2;</code>
+       */
+      java.lang.String getPostalCode();
+      /**
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>optional string postal_code = 2;</code>
+       */
+      com.google.protobuf.ByteString
+          getPostalCodeBytes();
+
+      /**
+       * <code>optional string phone_number = 3;</code>
+       */
+      boolean hasPhoneNumber();
+      /**
+       * <code>optional string phone_number = 3;</code>
+       */
+      java.lang.String getPhoneNumber();
+      /**
+       * <code>optional string phone_number = 3;</code>
+       */
+      com.google.protobuf.ByteString
+          getPhoneNumberBytes();
+
+      /**
+       * <code>required string email_address = 4;</code>
+       */
+      boolean hasEmailAddress();
+      /**
+       * <code>required string email_address = 4;</code>
+       */
+      java.lang.String getEmailAddress();
+      /**
+       * <code>required string email_address = 4;</code>
+       */
+      com.google.protobuf.ByteString
+          getEmailAddressBytes();
+    }
+    /**
+     * Protobuf type {@code com.github.wush978.test.Person.Contact}
+     */
+    public  static final class Contact extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:com.github.wush978.test.Person.Contact)
+        ContactOrBuilder {
+      // Use Contact.newBuilder() to construct.
+      private Contact(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private Contact() {
+        address_ = "";
+        postalCode_ = "";
+        phoneNumber_ = "";
+        emailAddress_ = "";
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      private Contact(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 10: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000001;
+                address_ = bs;
+                break;
+              }
+              case 18: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000002;
+                postalCode_ = bs;
+                break;
+              }
+              case 26: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000004;
+                phoneNumber_ = bs;
+                break;
+              }
+              case 34: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                bitField0_ |= 0x00000008;
+                emailAddress_ = bs;
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.github.wush978.test.PersonOuterClass.internal_static_com_github_wush978_test_Person_Contact_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.github.wush978.test.PersonOuterClass.internal_static_com_github_wush978_test_Person_Contact_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.github.wush978.test.PersonOuterClass.Person.Contact.class, com.github.wush978.test.PersonOuterClass.Person.Contact.Builder.class);
+      }
+
+      private int bitField0_;
+      public static final int ADDRESS_FIELD_NUMBER = 1;
+      private volatile java.lang.Object address_;
+      /**
+       * <code>optional string address = 1;</code>
+       */
+      public boolean hasAddress() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional string address = 1;</code>
+       */
+      public java.lang.String getAddress() {
+        java.lang.Object ref = address_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            address_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <code>optional string address = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAddressBytes() {
+        java.lang.Object ref = address_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          address_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int POSTAL_CODE_FIELD_NUMBER = 2;
+      private volatile java.lang.Object postalCode_;
+      /**
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>optional string postal_code = 2;</code>
+       */
+      public boolean hasPostalCode() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>optional string postal_code = 2;</code>
+       */
+      public java.lang.String getPostalCode() {
+        java.lang.Object ref = postalCode_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            postalCode_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>optional string postal_code = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPostalCodeBytes() {
+        java.lang.Object ref = postalCode_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          postalCode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int PHONE_NUMBER_FIELD_NUMBER = 3;
+      private volatile java.lang.Object phoneNumber_;
+      /**
+       * <code>optional string phone_number = 3;</code>
+       */
+      public boolean hasPhoneNumber() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional string phone_number = 3;</code>
+       */
+      public java.lang.String getPhoneNumber() {
+        java.lang.Object ref = phoneNumber_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            phoneNumber_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <code>optional string phone_number = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPhoneNumberBytes() {
+        java.lang.Object ref = phoneNumber_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          phoneNumber_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int EMAIL_ADDRESS_FIELD_NUMBER = 4;
+      private volatile java.lang.Object emailAddress_;
+      /**
+       * <code>required string email_address = 4;</code>
+       */
+      public boolean hasEmailAddress() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required string email_address = 4;</code>
+       */
+      public java.lang.String getEmailAddress() {
+        java.lang.Object ref = emailAddress_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            emailAddress_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <code>required string email_address = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getEmailAddressBytes() {
+        java.lang.Object ref = emailAddress_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          emailAddress_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        if (!hasEmailAddress()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, address_);
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, postalCode_);
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 3, phoneNumber_);
+        }
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 4, emailAddress_);
+        }
+        unknownFields.writeTo(output);
+      }
+
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, address_);
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, postalCode_);
+        }
+        if (((bitField0_ & 0x00000004) == 0x00000004)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, phoneNumber_);
+        }
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, emailAddress_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof com.github.wush978.test.PersonOuterClass.Person.Contact)) {
+          return super.equals(obj);
+        }
+        com.github.wush978.test.PersonOuterClass.Person.Contact other = (com.github.wush978.test.PersonOuterClass.Person.Contact) obj;
+
+        boolean result = true;
+        result = result && (hasAddress() == other.hasAddress());
+        if (hasAddress()) {
+          result = result && getAddress()
+              .equals(other.getAddress());
+        }
+        result = result && (hasPostalCode() == other.hasPostalCode());
+        if (hasPostalCode()) {
+          result = result && getPostalCode()
+              .equals(other.getPostalCode());
+        }
+        result = result && (hasPhoneNumber() == other.hasPhoneNumber());
+        if (hasPhoneNumber()) {
+          result = result && getPhoneNumber()
+              .equals(other.getPhoneNumber());
+        }
+        result = result && (hasEmailAddress() == other.hasEmailAddress());
+        if (hasEmailAddress()) {
+          result = result && getEmailAddress()
+              .equals(other.getEmailAddress());
+        }
+        result = result && unknownFields.equals(other.unknownFields);
+        return result;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptorForType().hashCode();
+        if (hasAddress()) {
+          hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+          hash = (53 * hash) + getAddress().hashCode();
+        }
+        if (hasPostalCode()) {
+          hash = (37 * hash) + POSTAL_CODE_FIELD_NUMBER;
+          hash = (53 * hash) + getPostalCode().hashCode();
+        }
+        if (hasPhoneNumber()) {
+          hash = (37 * hash) + PHONE_NUMBER_FIELD_NUMBER;
+          hash = (53 * hash) + getPhoneNumber().hashCode();
+        }
+        if (hasEmailAddress()) {
+          hash = (37 * hash) + EMAIL_ADDRESS_FIELD_NUMBER;
+          hash = (53 * hash) + getEmailAddress().hashCode();
+        }
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static com.github.wush978.test.PersonOuterClass.Person.Contact parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.github.wush978.test.PersonOuterClass.Person.Contact parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.github.wush978.test.PersonOuterClass.Person.Contact parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.github.wush978.test.PersonOuterClass.Person.Contact parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.github.wush978.test.PersonOuterClass.Person.Contact parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.github.wush978.test.PersonOuterClass.Person.Contact parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.github.wush978.test.PersonOuterClass.Person.Contact parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static com.github.wush978.test.PersonOuterClass.Person.Contact parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.github.wush978.test.PersonOuterClass.Person.Contact parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.github.wush978.test.PersonOuterClass.Person.Contact parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(com.github.wush978.test.PersonOuterClass.Person.Contact prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code com.github.wush978.test.Person.Contact}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:com.github.wush978.test.Person.Contact)
+          com.github.wush978.test.PersonOuterClass.Person.ContactOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.github.wush978.test.PersonOuterClass.internal_static_com_github_wush978_test_Person_Contact_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.github.wush978.test.PersonOuterClass.internal_static_com_github_wush978_test_Person_Contact_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.github.wush978.test.PersonOuterClass.Person.Contact.class, com.github.wush978.test.PersonOuterClass.Person.Contact.Builder.class);
+        }
+
+        // Construct using com.github.wush978.test.PersonOuterClass.Person.Contact.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        public Builder clear() {
+          super.clear();
+          address_ = "";
+          bitField0_ = (bitField0_ & ~0x00000001);
+          postalCode_ = "";
+          bitField0_ = (bitField0_ & ~0x00000002);
+          phoneNumber_ = "";
+          bitField0_ = (bitField0_ & ~0x00000004);
+          emailAddress_ = "";
+          bitField0_ = (bitField0_ & ~0x00000008);
+          return this;
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return com.github.wush978.test.PersonOuterClass.internal_static_com_github_wush978_test_Person_Contact_descriptor;
+        }
+
+        public com.github.wush978.test.PersonOuterClass.Person.Contact getDefaultInstanceForType() {
+          return com.github.wush978.test.PersonOuterClass.Person.Contact.getDefaultInstance();
+        }
+
+        public com.github.wush978.test.PersonOuterClass.Person.Contact build() {
+          com.github.wush978.test.PersonOuterClass.Person.Contact result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public com.github.wush978.test.PersonOuterClass.Person.Contact buildPartial() {
+          com.github.wush978.test.PersonOuterClass.Person.Contact result = new com.github.wush978.test.PersonOuterClass.Person.Contact(this);
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+            to_bitField0_ |= 0x00000001;
+          }
+          result.address_ = address_;
+          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+            to_bitField0_ |= 0x00000002;
+          }
+          result.postalCode_ = postalCode_;
+          if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+            to_bitField0_ |= 0x00000004;
+          }
+          result.phoneNumber_ = phoneNumber_;
+          if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+            to_bitField0_ |= 0x00000008;
+          }
+          result.emailAddress_ = emailAddress_;
+          result.bitField0_ = to_bitField0_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof com.github.wush978.test.PersonOuterClass.Person.Contact) {
+            return mergeFrom((com.github.wush978.test.PersonOuterClass.Person.Contact)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(com.github.wush978.test.PersonOuterClass.Person.Contact other) {
+          if (other == com.github.wush978.test.PersonOuterClass.Person.Contact.getDefaultInstance()) return this;
+          if (other.hasAddress()) {
+            bitField0_ |= 0x00000001;
+            address_ = other.address_;
+            onChanged();
+          }
+          if (other.hasPostalCode()) {
+            bitField0_ |= 0x00000002;
+            postalCode_ = other.postalCode_;
+            onChanged();
+          }
+          if (other.hasPhoneNumber()) {
+            bitField0_ |= 0x00000004;
+            phoneNumber_ = other.phoneNumber_;
+            onChanged();
+          }
+          if (other.hasEmailAddress()) {
+            bitField0_ |= 0x00000008;
+            emailAddress_ = other.emailAddress_;
+            onChanged();
+          }
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          if (!hasEmailAddress()) {
+            return false;
+          }
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          com.github.wush978.test.PersonOuterClass.Person.Contact parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (com.github.wush978.test.PersonOuterClass.Person.Contact) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+        private int bitField0_;
+
+        private java.lang.Object address_ = "";
+        /**
+         * <code>optional string address = 1;</code>
+         */
+        public boolean hasAddress() {
+          return ((bitField0_ & 0x00000001) == 0x00000001);
+        }
+        /**
+         * <code>optional string address = 1;</code>
+         */
+        public java.lang.String getAddress() {
+          java.lang.Object ref = address_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            if (bs.isValidUtf8()) {
+              address_ = s;
+            }
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>optional string address = 1;</code>
+         */
+        public com.google.protobuf.ByteString
+            getAddressBytes() {
+          java.lang.Object ref = address_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            address_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>optional string address = 1;</code>
+         */
+        public Builder setAddress(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+          address_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string address = 1;</code>
+         */
+        public Builder clearAddress() {
+          bitField0_ = (bitField0_ & ~0x00000001);
+          address_ = getDefaultInstance().getAddress();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string address = 1;</code>
+         */
+        public Builder setAddressBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+          address_ = value;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object postalCode_ = "";
+        /**
+         * <pre>
+         *'&#64;categorical
+         * </pre>
+         *
+         * <code>optional string postal_code = 2;</code>
+         */
+        public boolean hasPostalCode() {
+          return ((bitField0_ & 0x00000002) == 0x00000002);
+        }
+        /**
+         * <pre>
+         *'&#64;categorical
+         * </pre>
+         *
+         * <code>optional string postal_code = 2;</code>
+         */
+        public java.lang.String getPostalCode() {
+          java.lang.Object ref = postalCode_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            if (bs.isValidUtf8()) {
+              postalCode_ = s;
+            }
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <pre>
+         *'&#64;categorical
+         * </pre>
+         *
+         * <code>optional string postal_code = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+            getPostalCodeBytes() {
+          java.lang.Object ref = postalCode_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            postalCode_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <pre>
+         *'&#64;categorical
+         * </pre>
+         *
+         * <code>optional string postal_code = 2;</code>
+         */
+        public Builder setPostalCode(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+          postalCode_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         *'&#64;categorical
+         * </pre>
+         *
+         * <code>optional string postal_code = 2;</code>
+         */
+        public Builder clearPostalCode() {
+          bitField0_ = (bitField0_ & ~0x00000002);
+          postalCode_ = getDefaultInstance().getPostalCode();
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         *'&#64;categorical
+         * </pre>
+         *
+         * <code>optional string postal_code = 2;</code>
+         */
+        public Builder setPostalCodeBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+          postalCode_ = value;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object phoneNumber_ = "";
+        /**
+         * <code>optional string phone_number = 3;</code>
+         */
+        public boolean hasPhoneNumber() {
+          return ((bitField0_ & 0x00000004) == 0x00000004);
+        }
+        /**
+         * <code>optional string phone_number = 3;</code>
+         */
+        public java.lang.String getPhoneNumber() {
+          java.lang.Object ref = phoneNumber_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            if (bs.isValidUtf8()) {
+              phoneNumber_ = s;
+            }
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>optional string phone_number = 3;</code>
+         */
+        public com.google.protobuf.ByteString
+            getPhoneNumberBytes() {
+          java.lang.Object ref = phoneNumber_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            phoneNumber_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>optional string phone_number = 3;</code>
+         */
+        public Builder setPhoneNumber(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+          phoneNumber_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string phone_number = 3;</code>
+         */
+        public Builder clearPhoneNumber() {
+          bitField0_ = (bitField0_ & ~0x00000004);
+          phoneNumber_ = getDefaultInstance().getPhoneNumber();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string phone_number = 3;</code>
+         */
+        public Builder setPhoneNumberBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+          phoneNumber_ = value;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object emailAddress_ = "";
+        /**
+         * <code>required string email_address = 4;</code>
+         */
+        public boolean hasEmailAddress() {
+          return ((bitField0_ & 0x00000008) == 0x00000008);
+        }
+        /**
+         * <code>required string email_address = 4;</code>
+         */
+        public java.lang.String getEmailAddress() {
+          java.lang.Object ref = emailAddress_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            if (bs.isValidUtf8()) {
+              emailAddress_ = s;
+            }
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>required string email_address = 4;</code>
+         */
+        public com.google.protobuf.ByteString
+            getEmailAddressBytes() {
+          java.lang.Object ref = emailAddress_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            emailAddress_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>required string email_address = 4;</code>
+         */
+        public Builder setEmailAddress(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+          emailAddress_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required string email_address = 4;</code>
+         */
+        public Builder clearEmailAddress() {
+          bitField0_ = (bitField0_ & ~0x00000008);
+          emailAddress_ = getDefaultInstance().getEmailAddress();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>required string email_address = 4;</code>
+         */
+        public Builder setEmailAddressBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+          emailAddress_ = value;
+          onChanged();
+          return this;
+        }
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:com.github.wush978.test.Person.Contact)
+      }
+
+      // @@protoc_insertion_point(class_scope:com.github.wush978.test.Person.Contact)
+      private static final com.github.wush978.test.PersonOuterClass.Person.Contact DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new com.github.wush978.test.PersonOuterClass.Person.Contact();
+      }
+
+      public static com.github.wush978.test.PersonOuterClass.Person.Contact getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      @java.lang.Deprecated public static final com.google.protobuf.Parser<Contact>
+          PARSER = new com.google.protobuf.AbstractParser<Contact>() {
+        public Contact parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+            return new Contact(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<Contact> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<Contact> getParserForType() {
+        return PARSER;
+      }
+
+      public com.github.wush978.test.PersonOuterClass.Person.Contact getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
     }
 
     private int bitField0_;
@@ -210,7 +1328,6 @@ public final class PersonOuterClass {
     private int age_;
     /**
      * <pre>
-     *'&#64;bin 10
      *'&#64;categorical
      * </pre>
      *
@@ -221,7 +1338,6 @@ public final class PersonOuterClass {
     }
     /**
      * <pre>
-     *'&#64;bin 10
      *'&#64;categorical
      * </pre>
      *
@@ -285,6 +1401,27 @@ public final class PersonOuterClass {
       }
     }
 
+    public static final int CONTACT_FIELD_NUMBER = 4;
+    private com.github.wush978.test.PersonOuterClass.Person.Contact contact_;
+    /**
+     * <code>required .com.github.wush978.test.Person.Contact contact = 4;</code>
+     */
+    public boolean hasContact() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required .com.github.wush978.test.Person.Contact contact = 4;</code>
+     */
+    public com.github.wush978.test.PersonOuterClass.Person.Contact getContact() {
+      return contact_ == null ? com.github.wush978.test.PersonOuterClass.Person.Contact.getDefaultInstance() : contact_;
+    }
+    /**
+     * <code>required .com.github.wush978.test.Person.Contact contact = 4;</code>
+     */
+    public com.github.wush978.test.PersonOuterClass.Person.ContactOrBuilder getContactOrBuilder() {
+      return contact_ == null ? com.github.wush978.test.PersonOuterClass.Person.Contact.getDefaultInstance() : contact_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -303,6 +1440,14 @@ public final class PersonOuterClass {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!hasContact()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getContact().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -317,6 +1462,9 @@ public final class PersonOuterClass {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, sex_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeMessage(4, getContact());
       }
       unknownFields.writeTo(output);
     }
@@ -336,6 +1484,10 @@ public final class PersonOuterClass {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, sex_);
       }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getContact());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -347,10 +1499,10 @@ public final class PersonOuterClass {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof PersonOuterClass.Person)) {
+      if (!(obj instanceof com.github.wush978.test.PersonOuterClass.Person)) {
         return super.equals(obj);
       }
-      PersonOuterClass.Person other = (PersonOuterClass.Person) obj;
+      com.github.wush978.test.PersonOuterClass.Person other = (com.github.wush978.test.PersonOuterClass.Person) obj;
 
       boolean result = true;
       result = result && (hasId() == other.hasId());
@@ -367,6 +1519,11 @@ public final class PersonOuterClass {
       if (hasSex()) {
         result = result && getSex()
             .equals(other.getSex());
+      }
+      result = result && (hasContact() == other.hasContact());
+      if (hasContact()) {
+        result = result && getContact()
+            .equals(other.getContact());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -391,63 +1548,67 @@ public final class PersonOuterClass {
         hash = (37 * hash) + SEX_FIELD_NUMBER;
         hash = (53 * hash) + getSex().hashCode();
       }
+      if (hasContact()) {
+        hash = (37 * hash) + CONTACT_FIELD_NUMBER;
+        hash = (53 * hash) + getContact().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static PersonOuterClass.Person parseFrom(
+    public static com.github.wush978.test.PersonOuterClass.Person parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PersonOuterClass.Person parseFrom(
+    public static com.github.wush978.test.PersonOuterClass.Person parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PersonOuterClass.Person parseFrom(byte[] data)
+    public static com.github.wush978.test.PersonOuterClass.Person parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static PersonOuterClass.Person parseFrom(
+    public static com.github.wush978.test.PersonOuterClass.Person parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static PersonOuterClass.Person parseFrom(java.io.InputStream input)
+    public static com.github.wush978.test.PersonOuterClass.Person parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PersonOuterClass.Person parseFrom(
+    public static com.github.wush978.test.PersonOuterClass.Person parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PersonOuterClass.Person parseDelimitedFrom(java.io.InputStream input)
+    public static com.github.wush978.test.PersonOuterClass.Person parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static PersonOuterClass.Person parseDelimitedFrom(
+    public static com.github.wush978.test.PersonOuterClass.Person parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static PersonOuterClass.Person parseFrom(
+    public static com.github.wush978.test.PersonOuterClass.Person parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static PersonOuterClass.Person parseFrom(
+    public static com.github.wush978.test.PersonOuterClass.Person parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -459,7 +1620,7 @@ public final class PersonOuterClass {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(PersonOuterClass.Person prototype) {
+    public static Builder newBuilder(com.github.wush978.test.PersonOuterClass.Person prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -474,25 +1635,25 @@ public final class PersonOuterClass {
       return builder;
     }
     /**
-     * Protobuf type {@code test.Person}
+     * Protobuf type {@code com.github.wush978.test.Person}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:test.Person)
-        PersonOuterClass.PersonOrBuilder {
+        // @@protoc_insertion_point(builder_implements:com.github.wush978.test.Person)
+        com.github.wush978.test.PersonOuterClass.PersonOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return PersonOuterClass.internal_static_test_Person_descriptor;
+        return com.github.wush978.test.PersonOuterClass.internal_static_com_github_wush978_test_Person_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return PersonOuterClass.internal_static_test_Person_fieldAccessorTable
+        return com.github.wush978.test.PersonOuterClass.internal_static_com_github_wush978_test_Person_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                PersonOuterClass.Person.class, PersonOuterClass.Person.Builder.class);
+                com.github.wush978.test.PersonOuterClass.Person.class, com.github.wush978.test.PersonOuterClass.Person.Builder.class);
       }
 
-      // Construct using PersonOuterClass.Person.newBuilder()
+      // Construct using com.github.wush978.test.PersonOuterClass.Person.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -505,6 +1666,7 @@ public final class PersonOuterClass {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getContactFieldBuilder();
         }
       }
       public Builder clear() {
@@ -515,28 +1677,34 @@ public final class PersonOuterClass {
         bitField0_ = (bitField0_ & ~0x00000002);
         sex_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
+        if (contactBuilder_ == null) {
+          contact_ = null;
+        } else {
+          contactBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return PersonOuterClass.internal_static_test_Person_descriptor;
+        return com.github.wush978.test.PersonOuterClass.internal_static_com_github_wush978_test_Person_descriptor;
       }
 
-      public PersonOuterClass.Person getDefaultInstanceForType() {
-        return PersonOuterClass.Person.getDefaultInstance();
+      public com.github.wush978.test.PersonOuterClass.Person getDefaultInstanceForType() {
+        return com.github.wush978.test.PersonOuterClass.Person.getDefaultInstance();
       }
 
-      public PersonOuterClass.Person build() {
-        PersonOuterClass.Person result = buildPartial();
+      public com.github.wush978.test.PersonOuterClass.Person build() {
+        com.github.wush978.test.PersonOuterClass.Person result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public PersonOuterClass.Person buildPartial() {
-        PersonOuterClass.Person result = new PersonOuterClass.Person(this);
+      public com.github.wush978.test.PersonOuterClass.Person buildPartial() {
+        com.github.wush978.test.PersonOuterClass.Person result = new com.github.wush978.test.PersonOuterClass.Person(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -551,6 +1719,14 @@ public final class PersonOuterClass {
           to_bitField0_ |= 0x00000004;
         }
         result.sex_ = sex_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        if (contactBuilder_ == null) {
+          result.contact_ = contact_;
+        } else {
+          result.contact_ = contactBuilder_.build();
+        }
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -583,16 +1759,16 @@ public final class PersonOuterClass {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof PersonOuterClass.Person) {
-          return mergeFrom((PersonOuterClass.Person)other);
+        if (other instanceof com.github.wush978.test.PersonOuterClass.Person) {
+          return mergeFrom((com.github.wush978.test.PersonOuterClass.Person)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(PersonOuterClass.Person other) {
-        if (other == PersonOuterClass.Person.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.github.wush978.test.PersonOuterClass.Person other) {
+        if (other == com.github.wush978.test.PersonOuterClass.Person.getDefaultInstance()) return this;
         if (other.hasId()) {
           bitField0_ |= 0x00000001;
           id_ = other.id_;
@@ -605,6 +1781,9 @@ public final class PersonOuterClass {
           bitField0_ |= 0x00000004;
           sex_ = other.sex_;
           onChanged();
+        }
+        if (other.hasContact()) {
+          mergeContact(other.getContact());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -621,6 +1800,12 @@ public final class PersonOuterClass {
         if (!hasSex()) {
           return false;
         }
+        if (!hasContact()) {
+          return false;
+        }
+        if (!getContact().isInitialized()) {
+          return false;
+        }
         return true;
       }
 
@@ -628,11 +1813,11 @@ public final class PersonOuterClass {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        PersonOuterClass.Person parsedMessage = null;
+        com.github.wush978.test.PersonOuterClass.Person parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (PersonOuterClass.Person) e.getUnfinishedMessage();
+          parsedMessage = (com.github.wush978.test.PersonOuterClass.Person) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -722,7 +1907,6 @@ public final class PersonOuterClass {
       private int age_ ;
       /**
        * <pre>
-       *'&#64;bin 10
        *'&#64;categorical
        * </pre>
        *
@@ -733,7 +1917,6 @@ public final class PersonOuterClass {
       }
       /**
        * <pre>
-       *'&#64;bin 10
        *'&#64;categorical
        * </pre>
        *
@@ -744,7 +1927,6 @@ public final class PersonOuterClass {
       }
       /**
        * <pre>
-       *'&#64;bin 10
        *'&#64;categorical
        * </pre>
        *
@@ -758,7 +1940,6 @@ public final class PersonOuterClass {
       }
       /**
        * <pre>
-       *'&#64;bin 10
        *'&#64;categorical
        * </pre>
        *
@@ -870,6 +2051,124 @@ public final class PersonOuterClass {
         onChanged();
         return this;
       }
+
+      private com.github.wush978.test.PersonOuterClass.Person.Contact contact_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.github.wush978.test.PersonOuterClass.Person.Contact, com.github.wush978.test.PersonOuterClass.Person.Contact.Builder, com.github.wush978.test.PersonOuterClass.Person.ContactOrBuilder> contactBuilder_;
+      /**
+       * <code>required .com.github.wush978.test.Person.Contact contact = 4;</code>
+       */
+      public boolean hasContact() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required .com.github.wush978.test.Person.Contact contact = 4;</code>
+       */
+      public com.github.wush978.test.PersonOuterClass.Person.Contact getContact() {
+        if (contactBuilder_ == null) {
+          return contact_ == null ? com.github.wush978.test.PersonOuterClass.Person.Contact.getDefaultInstance() : contact_;
+        } else {
+          return contactBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .com.github.wush978.test.Person.Contact contact = 4;</code>
+       */
+      public Builder setContact(com.github.wush978.test.PersonOuterClass.Person.Contact value) {
+        if (contactBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          contact_ = value;
+          onChanged();
+        } else {
+          contactBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>required .com.github.wush978.test.Person.Contact contact = 4;</code>
+       */
+      public Builder setContact(
+          com.github.wush978.test.PersonOuterClass.Person.Contact.Builder builderForValue) {
+        if (contactBuilder_ == null) {
+          contact_ = builderForValue.build();
+          onChanged();
+        } else {
+          contactBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>required .com.github.wush978.test.Person.Contact contact = 4;</code>
+       */
+      public Builder mergeContact(com.github.wush978.test.PersonOuterClass.Person.Contact value) {
+        if (contactBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
+              contact_ != null &&
+              contact_ != com.github.wush978.test.PersonOuterClass.Person.Contact.getDefaultInstance()) {
+            contact_ =
+              com.github.wush978.test.PersonOuterClass.Person.Contact.newBuilder(contact_).mergeFrom(value).buildPartial();
+          } else {
+            contact_ = value;
+          }
+          onChanged();
+        } else {
+          contactBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000008;
+        return this;
+      }
+      /**
+       * <code>required .com.github.wush978.test.Person.Contact contact = 4;</code>
+       */
+      public Builder clearContact() {
+        if (contactBuilder_ == null) {
+          contact_ = null;
+          onChanged();
+        } else {
+          contactBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+      /**
+       * <code>required .com.github.wush978.test.Person.Contact contact = 4;</code>
+       */
+      public com.github.wush978.test.PersonOuterClass.Person.Contact.Builder getContactBuilder() {
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return getContactFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .com.github.wush978.test.Person.Contact contact = 4;</code>
+       */
+      public com.github.wush978.test.PersonOuterClass.Person.ContactOrBuilder getContactOrBuilder() {
+        if (contactBuilder_ != null) {
+          return contactBuilder_.getMessageOrBuilder();
+        } else {
+          return contact_ == null ?
+              com.github.wush978.test.PersonOuterClass.Person.Contact.getDefaultInstance() : contact_;
+        }
+      }
+      /**
+       * <code>required .com.github.wush978.test.Person.Contact contact = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.github.wush978.test.PersonOuterClass.Person.Contact, com.github.wush978.test.PersonOuterClass.Person.Contact.Builder, com.github.wush978.test.PersonOuterClass.Person.ContactOrBuilder> 
+          getContactFieldBuilder() {
+        if (contactBuilder_ == null) {
+          contactBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.github.wush978.test.PersonOuterClass.Person.Contact, com.github.wush978.test.PersonOuterClass.Person.Contact.Builder, com.github.wush978.test.PersonOuterClass.Person.ContactOrBuilder>(
+                  getContact(),
+                  getParentForChildren(),
+                  isClean());
+          contact_ = null;
+        }
+        return contactBuilder_;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -881,16 +2180,16 @@ public final class PersonOuterClass {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:test.Person)
+      // @@protoc_insertion_point(builder_scope:com.github.wush978.test.Person)
     }
 
-    // @@protoc_insertion_point(class_scope:test.Person)
-    private static final PersonOuterClass.Person DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:com.github.wush978.test.Person)
+    private static final com.github.wush978.test.PersonOuterClass.Person DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new PersonOuterClass.Person();
+      DEFAULT_INSTANCE = new com.github.wush978.test.PersonOuterClass.Person();
     }
 
-    public static PersonOuterClass.Person getDefaultInstance() {
+    public static com.github.wush978.test.PersonOuterClass.Person getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -913,17 +2212,22 @@ public final class PersonOuterClass {
       return PARSER;
     }
 
-    public PersonOuterClass.Person getDefaultInstanceForType() {
+    public com.github.wush978.test.PersonOuterClass.Person getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_test_Person_descriptor;
+    internal_static_com_github_wush978_test_Person_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_test_Person_fieldAccessorTable;
+      internal_static_com_github_wush978_test_Person_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_github_wush978_test_Person_Contact_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_github_wush978_test_Person_Contact_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -933,9 +2237,13 @@ public final class PersonOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\033src/main/proto/person.proto\022\004test\".\n\006P" +
-      "erson\022\n\n\002id\030\001 \002(\t\022\013\n\003age\030\002 \002(\005\022\013\n\003sex\030\003 " +
-      "\002(\t"
+      "\n\033src/main/proto/person.proto\022\027com.githu" +
+      "b.wush978.test\"\306\001\n\006Person\022\n\n\002id\030\001 \002(\t\022\013\n" +
+      "\003age\030\002 \002(\005\022\013\n\003sex\030\003 \002(\t\0228\n\007contact\030\004 \002(\013" +
+      "2\'.com.github.wush978.test.Person.Contac" +
+      "t\032\\\n\007Contact\022\017\n\007address\030\001 \001(\t\022\023\n\013postal_" +
+      "code\030\002 \001(\t\022\024\n\014phone_number\030\003 \001(\t\022\025\n\remai" +
+      "l_address\030\004 \002(\t"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -949,12 +2257,18 @@ public final class PersonOuterClass {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_test_Person_descriptor =
+    internal_static_com_github_wush978_test_Person_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_test_Person_fieldAccessorTable = new
+    internal_static_com_github_wush978_test_Person_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_test_Person_descriptor,
-        new java.lang.String[] { "Id", "Age", "Sex", });
+        internal_static_com_github_wush978_test_Person_descriptor,
+        new java.lang.String[] { "Id", "Age", "Sex", "Contact", });
+    internal_static_com_github_wush978_test_Person_Contact_descriptor =
+      internal_static_com_github_wush978_test_Person_descriptor.getNestedTypes().get(0);
+    internal_static_com_github_wush978_test_Person_Contact_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_github_wush978_test_Person_Contact_descriptor,
+        new java.lang.String[] { "Address", "PostalCode", "PhoneNumber", "EmailAddress", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

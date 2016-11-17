@@ -15,7 +15,7 @@ public final class Vector {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   public interface SparseVectorOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:io.github.wush978.vectorizer.SparseVector)
+      // @@protoc_insertion_point(interface_extends:com.github.wush978.vectorizer.SparseVector)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -51,11 +51,11 @@ public final class Vector {
     double getValue(int index);
   }
   /**
-   * Protobuf type {@code io.github.wush978.vectorizer.SparseVector}
+   * Protobuf type {@code com.github.wush978.vectorizer.SparseVector}
    */
   public  static final class SparseVector extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:io.github.wush978.vectorizer.SparseVector)
+      // @@protoc_insertion_point(message_implements:com.github.wush978.vectorizer.SparseVector)
       SparseVectorOrBuilder {
     // Use SparseVector.newBuilder() to construct.
     private SparseVector(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
@@ -144,14 +144,14 @@ public final class Vector {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return Vector.internal_static_io_github_wush978_vectorizer_SparseVector_descriptor;
+      return com.github.wush978.vectorizer.Vector.internal_static_com_github_wush978_vectorizer_SparseVector_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return Vector.internal_static_io_github_wush978_vectorizer_SparseVector_fieldAccessorTable
+      return com.github.wush978.vectorizer.Vector.internal_static_com_github_wush978_vectorizer_SparseVector_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              Vector.SparseVector.class, Vector.SparseVector.Builder.class);
+              com.github.wush978.vectorizer.Vector.SparseVector.class, com.github.wush978.vectorizer.Vector.SparseVector.Builder.class);
     }
 
     public static final int INDEX_FIELD_NUMBER = 1;
@@ -256,10 +256,10 @@ public final class Vector {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof Vector.SparseVector)) {
+      if (!(obj instanceof com.github.wush978.vectorizer.Vector.SparseVector)) {
         return super.equals(obj);
       }
-      Vector.SparseVector other = (Vector.SparseVector) obj;
+      com.github.wush978.vectorizer.Vector.SparseVector other = (com.github.wush978.vectorizer.Vector.SparseVector) obj;
 
       boolean result = true;
       result = result && getIndexList()
@@ -290,58 +290,58 @@ public final class Vector {
       return hash;
     }
 
-    public static Vector.SparseVector parseFrom(
+    public static com.github.wush978.vectorizer.Vector.SparseVector parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Vector.SparseVector parseFrom(
+    public static com.github.wush978.vectorizer.Vector.SparseVector parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Vector.SparseVector parseFrom(byte[] data)
+    public static com.github.wush978.vectorizer.Vector.SparseVector parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static Vector.SparseVector parseFrom(
+    public static com.github.wush978.vectorizer.Vector.SparseVector parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static Vector.SparseVector parseFrom(java.io.InputStream input)
+    public static com.github.wush978.vectorizer.Vector.SparseVector parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static Vector.SparseVector parseFrom(
+    public static com.github.wush978.vectorizer.Vector.SparseVector parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static Vector.SparseVector parseDelimitedFrom(java.io.InputStream input)
+    public static com.github.wush978.vectorizer.Vector.SparseVector parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static Vector.SparseVector parseDelimitedFrom(
+    public static com.github.wush978.vectorizer.Vector.SparseVector parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static Vector.SparseVector parseFrom(
+    public static com.github.wush978.vectorizer.Vector.SparseVector parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static Vector.SparseVector parseFrom(
+    public static com.github.wush978.vectorizer.Vector.SparseVector parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -353,7 +353,7 @@ public final class Vector {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(Vector.SparseVector prototype) {
+    public static Builder newBuilder(com.github.wush978.vectorizer.Vector.SparseVector prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -368,25 +368,25 @@ public final class Vector {
       return builder;
     }
     /**
-     * Protobuf type {@code io.github.wush978.vectorizer.SparseVector}
+     * Protobuf type {@code com.github.wush978.vectorizer.SparseVector}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:io.github.wush978.vectorizer.SparseVector)
-        Vector.SparseVectorOrBuilder {
+        // @@protoc_insertion_point(builder_implements:com.github.wush978.vectorizer.SparseVector)
+        com.github.wush978.vectorizer.Vector.SparseVectorOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return Vector.internal_static_io_github_wush978_vectorizer_SparseVector_descriptor;
+        return com.github.wush978.vectorizer.Vector.internal_static_com_github_wush978_vectorizer_SparseVector_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return Vector.internal_static_io_github_wush978_vectorizer_SparseVector_fieldAccessorTable
+        return com.github.wush978.vectorizer.Vector.internal_static_com_github_wush978_vectorizer_SparseVector_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                Vector.SparseVector.class, Vector.SparseVector.Builder.class);
+                com.github.wush978.vectorizer.Vector.SparseVector.class, com.github.wush978.vectorizer.Vector.SparseVector.Builder.class);
       }
 
-      // Construct using Vector.SparseVector.newBuilder()
+      // Construct using com.github.wush978.vectorizer.Vector.SparseVector.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -412,23 +412,23 @@ public final class Vector {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return Vector.internal_static_io_github_wush978_vectorizer_SparseVector_descriptor;
+        return com.github.wush978.vectorizer.Vector.internal_static_com_github_wush978_vectorizer_SparseVector_descriptor;
       }
 
-      public Vector.SparseVector getDefaultInstanceForType() {
-        return Vector.SparseVector.getDefaultInstance();
+      public com.github.wush978.vectorizer.Vector.SparseVector getDefaultInstanceForType() {
+        return com.github.wush978.vectorizer.Vector.SparseVector.getDefaultInstance();
       }
 
-      public Vector.SparseVector build() {
-        Vector.SparseVector result = buildPartial();
+      public com.github.wush978.vectorizer.Vector.SparseVector build() {
+        com.github.wush978.vectorizer.Vector.SparseVector result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public Vector.SparseVector buildPartial() {
-        Vector.SparseVector result = new Vector.SparseVector(this);
+      public com.github.wush978.vectorizer.Vector.SparseVector buildPartial() {
+        com.github.wush978.vectorizer.Vector.SparseVector result = new com.github.wush978.vectorizer.Vector.SparseVector(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           index_ = index_.getUnmodifiableView();
@@ -471,16 +471,16 @@ public final class Vector {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof Vector.SparseVector) {
-          return mergeFrom((Vector.SparseVector)other);
+        if (other instanceof com.github.wush978.vectorizer.Vector.SparseVector) {
+          return mergeFrom((com.github.wush978.vectorizer.Vector.SparseVector)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(Vector.SparseVector other) {
-        if (other == Vector.SparseVector.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.github.wush978.vectorizer.Vector.SparseVector other) {
+        if (other == com.github.wush978.vectorizer.Vector.SparseVector.getDefaultInstance()) return this;
         if (!other.index_.isEmpty()) {
           if (index_.isEmpty()) {
             index_ = other.index_;
@@ -514,11 +514,11 @@ public final class Vector {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        Vector.SparseVector parsedMessage = null;
+        com.github.wush978.vectorizer.Vector.SparseVector parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (Vector.SparseVector) e.getUnfinishedMessage();
+          parsedMessage = (com.github.wush978.vectorizer.Vector.SparseVector) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -698,16 +698,16 @@ public final class Vector {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:io.github.wush978.vectorizer.SparseVector)
+      // @@protoc_insertion_point(builder_scope:com.github.wush978.vectorizer.SparseVector)
     }
 
-    // @@protoc_insertion_point(class_scope:io.github.wush978.vectorizer.SparseVector)
-    private static final Vector.SparseVector DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:com.github.wush978.vectorizer.SparseVector)
+    private static final com.github.wush978.vectorizer.Vector.SparseVector DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new Vector.SparseVector();
+      DEFAULT_INSTANCE = new com.github.wush978.vectorizer.Vector.SparseVector();
     }
 
-    public static Vector.SparseVector getDefaultInstance() {
+    public static com.github.wush978.vectorizer.Vector.SparseVector getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -730,17 +730,717 @@ public final class Vector {
       return PARSER;
     }
 
-    public Vector.SparseVector getDefaultInstanceForType() {
+    public com.github.wush978.vectorizer.Vector.SparseVector getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface HashedSparseVectorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.github.wush978.vectorizer.HashedSparseVector)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated int32 index = 1;</code>
+     */
+    java.util.List<java.lang.Integer> getIndexList();
+    /**
+     * <code>repeated int32 index = 1;</code>
+     */
+    int getIndexCount();
+    /**
+     * <code>repeated int32 index = 1;</code>
+     */
+    int getIndex(int index);
+
+    /**
+     * <code>repeated double value = 2;</code>
+     */
+    java.util.List<java.lang.Double> getValueList();
+    /**
+     * <code>repeated double value = 2;</code>
+     */
+    int getValueCount();
+    /**
+     * <code>repeated double value = 2;</code>
+     */
+    double getValue(int index);
+  }
+  /**
+   * Protobuf type {@code com.github.wush978.vectorizer.HashedSparseVector}
+   */
+  public  static final class HashedSparseVector extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.github.wush978.vectorizer.HashedSparseVector)
+      HashedSparseVectorOrBuilder {
+    // Use HashedSparseVector.newBuilder() to construct.
+    private HashedSparseVector(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private HashedSparseVector() {
+      index_ = java.util.Collections.emptyList();
+      value_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private HashedSparseVector(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                index_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              index_.add(input.readInt32());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
+                index_ = new java.util.ArrayList<java.lang.Integer>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                index_.add(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            }
+            case 17: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                value_ = new java.util.ArrayList<java.lang.Double>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              value_.add(input.readDouble());
+              break;
+            }
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002) && input.getBytesUntilLimit() > 0) {
+                value_ = new java.util.ArrayList<java.lang.Double>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                value_.add(input.readDouble());
+              }
+              input.popLimit(limit);
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          index_ = java.util.Collections.unmodifiableList(index_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          value_ = java.util.Collections.unmodifiableList(value_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.github.wush978.vectorizer.Vector.internal_static_com_github_wush978_vectorizer_HashedSparseVector_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.github.wush978.vectorizer.Vector.internal_static_com_github_wush978_vectorizer_HashedSparseVector_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.github.wush978.vectorizer.Vector.HashedSparseVector.class, com.github.wush978.vectorizer.Vector.HashedSparseVector.Builder.class);
+    }
+
+    public static final int INDEX_FIELD_NUMBER = 1;
+    private java.util.List<java.lang.Integer> index_;
+    /**
+     * <code>repeated int32 index = 1;</code>
+     */
+    public java.util.List<java.lang.Integer>
+        getIndexList() {
+      return index_;
+    }
+    /**
+     * <code>repeated int32 index = 1;</code>
+     */
+    public int getIndexCount() {
+      return index_.size();
+    }
+    /**
+     * <code>repeated int32 index = 1;</code>
+     */
+    public int getIndex(int index) {
+      return index_.get(index);
+    }
+
+    public static final int VALUE_FIELD_NUMBER = 2;
+    private java.util.List<java.lang.Double> value_;
+    /**
+     * <code>repeated double value = 2;</code>
+     */
+    public java.util.List<java.lang.Double>
+        getValueList() {
+      return value_;
+    }
+    /**
+     * <code>repeated double value = 2;</code>
+     */
+    public int getValueCount() {
+      return value_.size();
+    }
+    /**
+     * <code>repeated double value = 2;</code>
+     */
+    public double getValue(int index) {
+      return value_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < index_.size(); i++) {
+        output.writeInt32(1, index_.get(i));
+      }
+      for (int i = 0; i < value_.size(); i++) {
+        output.writeDouble(2, value_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < index_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt32SizeNoTag(index_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getIndexList().size();
+      }
+      {
+        int dataSize = 0;
+        dataSize = 8 * getValueList().size();
+        size += dataSize;
+        size += 1 * getValueList().size();
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.github.wush978.vectorizer.Vector.HashedSparseVector)) {
+        return super.equals(obj);
+      }
+      com.github.wush978.vectorizer.Vector.HashedSparseVector other = (com.github.wush978.vectorizer.Vector.HashedSparseVector) obj;
+
+      boolean result = true;
+      result = result && getIndexList()
+          .equals(other.getIndexList());
+      result = result && getValueList()
+          .equals(other.getValueList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (getIndexCount() > 0) {
+        hash = (37 * hash) + INDEX_FIELD_NUMBER;
+        hash = (53 * hash) + getIndexList().hashCode();
+      }
+      if (getValueCount() > 0) {
+        hash = (37 * hash) + VALUE_FIELD_NUMBER;
+        hash = (53 * hash) + getValueList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.github.wush978.vectorizer.Vector.HashedSparseVector parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.wush978.vectorizer.Vector.HashedSparseVector parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.github.wush978.vectorizer.Vector.HashedSparseVector parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.github.wush978.vectorizer.Vector.HashedSparseVector parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.github.wush978.vectorizer.Vector.HashedSparseVector parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.github.wush978.vectorizer.Vector.HashedSparseVector parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.github.wush978.vectorizer.Vector.HashedSparseVector parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.github.wush978.vectorizer.Vector.HashedSparseVector parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.github.wush978.vectorizer.Vector.HashedSparseVector parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.github.wush978.vectorizer.Vector.HashedSparseVector parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.github.wush978.vectorizer.Vector.HashedSparseVector prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.github.wush978.vectorizer.HashedSparseVector}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.github.wush978.vectorizer.HashedSparseVector)
+        com.github.wush978.vectorizer.Vector.HashedSparseVectorOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.github.wush978.vectorizer.Vector.internal_static_com_github_wush978_vectorizer_HashedSparseVector_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.github.wush978.vectorizer.Vector.internal_static_com_github_wush978_vectorizer_HashedSparseVector_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.github.wush978.vectorizer.Vector.HashedSparseVector.class, com.github.wush978.vectorizer.Vector.HashedSparseVector.Builder.class);
+      }
+
+      // Construct using com.github.wush978.vectorizer.Vector.HashedSparseVector.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        index_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        value_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.github.wush978.vectorizer.Vector.internal_static_com_github_wush978_vectorizer_HashedSparseVector_descriptor;
+      }
+
+      public com.github.wush978.vectorizer.Vector.HashedSparseVector getDefaultInstanceForType() {
+        return com.github.wush978.vectorizer.Vector.HashedSparseVector.getDefaultInstance();
+      }
+
+      public com.github.wush978.vectorizer.Vector.HashedSparseVector build() {
+        com.github.wush978.vectorizer.Vector.HashedSparseVector result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.github.wush978.vectorizer.Vector.HashedSparseVector buildPartial() {
+        com.github.wush978.vectorizer.Vector.HashedSparseVector result = new com.github.wush978.vectorizer.Vector.HashedSparseVector(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          index_ = java.util.Collections.unmodifiableList(index_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.index_ = index_;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          value_ = java.util.Collections.unmodifiableList(value_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.value_ = value_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.github.wush978.vectorizer.Vector.HashedSparseVector) {
+          return mergeFrom((com.github.wush978.vectorizer.Vector.HashedSparseVector)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.github.wush978.vectorizer.Vector.HashedSparseVector other) {
+        if (other == com.github.wush978.vectorizer.Vector.HashedSparseVector.getDefaultInstance()) return this;
+        if (!other.index_.isEmpty()) {
+          if (index_.isEmpty()) {
+            index_ = other.index_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureIndexIsMutable();
+            index_.addAll(other.index_);
+          }
+          onChanged();
+        }
+        if (!other.value_.isEmpty()) {
+          if (value_.isEmpty()) {
+            value_ = other.value_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureValueIsMutable();
+            value_.addAll(other.value_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.github.wush978.vectorizer.Vector.HashedSparseVector parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.github.wush978.vectorizer.Vector.HashedSparseVector) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<java.lang.Integer> index_ = java.util.Collections.emptyList();
+      private void ensureIndexIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          index_ = new java.util.ArrayList<java.lang.Integer>(index_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated int32 index = 1;</code>
+       */
+      public java.util.List<java.lang.Integer>
+          getIndexList() {
+        return java.util.Collections.unmodifiableList(index_);
+      }
+      /**
+       * <code>repeated int32 index = 1;</code>
+       */
+      public int getIndexCount() {
+        return index_.size();
+      }
+      /**
+       * <code>repeated int32 index = 1;</code>
+       */
+      public int getIndex(int index) {
+        return index_.get(index);
+      }
+      /**
+       * <code>repeated int32 index = 1;</code>
+       */
+      public Builder setIndex(
+          int index, int value) {
+        ensureIndexIsMutable();
+        index_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 index = 1;</code>
+       */
+      public Builder addIndex(int value) {
+        ensureIndexIsMutable();
+        index_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 index = 1;</code>
+       */
+      public Builder addAllIndex(
+          java.lang.Iterable<? extends java.lang.Integer> values) {
+        ensureIndexIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, index_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int32 index = 1;</code>
+       */
+      public Builder clearIndex() {
+        index_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<java.lang.Double> value_ = java.util.Collections.emptyList();
+      private void ensureValueIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          value_ = new java.util.ArrayList<java.lang.Double>(value_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated double value = 2;</code>
+       */
+      public java.util.List<java.lang.Double>
+          getValueList() {
+        return java.util.Collections.unmodifiableList(value_);
+      }
+      /**
+       * <code>repeated double value = 2;</code>
+       */
+      public int getValueCount() {
+        return value_.size();
+      }
+      /**
+       * <code>repeated double value = 2;</code>
+       */
+      public double getValue(int index) {
+        return value_.get(index);
+      }
+      /**
+       * <code>repeated double value = 2;</code>
+       */
+      public Builder setValue(
+          int index, double value) {
+        ensureValueIsMutable();
+        value_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated double value = 2;</code>
+       */
+      public Builder addValue(double value) {
+        ensureValueIsMutable();
+        value_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated double value = 2;</code>
+       */
+      public Builder addAllValue(
+          java.lang.Iterable<? extends java.lang.Double> values) {
+        ensureValueIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, value_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated double value = 2;</code>
+       */
+      public Builder clearValue() {
+        value_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.github.wush978.vectorizer.HashedSparseVector)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.github.wush978.vectorizer.HashedSparseVector)
+    private static final com.github.wush978.vectorizer.Vector.HashedSparseVector DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.github.wush978.vectorizer.Vector.HashedSparseVector();
+    }
+
+    public static com.github.wush978.vectorizer.Vector.HashedSparseVector getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<HashedSparseVector>
+        PARSER = new com.google.protobuf.AbstractParser<HashedSparseVector>() {
+      public HashedSparseVector parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new HashedSparseVector(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<HashedSparseVector> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<HashedSparseVector> getParserForType() {
+      return PARSER;
+    }
+
+    public com.github.wush978.vectorizer.Vector.HashedSparseVector getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_io_github_wush978_vectorizer_SparseVector_descriptor;
+    internal_static_com_github_wush978_vectorizer_SparseVector_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_io_github_wush978_vectorizer_SparseVector_fieldAccessorTable;
+      internal_static_com_github_wush978_vectorizer_SparseVector_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_github_wush978_vectorizer_HashedSparseVector_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_github_wush978_vectorizer_HashedSparseVector_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -750,9 +1450,10 @@ public final class Vector {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\033src/main/proto/vector.proto\022\034io.github" +
-      ".wush978.vectorizer\",\n\014SparseVector\022\r\n\005i" +
-      "ndex\030\001 \003(\t\022\r\n\005value\030\002 \003(\001"
+      "\n\033src/main/proto/vector.proto\022\035com.githu" +
+      "b.wush978.vectorizer\",\n\014SparseVector\022\r\n\005" +
+      "index\030\001 \003(\t\022\r\n\005value\030\002 \003(\001\"2\n\022HashedSpar" +
+      "seVector\022\r\n\005index\030\001 \003(\005\022\r\n\005value\030\002 \003(\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -766,11 +1467,17 @@ public final class Vector {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_io_github_wush978_vectorizer_SparseVector_descriptor =
+    internal_static_com_github_wush978_vectorizer_SparseVector_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_io_github_wush978_vectorizer_SparseVector_fieldAccessorTable = new
+    internal_static_com_github_wush978_vectorizer_SparseVector_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_io_github_wush978_vectorizer_SparseVector_descriptor,
+        internal_static_com_github_wush978_vectorizer_SparseVector_descriptor,
+        new java.lang.String[] { "Index", "Value", });
+    internal_static_com_github_wush978_vectorizer_HashedSparseVector_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_com_github_wush978_vectorizer_HashedSparseVector_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_github_wush978_vectorizer_HashedSparseVector_descriptor,
         new java.lang.String[] { "Index", "Value", });
   }
 

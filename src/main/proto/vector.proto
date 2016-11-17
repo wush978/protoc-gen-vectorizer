@@ -7,3 +7,11 @@ message SparseVector {
     repeated double value = 2;
 
 }
+
+message HashedSparseVector {
+
+    repeated int32 index = 1;
+
+    repeated double value = 2;
+
+}
