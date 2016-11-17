@@ -9,18 +9,16 @@
 #define INCLUDE_NUMERICALVECTORIZATION_H_
 
 #include <string>
-#include "Vectorization.h"
+#include <FieldVectorization.h>
 
 namespace vectorizer {
 
-class NumericalVectorization : public Vectorization {
-
-  const google::protobuf::FieldDescriptor *descriptor;
+class NumericalVectorization : public FieldVectorization {
 
 public:
 
-  NumericalVectorization(const google::protobuf::FieldDescriptor *_descriptor, Vectorization* inner)
-  : Vectorization(inner), descriptor(_descriptor) { }
+  NumericalVectorization(const google::protobuf::FieldDescriptor *descriptor, Vectorization* inner)
+  : FieldVectorization(descriptor, inner) { }
 
   virtual ~NumericalVectorization() { }
 

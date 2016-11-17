@@ -16,10 +16,11 @@
 #include <FileVectorization.h>
 #include <CategoricalVectorization.h>
 #include <NumericalVectorization.h>
+#include <InteractionIndex.h>
 
 namespace vectorizer {
 
-static Vectorization* getVectorization(const google::protobuf::FieldDescriptor *descriptor, std::string* error) {
+Vectorization* MessageVectorization::getVectorization(const google::protobuf::FieldDescriptor *descriptor, std::string* error) {
   google::protobuf::SourceLocation source_location;
   if (!descriptor->GetSourceLocation(&source_location)) {
     error->append("Failed to get source location for field: ");
@@ -47,6 +48,12 @@ static Vectorization* getVectorization(const google::protobuf::FieldDescriptor *
       retval = new CategoricalVectorization(descriptor, retval);
     } else if (tokens[0].compare("numerical") == 0) {
       retval = new NumericalVectorization(descriptor, retval);
+    } else if (tokens[0].compare("interaction") == 0) {
+      if (tokens.size() != 2) {
+        error->append("//'@interaction <interaction-id>");
+        return new Vectorization();
+      }
+      InteractionIndex::getInstance().set_index(tokens[1], retval);
     } else  {
       error->append("Unknown annotation: ");
       error->append(tokens[0]);
@@ -63,30 +70,43 @@ MessageVectorization::MessageVectorization(const google::protobuf::Descriptor *_
   }
 }
 
-
-
-void MessageVectorization::generate(std::stringstream& out) {
-  const google::protobuf::FileDescriptor* file = descriptor->file();
-  const google::protobuf::FileOptions& options(file->options());
-  std::string message_name(FileVectorization::getPackage(file));
-  message_name.append(".");
-  if (options.has_java_outer_classname()) {
-    message_name.append(options.java_outer_classname());
+static void getMessageName(const google::protobuf::Descriptor *descriptor, std::string& message_name) {
+  auto containing_type = descriptor->containing_type();
+  if (containing_type == nullptr) {
+    const google::protobuf::FileDescriptor* file = descriptor->file();
+    const google::protobuf::FileOptions& options(file->options());
+    message_name.assign(FileVectorization::getPackage(file));
     message_name.append(".");
+    if (options.has_java_outer_classname()) {
+      message_name.append(options.java_outer_classname());
+      message_name.append(".");
+    } else {
+      message_name.append(descriptor->name());
+      message_name.append("OuterClass");
+      message_name.append(".");
+    }
   } else {
-    message_name.append(descriptor->name());
-    message_name.append("OuterClass");
+    getMessageName(containing_type, message_name);
     message_name.append(".");
   }
   message_name.append(descriptor->name());
-  out << "public static com.github.wush978.vectorizer.Vector.SparseVector apply(" << message_name << " src) {" << std::endl;
+}
+
+
+void MessageVectorization::generate(std::stringstream& out) {
+  std::string message_name;
+  getMessageName(descriptor, message_name);
+  out << "public static com.github.wush978.vectorizer.Vector.SparseVector.Builder apply(" << message_name << " src, java.util.Map interaction) {" << std::endl;
   out << "com.github.wush978.vectorizer.Vector.SparseVector.Builder builder = com.github.wush978.vectorizer.Vector.SparseVector.newBuilder();" << std::endl;
   out << "String prefix = src.getClass().getCanonicalName() + \".\";" << std::endl;
   for(std::shared_ptr<Vectorization>& pV : operators) {
     if (pV.get() == nullptr) continue;
     pV->generate(out);
   }
-  out << "return builder.build();" << std::endl;
+  out << "return builder;" << std::endl;
+  out << "}" << std::endl;
+  out << "public static com.github.wush978.vectorizer.Vector.SparseVector.Builder apply(" << message_name << " src) {" << std::endl;
+  out << "return apply(src, new java.util.HashMap());" << std::endl;
   out << "}" << std::endl;
 }
 

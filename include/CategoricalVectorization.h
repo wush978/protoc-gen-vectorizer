@@ -11,24 +11,22 @@
 #include <cctype>
 #include <string>
 #include <google/protobuf/descriptor.h>
-#include "Vectorization.h"
+#include <FieldVectorization.h>
 
 namespace vectorizer {
 
-class CategoricalVectorization : public Vectorization {
-
-  const google::protobuf::FieldDescriptor *descriptor;
+class CategoricalVectorization : public FieldVectorization {
 
 public:
 
-  CategoricalVectorization(const google::protobuf::FieldDescriptor *_descriptor, Vectorization* inner)
-  : Vectorization(inner), descriptor(_descriptor) { }
+  CategoricalVectorization(const google::protobuf::FieldDescriptor *descriptor, Vectorization* inner)
+  : FieldVectorization(descriptor, inner) { }
 
   virtual ~CategoricalVectorization() { }
 
   virtual void generate(std::stringstream& out) {
 
-    out << "categorical(prefix + \"" << descriptor->lowercase_name() << "\" + ";
+    out << "categorical(prefix + \"" << getDescriptor()->lowercase_name() << "\" + ";
     generate_result(out);
     out << ", builder);" << std::endl;
 
@@ -38,12 +36,12 @@ private:
 
   void generate_result(std::stringstream& out) {
     out << "(";
-    std::string name(descriptor->camelcase_name());
+    std::string name(getDescriptor()->camelcase_name());
     if (name.size() > 0) name[0] = toupper(name[0]);
     if (getInner().get() != nullptr) {
       getInner()->generate(out);
     } else {
-      switch(descriptor->type()) {
+      switch(getDescriptor()->type()) {
       case google::protobuf::FieldDescriptor::TYPE_DOUBLE :
       case google::protobuf::FieldDescriptor::TYPE_FLOAT :
         out << "Double.toString(src.get" << name << "())";

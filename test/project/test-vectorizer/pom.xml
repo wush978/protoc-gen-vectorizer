@@ -9,7 +9,14 @@
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
-    <!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
+
+        <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>20.0</version>
+        </dependency>
+
         <dependency>
             <groupId>com.github.wush978</groupId>
             <artifactId>protobuf-vectorizer</artifactId>

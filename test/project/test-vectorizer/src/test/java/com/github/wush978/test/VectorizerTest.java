@@ -1,9 +1,15 @@
 package com.github.wush978.test;
 
+import com.github.wush978.test.TestPersons;
 import com.github.wush978.vectorizer.Vector;
+import static com.github.wush978.test.TestPersons.equalWithoutOrder;
+import com.google.common.base.Function;
+import com.google.common.collect.Collections2;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import java.util.List;
 
 /**
  * Created by wush on 2016/11/14.
@@ -14,29 +20,31 @@ public class VectorizerTest {
     @Test
     public void testVectorizer() {
 
-        PersonOuterClass.Person person1 = PersonOuterClass.Person.newBuilder()
-                .setId("A123456789")
-                .setAge(11)
-                .setSex("female")
-                .build();
+        List<PersonOuterClass.Person> persons = TestPersons.getTestPersons();
+        Vector.SparseVector referenceResult[] = new Vector.SparseVector[persons.size()];
+        Collections2.transform(persons, new Function<PersonOuterClass.Person, Vector.SparseVector>() {
+            public Vector.SparseVector apply(PersonOuterClass.Person input) {
+                return com.github.wush978.reference.Vectorizer.apply(input).build();
+            }
+        }).toArray(referenceResult);
 
-        PersonOuterClass.Person person2 = person1.toBuilder().setId("M123456789").build();
-        PersonOuterClass.Person person3 = person1.toBuilder().setAge(12).build();
-        PersonOuterClass.Person person4 = person1.toBuilder().setSex("male").build();
+        assert(equalWithoutOrder(referenceResult[0], referenceResult[1]));
+        assert(!equalWithoutOrder(referenceResult[0], referenceResult[2]));
+        assert(!equalWithoutOrder(referenceResult[0], referenceResult[3]));
+        assert(!equalWithoutOrder(referenceResult[0], referenceResult[4]));
+        assert(equalWithoutOrder(referenceResult[0], referenceResult[5]));
 
-        Vector.SparseVector v1 = com.github.wush978.reference.Vectorizer.apply(person1),
-                v2 = com.github.wush978.reference.Vectorizer.apply(person2),
-                v3 = com.github.wush978.reference.Vectorizer.apply(person3),
-                v4 = com.github.wush978.reference.Vectorizer.apply(person4),
-                u1 = com.github.wush978.test.Vectorizer.apply(person1),
-                u2 = com.github.wush978.test.Vectorizer.apply(person2),
-                u3 = com.github.wush978.test.Vectorizer.apply(person3),
-                u4 = com.github.wush978.test.Vectorizer.apply(person4);
+        Vector.SparseVector testResult[] = new Vector.SparseVector[persons.size()];
+        Collections2.transform(persons, new Function<PersonOuterClass.Person, Vector.SparseVector>() {
+            public Vector.SparseVector apply(PersonOuterClass.Person input) {
+                return com.github.wush978.test.Vectorizer.apply(input).build();
+            }
+        }).toArray(testResult);
 
-        assert(v1.equals(u1));
-        assert(v2.equals(u2));
-        assert(v3.equals(u3));
-        assert(v4.equals(u4));
+        assert(referenceResult.length == testResult.length);
+        for(int i = 0;i < persons.size();i++) {
+            assert(equalWithoutOrder(referenceResult[i], testResult[i]));
+        }
     }
 
 }

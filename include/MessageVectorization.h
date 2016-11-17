@@ -15,7 +15,7 @@
 
 namespace vectorizer {
 
-class MessageVectorization {
+class MessageVectorization : public Vectorization {
 
   std::string* error;
 
@@ -23,13 +23,15 @@ class MessageVectorization {
 
   std::vector< std::shared_ptr<Vectorization> > operators;
 
+  Vectorization* getVectorization(const google::protobuf::FieldDescriptor*, std::string*);
+
 public:
 
   MessageVectorization(const google::protobuf::Descriptor *descriptor, std::string* error);
 
   virtual ~MessageVectorization() { }
 
-  void generate(std::stringstream&);
+  virtual void generate(std::stringstream&);
 
 };
 

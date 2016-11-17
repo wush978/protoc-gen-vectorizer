@@ -14,11 +14,21 @@
 
 namespace vectorizer {
 
+static void addMessageType(const google::protobuf::Descriptor *descriptor, std::string* error, std::vector< std::shared_ptr<MessageVectorization> >& operations) {
+  operations.emplace_back(new MessageVectorization(descriptor, error));
+  if (error->length() > 0) return;
+  for(int i = 0;i < descriptor->nested_type_count();i++) {
+    addMessageType(descriptor->nested_type(i), error, operations);
+    if (error->length() > 0) return;
+  }
+}
+
 FileVectorization::FileVectorization(const google::protobuf::FileDescriptor* _file, std::string* error)
 : file(_file), operations() {
   for (int i = 0; i < file->message_type_count(); i++) {
-    operations.emplace_back(new MessageVectorization(file->message_type(i), error));
-    if (error->size() > 0) return;
+    // check nested type recursively
+    addMessageType(file->message_type(i), error, operations);
+    if (error->length() > 0) return;
   }
 }
 
