@@ -27,9 +27,10 @@ public:
 
   virtual void generateContent(std::stringstream& out) {
 
-    out << "categorical(getName(prefix + \"" << getDescriptor()->lowercase_name() << "\", ";
-    generateResult(out);
-    out << "), builder);" << std::endl;
+    out << "categorical(prefix + \"" << getDescriptor()->lowercase_name() << "\", ";
+//    generateResult(out);
+    out << getGetter();
+    out << ", builder);" << std::endl;
 
     // interaction
     const auto& reverse_index(InteractionIndex::getInstance().getInteractionReverseIndex());
@@ -51,48 +52,50 @@ public:
 private:
 
   void generateInteraction(const Interaction& interaction, bool isFirst, std::stringstream& out) {
-    out << "interaction.get(\"" << interaction.getName() << "\").set" << (isFirst ? "A" : "B") << "(";
-    generateResult(out);
-    out << ").setValue(CATEGORICAL_VALUE);" << std::endl;
+    out << "interaction.get(\"" << interaction.getName() << "\").add" << (isFirst ? "A" : "B") << "Categorical(";
+    out << getGetter();
+    out << ").add" << (isFirst ? "A" : "B") << "CategoricalValue(" << getGetter() << ");" << std::endl;
   }
 
-  void generateResult(std::stringstream& out) {
-    out << "(";
-    std::string name(getDescriptor()->camelcase_name());
-    if (name.size() > 0) name[0] = toupper(name[0]);
-    if (getInner().get() != nullptr) {
-      getInner()->generate(out);
-    } else {
-      switch(getDescriptor()->type()) {
-      case google::protobuf::FieldDescriptor::TYPE_DOUBLE :
-      case google::protobuf::FieldDescriptor::TYPE_FLOAT :
-        out << getGetter();
-        break;
-      case google::protobuf::FieldDescriptor::TYPE_INT64 :
-      case google::protobuf::FieldDescriptor::TYPE_INT32 :
-      case google::protobuf::FieldDescriptor::TYPE_UINT64 :
-      case google::protobuf::FieldDescriptor::TYPE_FIXED64 :
-      case google::protobuf::FieldDescriptor::TYPE_FIXED32 :
-      case google::protobuf::FieldDescriptor::TYPE_UINT32 :
-      case google::protobuf::FieldDescriptor::TYPE_SFIXED32 :
-      case google::protobuf::FieldDescriptor::TYPE_SFIXED64 :
-      case google::protobuf::FieldDescriptor::TYPE_SINT32 :
-      case google::protobuf::FieldDescriptor::TYPE_SINT64 :
-        out << "Integer.toString(" << getGetter() << ")";
-        break;
-      case google::protobuf::FieldDescriptor::TYPE_BOOL :
-        out << "Boolean.toString(" << getGetter() << ")";
-        break;
-      case google::protobuf::FieldDescriptor::TYPE_STRING :
-      case google::protobuf::FieldDescriptor::TYPE_ENUM :
-        out << getGetter();
-        break;
-      default :
-        throw std::invalid_argument("Unsupported field type");
-      }
-    }
-    out << ")";
-  }
+//  void generateResult(std::stringstream& out) {
+//    out << "(";
+//    std::string name(getDescriptor()->camelcase_name());
+//    if (name.size() > 0) name[0] = toupper(name[0]);
+//    if (getInner().get() != nullptr) {
+//      getInner()->generate(out);
+//    } else {
+//      switch(getDescriptor()->type()) {
+//      case google::protobuf::FieldDescriptor::TYPE_DOUBLE :
+//      case google::protobuf::FieldDescriptor::TYPE_FLOAT :
+//        out << getGetter();
+//        break;
+//      case google::protobuf::FieldDescriptor::TYPE_INT64 :
+//      case google::protobuf::FieldDescriptor::TYPE_INT32 :
+//      case google::protobuf::FieldDescriptor::TYPE_UINT64 :
+//      case google::protobuf::FieldDescriptor::TYPE_FIXED64 :
+//      case google::protobuf::FieldDescriptor::TYPE_FIXED32 :
+//      case google::protobuf::FieldDescriptor::TYPE_UINT32 :
+//      case google::protobuf::FieldDescriptor::TYPE_SFIXED32 :
+//      case google::protobuf::FieldDescriptor::TYPE_SFIXED64 :
+//      case google::protobuf::FieldDescriptor::TYPE_SINT32 :
+//      case google::protobuf::FieldDescriptor::TYPE_SINT64 :
+//        out << "Integer.toString(" << getGetter() << ")";
+//        break;
+//      case google::protobuf::FieldDescriptor::TYPE_BOOL :
+//        out << "Boolean.toString(" << getGetter() << ")";
+//        break;
+//      case google::protobuf::FieldDescriptor::TYPE_STRING :
+//          out << getGetter();
+//          break;
+//      case google::protobuf::FieldDescriptor::TYPE_ENUM :
+//          out << getGetter() << ".toString()";
+//          break;
+//      default :
+//        throw std::invalid_argument("Unsupported field type");
+//      }
+//    }
+//    out << ")";
+//  }
 
 };
 

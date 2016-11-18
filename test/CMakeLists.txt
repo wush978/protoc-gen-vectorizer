@@ -1,9 +1,9 @@
 # build executables for testing
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/test)
 find_package(Protobuf REQUIRED)
-# find_package (Boost COMPONENTS unit_test_framework REQUIRED)
 include_directories(${PROTOBUF_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS} ${CMAKE_CURRENT_SOURCE_DIR}/../include)
-# add_definitions (-DBOOST_TEST_DYN_LINK)
-add_executable (TestVectorizerGenerator VectorizerGenerator_test.cpp)
-# target_link_libraries (TestVectorizerGenerator ProtocGenVectorizer ${PROTOBUF_LIBRARIES} ${PROTOBUF_PROTOC_LIBRARIES} ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
-target_link_libraries (TestVectorizerGenerator ProtocGenVectorizer ${PROTOBUF_LIBRARIES} ${PROTOBUF_PROTOC_LIBRARIES})
+add_executable (TestPersonVectorizerGenerator VectorizerGenerator_testPerson.cpp)
+target_link_libraries (TestPersonVectorizerGenerator ProtocGenVectorizer ${PROTOBUF_LIBRARIES} ${PROTOBUF_PROTOC_LIBRARIES})
+
+add_executable (TestOpenRTBVectorizerGenerator VectorizerGenerator_testOpenRTB.cpp)
+target_link_libraries (TestOpenRTBVectorizerGenerator ProtocGenVectorizer ${PROTOBUF_LIBRARIES} ${PROTOBUF_PROTOC_LIBRARIES})

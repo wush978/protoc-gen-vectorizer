@@ -5,20 +5,23 @@ import com.github.wush978.vectorizer.Vector;
 import static com.github.wush978.test.TestPersons.equalWithoutOrder;
 import com.google.common.base.Function;
 import com.google.common.collect.Collections2;
+import com.google.openrtb.OpenRtb;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.List;
 
 /**
  * Created by wush on 2016/11/14.
  */
 @RunWith(JUnit4.class)
-public class VectorizerTest {
+public class VectorizingPersonTest {
 
     @Test
-    public void testVectorizer() {
+    public void testVectorizingPerson() {
 
         List<PersonOuterClass.Person> persons = TestPersons.getTestPersons();
         Vector.SparseVector referenceResult[] = new Vector.SparseVector[persons.size()];

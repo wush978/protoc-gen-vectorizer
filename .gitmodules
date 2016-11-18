@@ -1,3 +1,3 @@
 [submodule "test/project/protobuf-vectorizer"]
 	path = test/project/protobuf-vectorizer
-	url = https://github.com/wush978/protoc-gen-vectorizer.git
+	url = https://github.com/gmobi-wush/protoc-gen-vectorizer.git

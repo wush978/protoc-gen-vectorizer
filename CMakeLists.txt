@@ -15,7 +15,8 @@ file(COPY test/project DESTINATION ${PROJECT_BINARY_DIR}/test)
 find_package (Maven)
 
 find_package(Protobuf REQUIRED)
-add_test(TestVectorizerGenerator test/TestVectorizerGenerator)
-add_test(NAME CompileProtobufVectorizer COMMAND ${MAVEN_EXECUTABLE} test package install -Dmaven.repo.local=${PROJECT_BINARY_DIR}/.m2 WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/test/project/protobuf-vectorizer)
-add_test(NAME CompileGenratedCode COMMAND ${MAVEN_EXECUTABLE} clean compile test -Dmaven.repo.local=${PROJECT_BINARY_DIR}/.m2 WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/test/project/test-vectorizer)
+add_test(NAME InstallProtobufVectorizer COMMAND ${MAVEN_EXECUTABLE} test package install -Dmaven.repo.local=${PROJECT_BINARY_DIR}/.m2 WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/test/project/protobuf-vectorizer)
+add_test(TestPersonVectorizerGenerator test/TestPersonVectorizerGenerator)
+add_test(TestOpenRTBVectorizerGenerator test/TestOpenRTBVectorizerGenerator)
+add_test(NAME TestGenratedCode COMMAND ${MAVEN_EXECUTABLE} clean compile test -Dmaven.repo.local=${PROJECT_BINARY_DIR}/.m2 WORKING_DIRECTORY ${PROJECT_BINARY_DIR}/test/project/test-vectorizer)
  

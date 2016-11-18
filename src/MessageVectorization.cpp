@@ -59,8 +59,7 @@ Vectorization* MessageVectorization::getVectorization(const google::protobuf::Fi
       }
       InteractionIndex::getInstance().set_index(tokens[1], retval);
     } else  {
-      error->append("Unknown annotation: ");
-      error->append(tokens[0]);
+      std::cerr << "Unknown annotation: " << tokens[0] << std::endl;
     }
   }
   return retval;
@@ -100,7 +99,7 @@ static void getMessageName(const google::protobuf::Descriptor *descriptor, std::
 void MessageVectorization::generate(std::stringstream& out) {
   std::string message_name;
   getMessageName(descriptor, message_name);
-  out << "private static com.github.wush978.vectorizer.Vector.SparseVector.Builder apply(" << message_name << " src, java.util.Map<String, com.github.wush978.vectorizer.Interaction<String, String>> interaction) {" << std::endl;
+  out << "private static com.github.wush978.vectorizer.Vector.SparseVector.Builder apply(" << message_name << " src, java.util.Map<String, com.github.wush978.vectorizer.Interaction> interaction) {" << std::endl;
   out << "com.github.wush978.vectorizer.Vector.SparseVector.Builder builder = com.github.wush978.vectorizer.Vector.SparseVector.newBuilder();" << std::endl;
   out << "String prefix = src.getClass().getCanonicalName() + \".\";" << std::endl;
   for(std::shared_ptr<Vectorization>& pV : operators) {
@@ -110,7 +109,7 @@ void MessageVectorization::generate(std::stringstream& out) {
   out << "return builder;" << std::endl;
   out << "}" << std::endl;
   out << "public static com.github.wush978.vectorizer.Vector.SparseVector.Builder apply(" << message_name << " src) {" << std::endl;
-  out << "java.util.Map<String, com.github.wush978.vectorizer.Interaction<String, String>> interaction = new java.util.HashMap();" << std::endl;
+  out << "java.util.Map<String, com.github.wush978.vectorizer.Interaction> interaction = new java.util.HashMap();" << std::endl;
 
   const auto& index(InteractionIndex::getInstance().getInteractionIndex());
   for(auto index_iterator = index.begin();index_iterator != index.end();index_iterator++) {
