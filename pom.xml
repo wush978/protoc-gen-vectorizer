@@ -4,7 +4,7 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description>A library to vectorize protocol buffer message based on the annotation in the proto files.</description>
-	<url>https://github.com/wush978/protoc-gen-vectorizer</url>
+	<url>https://github.com/wush978/protoc-gen-vectorizer/tree/java</url>
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.github.wush978</groupId>
@@ -27,12 +27,6 @@
 			<organizationUrl>https://github.com</organizationUrl>
 		</developer>
 	</developers>
-
-	<scm>
-		<connection>scm:git:git://github.com/wush978/protoc-gen-vectorizer.git#java</connection>
-		<developerConnection>scm:git:ssh://github.com:wush978/protoc-gen-vectorizer.git#java</developerConnection>
-		<url>https://github.com/wush978/protoc-gen-vectorizer/tree/java</url>
-	</scm>
 
 	<properties>
 		<mavenVersion>3.0</mavenVersion>
