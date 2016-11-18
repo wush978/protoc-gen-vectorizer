@@ -1,5 +1,6 @@
 package com.github.wush978.test;
 
+import com.github.wush978.vectorizer.BaseVectorizer;
 import com.github.wush978.vectorizer.Vector;
 import com.google.common.collect.Multiset;
 import com.google.common.collect.TreeMultiset;
@@ -14,6 +15,7 @@ public class TestPersons {
 
     public static List<PersonOuterClass.Person> getTestPersons() {
         List<PersonOuterClass.Person> result = new ArrayList();
+        // 0
         result.add(
             PersonOuterClass.Person.newBuilder()
                 .setId("A123456789")
@@ -24,16 +26,124 @@ public class TestPersons {
                 )
                 .build()
         );
-
+        // 1
         result.add(result.get(0).toBuilder().setId("M123456789").build());
+        // 2
         result.add(result.get(0).toBuilder().setAge(12).build());
+        // 3
         result.add(result.get(0).toBuilder().setSex("male").build());
+        // 4
         result.add(result.get(0).toBuilder().setContact(
                 result.get(0).getContact().toBuilder().setPostalCode("123")
         ).build());
+        // 5
         result.add(result.get(0).toBuilder().setContact(
                 result.get(0).getContact().toBuilder().setAddress("example address")
         ).build());
+        // 6
+        result.add(result.get(0).toBuilder()
+                .addEducation(
+                        PersonOuterClass.Person.Education.newBuilder()
+                        .setSchoolName("ntu")
+                )
+                .addEducation(
+                        PersonOuterClass.Person.Education.newBuilder()
+                        .setSchoolName("hsnu")
+                )
+                .build());
+        return result;
+    }
+
+    public static List<Vector.SparseVector> getExpectedVectors() {
+        List<Vector.SparseVector> result = new ArrayList();
+        // 0
+        result.add(
+                Vector.SparseVector.newBuilder()
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.age" + BaseVectorizer.KEY_VALUE_DELIMITER + "11")
+                        .addValue(1.0)
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "female")
+                        .addValue(1.0)
+                        .addIndex("age-sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "female")
+                        .addValue(1.0)
+                        .build()
+        );
+        // 1
+        result.add(
+                Vector.SparseVector.newBuilder()
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.age" + BaseVectorizer.KEY_VALUE_DELIMITER + "11")
+                        .addValue(1.0)
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "female")
+                        .addValue(1.0)
+                        .addIndex("age-sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "female")
+                        .addValue(1.0)
+                        .build()
+        );
+        // 2
+        result.add(
+                Vector.SparseVector.newBuilder()
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.age" + BaseVectorizer.KEY_VALUE_DELIMITER + "12")
+                        .addValue(1.0)
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "female")
+                        .addValue(1.0)
+                        .addIndex("age-sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "12" + BaseVectorizer.ROW_DELIMITER + "female")
+                        .addValue(1.0)
+                        .build()
+        );
+        // 3
+        result.add(
+                Vector.SparseVector.newBuilder()
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.age" + BaseVectorizer.KEY_VALUE_DELIMITER + "11")
+                        .addValue(1.0)
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "male")
+                        .addValue(1.0)
+                        .addIndex("age-sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "male")
+                        .addValue(1.0)
+                        .build()
+        );
+        // 4
+        result.add(
+                Vector.SparseVector.newBuilder()
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.age" + BaseVectorizer.KEY_VALUE_DELIMITER + "11")
+                        .addValue(1.0)
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "female")
+                        .addValue(1.0)
+                        .addIndex("age-sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "female")
+                        .addValue(1.0)
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.Contact.postal_code" + BaseVectorizer.KEY_VALUE_DELIMITER + "123")
+                        .addValue(1.0)
+                        .build()
+        );
+        // 5
+        result.add(
+                Vector.SparseVector.newBuilder()
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.age" + BaseVectorizer.KEY_VALUE_DELIMITER + "11")
+                        .addValue(1.0)
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "female")
+                        .addValue(1.0)
+                        .addIndex("age-sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "female")
+                        .addValue(1.0)
+                        .build()
+        );
+        // 6
+        result.add(
+                Vector.SparseVector.newBuilder()
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.age" + BaseVectorizer.KEY_VALUE_DELIMITER + "11")
+                        .addValue(1.0)
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "female")
+                        .addValue(1.0)
+                        .addIndex("age-sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "female")
+                        .addValue(1.0)
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.Education.school_name" + BaseVectorizer.KEY_VALUE_DELIMITER + "ntu")
+                        .addValue(1.0)
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.Education.school_name" + BaseVectorizer.KEY_VALUE_DELIMITER + "hsnu")
+                        .addValue(1.0)
+                        .addIndex("age-school_name" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "ntu")
+                        .addValue(1.0)
+                        .addIndex("age-school_name" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "hsnu")
+                        .addValue(1.0)
+                        .build()
+        );
+
         return result;
     }
 
@@ -89,7 +199,8 @@ public class TestPersons {
     }
 
     public static boolean equalWithoutOrder(Vector.SparseVector a, Vector.SparseVector b) throws RuntimeException {
-        List<String> sa = a.getIndexList(), sb = b.getIndexList();
+        List<String> sa = a.getIndexList(),
+                sb = b.getIndexList();
         if (sa.size() != sb.size()) return false;
         List<Double> da = a.getValueList(), db = b.getValueList();
         if (da.size() != sa.size() | db.size() != sb.size()) {

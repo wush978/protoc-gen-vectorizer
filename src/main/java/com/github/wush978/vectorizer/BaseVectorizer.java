@@ -7,22 +7,26 @@ import java.util.Map;
  */
 public class BaseVectorizer {
 
-    protected static Double CATEGORICAL_VALUE = 1.0;
+    public static Double CATEGORICAL_VALUE = 1.0;
 
-    protected static char ROW_DELIMITER = '\1';
+    public static char ROW_DELIMITER = '\1';
 
-    protected static char COLLECTION_ITEM_DELIMITER = '\2';
+    public static char COLLECTION_ITEM_DELIMITER = '\2';
 
-    protected static char KEY_VALUE_DELIMITER = '\3';
+    public static char KEY_VALUE_DELIMITER = '\3';
 
     protected static String getName(String fieldName, String Value) {
         return fieldName + KEY_VALUE_DELIMITER + Value;
     }
 
-    protected static Vector.SparseVector.Builder apply(Map<String, Interaction<String, String>> interaction, Vector.SparseVector.Builder builder) {
-        for(Map.Entry<String, Interaction<String, String>> e : interaction.entrySet()) {
-            if (e.getValue().isPresent()) {
-                numerical(e.getValue().getValue(), getName(e.getKey(), e.getValue().toString()), builder);
+    protected static Vector.SparseVector.Builder apply(Map<String, Interaction> interaction, Vector.SparseVector.Builder builder) {
+        for(Map.Entry<String, Interaction> e : interaction.entrySet()) {
+            String[] keys = e.getValue().getKeys();
+            if (keys == null) continue;
+            Double[] values = e.getValue().getValues();
+            if (values == null) continue;
+            for(int i = 0;i < keys.length;i++) {
+                numerical(values[i], getName(e.getKey(),keys[i]), builder);
             }
         }
         return builder;

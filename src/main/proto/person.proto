@@ -4,6 +4,7 @@ message Person {
   required string id = 1;
   //'@categorical
   //'@interaction age-sex
+  //'@interaction age-school_name
   required int32 age = 2;
   //'@categorical
   //'@interaction age-sex
@@ -21,6 +22,7 @@ message Person {
 
   message Education {
     //'@categorical
+    //'@interaction age-school_name
     required string school_name = 1;
   }
 
