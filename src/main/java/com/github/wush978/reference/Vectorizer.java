@@ -19,11 +19,11 @@ public class Vectorizer extends BaseVectorizer {
 
         String prefix = src.getClass().getCanonicalName() + ".";
 
-        categorical(getName(prefix + "school_name", src.getSchoolName()), builder);
+        categorical(prefix + "school_name", src.getSchoolName(), builder);
 
-        interaction.get("age-school_name").addB(src.getSchoolName());
+        interaction.get("age-school_name").addBCategorical(src.getSchoolName());
 
-        interaction.get("age-school_name").addBValue(CATEGORICAL_VALUE);
+        interaction.get("age-school_name").addBCategoricalValue(src.getSchoolName());
 
         return builder;
 
@@ -36,7 +36,7 @@ public class Vectorizer extends BaseVectorizer {
         String prefix = src.getClass().getCanonicalName() + ".";
 
         if (src.hasPostalCode()) {
-            categorical(getName(prefix + "postal_code", src.getPostalCode()), builder);
+            categorical(prefix + "postal_code", src.getPostalCode(), builder);
         }
 
         return builder;
@@ -54,27 +54,29 @@ public class Vectorizer extends BaseVectorizer {
 
         String prefix = src.getClass().getCanonicalName() + ".";
 
-        categorical(getName(prefix + "age", Integer.toString(src.getAge())), builder);
+        categorical(prefix + "age", src.getAge(), builder);
 
-        interaction.get("age-sex").addA(Integer.toString(src.getAge()));
+        interaction.get("age-sex").addACategorical(src.getAge());
 
-        interaction.get("age-sex").addAValue(CATEGORICAL_VALUE);
+        interaction.get("age-sex").addACategoricalValue(src.getAge());
 
-        interaction.get("age-school_name").addA(Integer.toString(src.getAge()));
+        interaction.get("age-school_name").addACategorical(src.getAge());
 
-        interaction.get("age-school_name").addAValue(CATEGORICAL_VALUE);
+        interaction.get("age-school_name").addACategoricalValue(src.getAge());
 
-        categorical(getName(prefix + "sex", src.getSex().toString()), builder);
+        categorical(prefix + "sex", src.getSex(), builder);
 
-        interaction.get("age-sex").addB(src.getSex().toString());
+        interaction.get("age-sex").addBCategorical(src.getSex());
 
-        interaction.get("age-sex").addBValue(CATEGORICAL_VALUE);
+        interaction.get("age-sex").addBCategoricalValue(src.getSex());
+
+        append(builder, apply(src.getContact()));
 
         for(int i = 0;i < src.getEducationCount();i++) {
             append(builder, apply(src.getEducation(i), interaction));
         }
 
-        append(builder, apply(src.getContact()));
+        if (src.hasCountryCode()) categorical(prefix + "country_code", src.getCountryCode(), builder);
 
         apply(interaction, builder);
 

@@ -36,6 +36,7 @@ public final class PersonOuterClass {
      * <pre>
      *'&#64;categorical
      *'&#64;interaction age-sex
+     *'&#64;interaction age-school_name
      * </pre>
      *
      * <code>required int32 age = 2;</code>
@@ -45,6 +46,7 @@ public final class PersonOuterClass {
      * <pre>
      *'&#64;categorical
      *'&#64;interaction age-sex
+     *'&#64;interaction age-school_name
      * </pre>
      *
      * <code>required int32 age = 2;</code>
@@ -116,6 +118,23 @@ public final class PersonOuterClass {
      */
     com.github.wush978.test.PersonOuterClass.Person.EducationOrBuilder getEducationOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     *'&#64;categorical
+     * </pre>
+     *
+     * <code>optional .com.github.wush978.test.Person.CountryCode country_code = 6;</code>
+     */
+    boolean hasCountryCode();
+    /**
+     * <pre>
+     *'&#64;categorical
+     * </pre>
+     *
+     * <code>optional .com.github.wush978.test.Person.CountryCode country_code = 6;</code>
+     */
+    com.github.wush978.test.PersonOuterClass.Person.CountryCode getCountryCode();
   }
   /**
    * Protobuf type {@code com.github.wush978.test.Person}
@@ -133,6 +152,7 @@ public final class PersonOuterClass {
       age_ = 0;
       sex_ = "";
       education_ = java.util.Collections.emptyList();
+      countryCode_ = 0;
     }
 
     @java.lang.Override
@@ -202,6 +222,17 @@ public final class PersonOuterClass {
                   input.readMessage(com.github.wush978.test.PersonOuterClass.Person.Education.PARSER, extensionRegistry));
               break;
             }
+            case 48: {
+              int rawValue = input.readEnum();
+              com.github.wush978.test.PersonOuterClass.Person.CountryCode value = com.github.wush978.test.PersonOuterClass.Person.CountryCode.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(6, rawValue);
+              } else {
+                bitField0_ |= 0x00000010;
+                countryCode_ = rawValue;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -227,6 +258,96 @@ public final class PersonOuterClass {
       return com.github.wush978.test.PersonOuterClass.internal_static_com_github_wush978_test_Person_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.github.wush978.test.PersonOuterClass.Person.class, com.github.wush978.test.PersonOuterClass.Person.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code com.github.wush978.test.Person.CountryCode}
+     */
+    public enum CountryCode
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>TW = 0;</code>
+       */
+      TW(0),
+      /**
+       * <code>SG = 1;</code>
+       */
+      SG(1),
+      ;
+
+      /**
+       * <code>TW = 0;</code>
+       */
+      public static final int TW_VALUE = 0;
+      /**
+       * <code>SG = 1;</code>
+       */
+      public static final int SG_VALUE = 1;
+
+
+      public final int getNumber() {
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static CountryCode valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static CountryCode forNumber(int value) {
+        switch (value) {
+          case 0: return TW;
+          case 1: return SG;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<CountryCode>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          CountryCode> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<CountryCode>() {
+              public CountryCode findValueByNumber(int number) {
+                return CountryCode.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return com.github.wush978.test.PersonOuterClass.Person.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final CountryCode[] VALUES = values();
+
+      public static CountryCode valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private CountryCode(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:com.github.wush978.test.Person.CountryCode)
     }
 
     public interface ContactOrBuilder extends
@@ -1330,6 +1451,7 @@ public final class PersonOuterClass {
       /**
        * <pre>
        *'&#64;categorical
+       *'&#64;interaction age-school_name
        * </pre>
        *
        * <code>required string school_name = 1;</code>
@@ -1338,6 +1460,7 @@ public final class PersonOuterClass {
       /**
        * <pre>
        *'&#64;categorical
+       *'&#64;interaction age-school_name
        * </pre>
        *
        * <code>required string school_name = 1;</code>
@@ -1346,6 +1469,7 @@ public final class PersonOuterClass {
       /**
        * <pre>
        *'&#64;categorical
+       *'&#64;interaction age-school_name
        * </pre>
        *
        * <code>required string school_name = 1;</code>
@@ -1432,6 +1556,7 @@ public final class PersonOuterClass {
       /**
        * <pre>
        *'&#64;categorical
+       *'&#64;interaction age-school_name
        * </pre>
        *
        * <code>required string school_name = 1;</code>
@@ -1442,6 +1567,7 @@ public final class PersonOuterClass {
       /**
        * <pre>
        *'&#64;categorical
+       *'&#64;interaction age-school_name
        * </pre>
        *
        * <code>required string school_name = 1;</code>
@@ -1463,6 +1589,7 @@ public final class PersonOuterClass {
       /**
        * <pre>
        *'&#64;categorical
+       *'&#64;interaction age-school_name
        * </pre>
        *
        * <code>required string school_name = 1;</code>
@@ -1778,6 +1905,7 @@ public final class PersonOuterClass {
         /**
          * <pre>
          *'&#64;categorical
+         *'&#64;interaction age-school_name
          * </pre>
          *
          * <code>required string school_name = 1;</code>
@@ -1788,6 +1916,7 @@ public final class PersonOuterClass {
         /**
          * <pre>
          *'&#64;categorical
+         *'&#64;interaction age-school_name
          * </pre>
          *
          * <code>required string school_name = 1;</code>
@@ -1809,6 +1938,7 @@ public final class PersonOuterClass {
         /**
          * <pre>
          *'&#64;categorical
+         *'&#64;interaction age-school_name
          * </pre>
          *
          * <code>required string school_name = 1;</code>
@@ -1829,6 +1959,7 @@ public final class PersonOuterClass {
         /**
          * <pre>
          *'&#64;categorical
+         *'&#64;interaction age-school_name
          * </pre>
          *
          * <code>required string school_name = 1;</code>
@@ -1846,6 +1977,7 @@ public final class PersonOuterClass {
         /**
          * <pre>
          *'&#64;categorical
+         *'&#64;interaction age-school_name
          * </pre>
          *
          * <code>required string school_name = 1;</code>
@@ -1859,6 +1991,7 @@ public final class PersonOuterClass {
         /**
          * <pre>
          *'&#64;categorical
+         *'&#64;interaction age-school_name
          * </pre>
          *
          * <code>required string school_name = 1;</code>
@@ -1971,6 +2104,7 @@ public final class PersonOuterClass {
      * <pre>
      *'&#64;categorical
      *'&#64;interaction age-sex
+     *'&#64;interaction age-school_name
      * </pre>
      *
      * <code>required int32 age = 2;</code>
@@ -1982,6 +2116,7 @@ public final class PersonOuterClass {
      * <pre>
      *'&#64;categorical
      *'&#64;interaction age-sex
+     *'&#64;interaction age-school_name
      * </pre>
      *
      * <code>required int32 age = 2;</code>
@@ -2103,6 +2238,30 @@ public final class PersonOuterClass {
       return education_.get(index);
     }
 
+    public static final int COUNTRY_CODE_FIELD_NUMBER = 6;
+    private int countryCode_;
+    /**
+     * <pre>
+     *'&#64;categorical
+     * </pre>
+     *
+     * <code>optional .com.github.wush978.test.Person.CountryCode country_code = 6;</code>
+     */
+    public boolean hasCountryCode() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     *'&#64;categorical
+     * </pre>
+     *
+     * <code>optional .com.github.wush978.test.Person.CountryCode country_code = 6;</code>
+     */
+    public com.github.wush978.test.PersonOuterClass.Person.CountryCode getCountryCode() {
+      com.github.wush978.test.PersonOuterClass.Person.CountryCode result = com.github.wush978.test.PersonOuterClass.Person.CountryCode.valueOf(countryCode_);
+      return result == null ? com.github.wush978.test.PersonOuterClass.Person.CountryCode.TW : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -2156,6 +2315,9 @@ public final class PersonOuterClass {
       for (int i = 0; i < education_.size(); i++) {
         output.writeMessage(5, education_.get(i));
       }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeEnum(6, countryCode_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2181,6 +2343,10 @@ public final class PersonOuterClass {
       for (int i = 0; i < education_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, education_.get(i));
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(6, countryCode_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2221,6 +2387,10 @@ public final class PersonOuterClass {
       }
       result = result && getEducationList()
           .equals(other.getEducationList());
+      result = result && (hasCountryCode() == other.hasCountryCode());
+      if (hasCountryCode()) {
+        result = result && countryCode_ == other.countryCode_;
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2251,6 +2421,10 @@ public final class PersonOuterClass {
       if (getEducationCount() > 0) {
         hash = (37 * hash) + EDUCATION_FIELD_NUMBER;
         hash = (53 * hash) + getEducationList().hashCode();
+      }
+      if (hasCountryCode()) {
+        hash = (37 * hash) + COUNTRY_CODE_FIELD_NUMBER;
+        hash = (53 * hash) + countryCode_;
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2390,6 +2564,8 @@ public final class PersonOuterClass {
         } else {
           educationBuilder_.clear();
         }
+        countryCode_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -2443,6 +2619,10 @@ public final class PersonOuterClass {
         } else {
           result.education_ = educationBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.countryCode_ = countryCode_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -2526,6 +2706,9 @@ public final class PersonOuterClass {
               educationBuilder_.addAllMessages(other.education_);
             }
           }
+        }
+        if (other.hasCountryCode()) {
+          setCountryCode(other.getCountryCode());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -2656,6 +2839,7 @@ public final class PersonOuterClass {
        * <pre>
        *'&#64;categorical
        *'&#64;interaction age-sex
+       *'&#64;interaction age-school_name
        * </pre>
        *
        * <code>required int32 age = 2;</code>
@@ -2667,6 +2851,7 @@ public final class PersonOuterClass {
        * <pre>
        *'&#64;categorical
        *'&#64;interaction age-sex
+       *'&#64;interaction age-school_name
        * </pre>
        *
        * <code>required int32 age = 2;</code>
@@ -2678,6 +2863,7 @@ public final class PersonOuterClass {
        * <pre>
        *'&#64;categorical
        *'&#64;interaction age-sex
+       *'&#64;interaction age-school_name
        * </pre>
        *
        * <code>required int32 age = 2;</code>
@@ -2692,6 +2878,7 @@ public final class PersonOuterClass {
        * <pre>
        *'&#64;categorical
        *'&#64;interaction age-sex
+       *'&#64;interaction age-school_name
        * </pre>
        *
        * <code>required int32 age = 2;</code>
@@ -3166,6 +3353,58 @@ public final class PersonOuterClass {
         }
         return educationBuilder_;
       }
+
+      private int countryCode_ = 0;
+      /**
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>optional .com.github.wush978.test.Person.CountryCode country_code = 6;</code>
+       */
+      public boolean hasCountryCode() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>optional .com.github.wush978.test.Person.CountryCode country_code = 6;</code>
+       */
+      public com.github.wush978.test.PersonOuterClass.Person.CountryCode getCountryCode() {
+        com.github.wush978.test.PersonOuterClass.Person.CountryCode result = com.github.wush978.test.PersonOuterClass.Person.CountryCode.valueOf(countryCode_);
+        return result == null ? com.github.wush978.test.PersonOuterClass.Person.CountryCode.TW : result;
+      }
+      /**
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>optional .com.github.wush978.test.Person.CountryCode country_code = 6;</code>
+       */
+      public Builder setCountryCode(com.github.wush978.test.PersonOuterClass.Person.CountryCode value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000020;
+        countryCode_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>optional .com.github.wush978.test.Person.CountryCode country_code = 6;</code>
+       */
+      public Builder clearCountryCode() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        countryCode_ = 0;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -3240,14 +3479,17 @@ public final class PersonOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\033src/main/proto/person.proto\022\027com.githu" +
-      "b.wush978.test\"\246\002\n\006Person\022\n\n\002id\030\001 \002(\t\022\013\n" +
+      "b.wush978.test\"\210\003\n\006Person\022\n\n\002id\030\001 \002(\t\022\013\n" +
       "\003age\030\002 \002(\005\022\013\n\003sex\030\003 \002(\t\0228\n\007contact\030\004 \002(\013" +
       "2\'.com.github.wush978.test.Person.Contac" +
       "t\022<\n\teducation\030\005 \003(\0132).com.github.wush97" +
-      "8.test.Person.Education\032\\\n\007Contact\022\017\n\007ad" +
-      "dress\030\001 \001(\t\022\023\n\013postal_code\030\002 \001(\t\022\024\n\014phon" +
-      "e_number\030\003 \001(\t\022\025\n\remail_address\030\004 \002(\t\032 \n" +
-      "\tEducation\022\023\n\013school_name\030\001 \002(\t"
+      "8.test.Person.Education\022A\n\014country_code\030" +
+      "\006 \001(\0162+.com.github.wush978.test.Person.C" +
+      "ountryCode\032\\\n\007Contact\022\017\n\007address\030\001 \001(\t\022\023" +
+      "\n\013postal_code\030\002 \001(\t\022\024\n\014phone_number\030\003 \001(" +
+      "\t\022\025\n\remail_address\030\004 \002(\t\032 \n\tEducation\022\023\n",
+      "\013school_name\030\001 \002(\t\"\035\n\013CountryCode\022\006\n\002TW\020" +
+      "\000\022\006\n\002SG\020\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3266,7 +3508,7 @@ public final class PersonOuterClass {
     internal_static_com_github_wush978_test_Person_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_wush978_test_Person_descriptor,
-        new java.lang.String[] { "Id", "Age", "Sex", "Contact", "Education", });
+        new java.lang.String[] { "Id", "Age", "Sex", "Contact", "Education", "CountryCode", });
     internal_static_com_github_wush978_test_Person_Contact_descriptor =
       internal_static_com_github_wush978_test_Person_descriptor.getNestedTypes().get(0);
     internal_static_com_github_wush978_test_Person_Contact_fieldAccessorTable = new

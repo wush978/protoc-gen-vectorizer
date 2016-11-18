@@ -51,6 +51,10 @@ public class TestPersons {
                         .setSchoolName("hsnu")
                 )
                 .build());
+        // 7
+        result.add(result.get(0).toBuilder()
+                .setCountryCode(PersonOuterClass.Person.CountryCode.TW)
+                .build());
         return result;
     }
 
@@ -140,6 +144,19 @@ public class TestPersons {
                         .addIndex("age-school_name" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "ntu")
                         .addValue(1.0)
                         .addIndex("age-school_name" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "hsnu")
+                        .addValue(1.0)
+                        .build()
+        );
+        // 7
+        result.add(
+                Vector.SparseVector.newBuilder()
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.age" + BaseVectorizer.KEY_VALUE_DELIMITER + "11")
+                        .addValue(1.0)
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "female")
+                        .addValue(1.0)
+                        .addIndex("age-sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "female")
+                        .addValue(1.0)
+                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.country_code" + BaseVectorizer.KEY_VALUE_DELIMITER + "TW")
                         .addValue(1.0)
                         .build()
         );

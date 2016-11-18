@@ -1,11 +1,13 @@
 package com.github.wush978.vectorizer;
 
-import com.sun.istack.internal.Nullable;
+import com.google.protobuf.ProtocolMessageEnum;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import static com.github.wush978.vectorizer.BaseVectorizer.CATEGORICAL_VALUE;
 
 /**
  * Created by wush.wu on 2016/11/15.
@@ -26,27 +28,59 @@ public class Interaction implements Serializable {
         return new Interaction();
     }
 
-    public Interaction addA(String a) {
+    private Interaction addA(String a) {
         if (this.a == null) this.a = new ArrayList();
         this.a.add(a);
         return this;
     }
 
-    public Interaction addB(String b) {
+    public Interaction addACategorical(Integer a) {
+        return addA(Integer.toString(a));
+    }
+
+    public Interaction addACategorical(Double a) {
+        return addA(Double.toString(a));
+    }
+
+    public Interaction addACategorical(String a) {
+        return addA(a);
+    }
+
+    public Interaction addACategorical(ProtocolMessageEnum a) {
+        return addA(a.toString());
+    }
+
+    private Interaction addB(String b) {
         if (this.b == null) this.b = new ArrayList();
         this.b.add(b);
         return this;
     }
 
-    public Interaction addAValue(Double value) {
+    public Interaction addBCategorical(Integer b) {
+        return addB(Integer.toString(b));
+    }
+
+    public Interaction addBCategorical(Double b) {
+        return addB(Double.toString(b));
+    }
+
+    public Interaction addBCategorical(String b) {
+        return addB(b);
+    }
+
+    public Interaction addBCategorical(ProtocolMessageEnum b) {
+        return addB(b.toString());
+    }
+
+    public Interaction addACategoricalValue(Object value) {
         if (this.va == null) this.va = new ArrayList();
-        this.va.add(value);
+        this.va.add(CATEGORICAL_VALUE);
         return this;
     }
 
-    public Interaction addBValue(Double value) {
+    public Interaction addBCategoricalValue(Object value) {
         if (this.vb == null) this.vb = new ArrayList();
-        this.vb.add(value);
+        this.vb.add(CATEGORICAL_VALUE);
         return this;
     }
 
@@ -61,7 +95,6 @@ public class Interaction implements Serializable {
         return false;
     }
 
-    @Nullable
     public String[] getKeys() {
         if (!isPresent()) return null;
         String[] retval = new String[a.size() * b.size()];
@@ -74,7 +107,6 @@ public class Interaction implements Serializable {
         return retval;
     }
 
-    @Nullable
     public Double[] getValues() {
         if (!isPresent()) return null;
         Double[] retval = new Double[a.size() * b.size()];

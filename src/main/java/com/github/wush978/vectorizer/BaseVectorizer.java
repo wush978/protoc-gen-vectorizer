@@ -1,5 +1,7 @@
 package com.github.wush978.vectorizer;
 
+import com.google.protobuf.ProtocolMessageEnum;
+
 import java.util.Map;
 
 /**
@@ -14,10 +16,6 @@ public class BaseVectorizer {
     public static char COLLECTION_ITEM_DELIMITER = '\2';
 
     public static char KEY_VALUE_DELIMITER = '\3';
-
-    protected static String getName(String fieldName, String Value) {
-        return fieldName + KEY_VALUE_DELIMITER + Value;
-    }
 
     protected static Vector.SparseVector.Builder apply(Map<String, Interaction> interaction, Vector.SparseVector.Builder builder) {
         for(Map.Entry<String, Interaction> e : interaction.entrySet()) {
@@ -44,8 +42,30 @@ public class BaseVectorizer {
         return builder;
     }
 
-    protected static Vector.SparseVector.Builder categorical(String input, Vector.SparseVector.Builder builder) {
-        builder.addIndex(input);
+    private static String getName(String fieldName, String name) {
+        return fieldName + KEY_VALUE_DELIMITER + name;
+    }
+
+    protected static Vector.SparseVector.Builder categorical(String fieldName, Integer input, Vector.SparseVector.Builder builder) {
+        builder.addIndex(getName(fieldName, Integer.toString(input)));
+        builder.addValue(CATEGORICAL_VALUE);
+        return builder;
+    }
+
+    protected static Vector.SparseVector.Builder categorical(String fieldName, Double input, Vector.SparseVector.Builder builder) {
+        builder.addIndex(getName(fieldName, Double.toString(input)));
+        builder.addValue(CATEGORICAL_VALUE);
+        return builder;
+    }
+
+    protected static Vector.SparseVector.Builder categorical(String fieldName, String input, Vector.SparseVector.Builder builder) {
+        builder.addIndex(getName(fieldName, input));
+        builder.addValue(CATEGORICAL_VALUE);
+        return builder;
+    }
+
+    protected static Vector.SparseVector.Builder categorical(String fieldName, ProtocolMessageEnum input, Vector.SparseVector.Builder builder) {
+        builder.addIndex(getName(fieldName, input.toString()));
         builder.addValue(CATEGORICAL_VALUE);
         return builder;
     }

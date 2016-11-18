@@ -2,6 +2,7 @@ package com.github.wush978.test;
 
 message Person {
   required string id = 1;
+  //'@user bin int32
   //'@categorical
   //'@interaction age-sex
   //'@interaction age-school_name
@@ -27,4 +28,13 @@ message Person {
   }
 
   repeated Education education = 5;
+
+  enum CountryCode {
+    TW = 0;
+    SG = 1;
+  }
+
+  //'@categorical
+  optional CountryCode country_code = 6;
+
 }
