@@ -4,7 +4,7 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<name>${project.groupId}:${project.artifactId}</name>
 	<description>A library to vectorize protocol buffer message based on the annotation in the proto files.</description>
-	<url>https://github.com/wush978/protoc-gen-vectorizer/tree/java</url>
+	<url>https://github.com/wush978/protoc-gen-vectorizer</url>
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.github.wush978</groupId>
@@ -54,4 +54,50 @@
 		</dependency>
 	</dependencies>
 
+	<build>
+		<plugins>
+			<!-- Disable deploy to central repository -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<configuration>
+					<skipDeploy>true</skipDeploy>
+				</configuration>
+			</plugin>
+			<!-- Use UTF-8 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<!-- select the Maven phase in which the plugin will be executed -->
+						<phase>site-deploy</phase>
+						<configuration>
+							<!-- Plugin configuration ges here -->
+							<server>github</server>
+							<!-- The commit message -->
+							<message>Building site for my project</message>
+							<!-- The location where the site is uploaded -->
+							<path>${site.path}</path>
+							<!-- Use merge or override the content -->
+							<merge>true</merge>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
