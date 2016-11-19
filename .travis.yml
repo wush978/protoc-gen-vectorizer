@@ -14,6 +14,7 @@ before_install:
   - cd /tmp/protobuf-3.1.0 && bash autogen.sh && ./configure && make && sudo make install
 
 script:
+  - cd $TRAVIS_BUILD_DIR
   - mkdir build
   - cd build
   - cmake .. && make && make test
