@@ -31,5 +31,23 @@
 
     </dependencies>
 
+    <repositories>
+        <repository>
+            <id>protoc-gen-vectorizer-mvn-repo</id>
+            <url>https://raw.github.com/wush978/protoc-gen-vectorizer/mvn-repo/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
 
+    <!--<pluginRepositories>-->
+        <!--<pluginRepository>-->
+            <!--<id>central</id>-->
+            <!--<url>http://repo.maven.org/maven2</url>-->
+            <!--<releases><enabled>false</enabled></releases>-->
+            <!--<snapshots><enabled>false</enabled></snapshots>-->
+        <!--</pluginRepository>-->
+    <!--</pluginRepositories>-->
 </project>
