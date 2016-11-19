@@ -61,7 +61,7 @@ void FileVectorization::generate(google::protobuf::compiler::GeneratorContext* c
   std::stringstream ss;
   ss << "package " << package << ";" << std::endl;
   ss << std::endl;
-  ss << "class Vectorizer extends com.github.wush978.vectorizer.BaseVectorizer {" << std::endl;
+  ss << "public class Vectorizer extends com.github.wush978.vectorizer.BaseVectorizer {" << std::endl;
   for(const google::protobuf::FileDescriptor* file : files) {
     const google::protobuf::FileOptions& options(file->options());
     for(std::shared_ptr<MessageVectorization>& pMV : operations) {

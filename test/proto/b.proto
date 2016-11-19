@@ -1,0 +1,8 @@
+package com.github.wush978.test.b;
+
+import "a.proto";
+
+message B {
+  optional com.github.wush978.test.a.A a = 1;
+  optional int32 b = 2;
+}

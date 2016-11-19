@@ -99,7 +99,7 @@ static void getMessageName(const google::protobuf::Descriptor *descriptor, std::
 void MessageVectorization::generate(std::stringstream& out) {
   std::string message_name;
   getMessageName(descriptor, message_name);
-  out << "private static com.github.wush978.vectorizer.Vector.SparseVector.Builder apply(" << message_name << " src, java.util.Map<String, com.github.wush978.vectorizer.Interaction> interaction) {" << std::endl;
+  out << "public static com.github.wush978.vectorizer.Vector.SparseVector.Builder apply(" << message_name << " src, java.util.Map<String, com.github.wush978.vectorizer.Interaction> interaction) {" << std::endl;
   out << "com.github.wush978.vectorizer.Vector.SparseVector.Builder builder = com.github.wush978.vectorizer.Vector.SparseVector.newBuilder();" << std::endl;
   out << "String prefix = src.getClass().getCanonicalName() + \".\";" << std::endl;
   for(std::shared_ptr<Vectorization>& pV : operators) {

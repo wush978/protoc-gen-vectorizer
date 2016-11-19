@@ -22,7 +22,12 @@ public:
   virtual ~MessageFieldVectorization() { }
 
   virtual void generateContent(std::stringstream& out) {
-    out << "append(builder, apply(" << getGetter() << ", interaction));" << std::endl;
+    out << "append(builder, " <<
+        FileVectorization::getPackage(getDescriptor()->message_type()->file()) <<
+        ".Vectorizer.apply(" <<
+        getGetter() <<
+        ", interaction));" <<
+        std::endl;
   }
 
 };
