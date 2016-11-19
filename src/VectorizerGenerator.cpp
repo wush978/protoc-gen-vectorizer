@@ -25,7 +25,7 @@ namespace gp = google::protobuf;
 
 namespace vectorizer {
 
-VectorizerGenerator::VectorizerGenerator() : operations() { }
+VectorizerGenerator::VectorizerGenerator() { }
 
 VectorizerGenerator::~VectorizerGenerator() { }
 
@@ -41,7 +41,7 @@ bool VectorizerGenerator::Generate(const google::protobuf::FileDescriptor* file,
     }
     bool isLast = file == pParsedFiles->back();
 
-    operations.emplace_back(new FileVectorization(file, error));
+    FileVectorization::add_file(file, error);
     if (error->size() > 0) return false;
 
     if (isLast) {
@@ -55,9 +55,7 @@ bool VectorizerGenerator::Generate(const google::protobuf::FileDescriptor* file,
           return false;
         }
       }
-      for(std::shared_ptr<FileVectorization>& pFV : operations) {
-        pFV->generate(generator_context);
-      }
+      FileVectorization::generateAll(generator_context);
     }
     return true;
 }

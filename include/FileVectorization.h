@@ -16,17 +16,25 @@ namespace vectorizer {
 
 class FileVectorization {
 
-  const google::protobuf::FileDescriptor* file;
+  std::string package;
+
+  std::vector< const google::protobuf::FileDescriptor* > files;
 
   std::vector< std::shared_ptr<MessageVectorization> > operations;
 
-public:
+  FileVectorization(const std::string&);
 
-  FileVectorization(const google::protobuf::FileDescriptor* file, std::string* error);
+  void generate(google::protobuf::compiler::GeneratorContext* context);
+
+  static std::map<std::string, std::shared_ptr<FileVectorization> > file_indexes;
+
+public:
 
   virtual ~FileVectorization() { }
 
-  void generate(google::protobuf::compiler::GeneratorContext*);
+  static void add_file(const google::protobuf::FileDescriptor*, std::string*);
+
+  static void generateAll(google::protobuf::compiler::GeneratorContext*);
 
   static void write(google::protobuf::io::ZeroCopyOutputStream* out, const std::string& data);
 

@@ -28,8 +28,6 @@ namespace vectorizer {
 
 class VectorizerGenerator: public google::protobuf::compiler::CodeGenerator {
 
-  mutable std::vector<std::shared_ptr<FileVectorization> > operations;
-
 public:
 
   VectorizerGenerator();
