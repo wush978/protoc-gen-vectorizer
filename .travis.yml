@@ -19,6 +19,9 @@ script:
   - cd build
   - cmake .. && make && make test
 
+after_failure:
+  - cat $TRAVIS_BUILD_DIR/Testing/Temporary/LastTest.log
+
 addons:
   apt:
     packages:
@@ -35,3 +38,4 @@ addons:
 
 env:
   - LD_LIBRARY_PATH=/usr/local/lib
+
