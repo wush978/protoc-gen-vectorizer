@@ -6,6 +6,7 @@ import com.google.common.collect.Multiset;
 import com.google.common.collect.TreeMultiset;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -24,12 +25,13 @@ public class TestPersons {
                 .setContact(PersonOuterClass.Person.Contact.newBuilder()
                         .setEmailAddress("email@example.com")
                 )
+                .setIsLive(true)
                 .build()
         );
         // 1
         result.add(result.get(0).toBuilder().setId("M123456789").build());
         // 2
-        result.add(result.get(0).toBuilder().setAge(12).build());
+        result.add(result.get(0).toBuilder().setAge(12).setIsLive(false).build());
         // 3
         result.add(result.get(0).toBuilder().setSex("male").build());
         // 4
@@ -58,107 +60,104 @@ public class TestPersons {
         return result;
     }
 
+    static Vector.SparseVector.Builder toBuilder(String[] caregoricalName, String[] categoricalValue, String[] interactionName, String[] interactionValue1, String[] interactionValue2) {
+        List<String> index = new ArrayList();
+        List<Double> value = new ArrayList();
+        for(int i = 0;i < caregoricalName.length;i++) {
+            index.add("com.github.wush978.test.PersonOuterClass.Person." + caregoricalName[i] + BaseVectorizer.KEY_VALUE_DELIMITER + categoricalValue[i]);
+            value.add(1.0);
+        }
+        for(int i = 0;i < interactionName.length;i++) {
+            index.add(interactionName[i] + BaseVectorizer.KEY_VALUE_DELIMITER + interactionValue1[i] + BaseVectorizer.ROW_DELIMITER + interactionValue2[i]);
+            value.add(1.0);
+        }
+        return Vector.SparseVector.newBuilder()
+                .addAllIndex(index)
+                .addAllValue(value);
+    }
+
     public static List<Vector.SparseVector> getExpectedVectors() {
         List<Vector.SparseVector> result = new ArrayList();
+        String
+                defaultCategoricalName[] = {"age", "sex", "isLive"},
+                defaultCategoricalValue[] = {"11", "female", "true"},
+                defaultInteractionName[] = {"age-sex"},
+                defaultInteractionValue1[] = {"11"},
+                defaultInteractionValue2[] = {"female"};
+
         // 0
         result.add(
-                Vector.SparseVector.newBuilder()
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.age" + BaseVectorizer.KEY_VALUE_DELIMITER + "11")
-                        .addValue(1.0)
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "female")
-                        .addValue(1.0)
-                        .addIndex("age-sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "female")
-                        .addValue(1.0)
-                        .build()
+                toBuilder(
+                        defaultCategoricalName,
+                        defaultCategoricalValue,
+                        defaultInteractionName,
+                        defaultInteractionValue1,
+                        defaultInteractionValue2
+                ).build()
         );
         // 1
         result.add(
-                Vector.SparseVector.newBuilder()
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.age" + BaseVectorizer.KEY_VALUE_DELIMITER + "11")
-                        .addValue(1.0)
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "female")
-                        .addValue(1.0)
-                        .addIndex("age-sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "female")
-                        .addValue(1.0)
-                        .build()
+                result.get(0).toBuilder().build()
         );
         // 2
         result.add(
-                Vector.SparseVector.newBuilder()
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.age" + BaseVectorizer.KEY_VALUE_DELIMITER + "12")
-                        .addValue(1.0)
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "female")
-                        .addValue(1.0)
-                        .addIndex("age-sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "12" + BaseVectorizer.ROW_DELIMITER + "female")
-                        .addValue(1.0)
-                        .build()
+                toBuilder(
+                        defaultCategoricalName,
+                        new String[] {"12", "female", "false"},
+                        defaultInteractionName,
+                        new String[] {"12"},
+                        defaultInteractionValue2
+                ).build()
         );
         // 3
         result.add(
-                Vector.SparseVector.newBuilder()
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.age" + BaseVectorizer.KEY_VALUE_DELIMITER + "11")
-                        .addValue(1.0)
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "male")
-                        .addValue(1.0)
-                        .addIndex("age-sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "male")
-                        .addValue(1.0)
-                        .build()
+                toBuilder(
+                        defaultCategoricalName,
+                        new String[] {"11", "male", "true"},
+                        defaultInteractionName,
+                        defaultInteractionValue1,
+                        new String[] {"male"}
+                ).build()
         );
         // 4
         result.add(
-                Vector.SparseVector.newBuilder()
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.age" + BaseVectorizer.KEY_VALUE_DELIMITER + "11")
-                        .addValue(1.0)
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "female")
-                        .addValue(1.0)
-                        .addIndex("age-sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "female")
-                        .addValue(1.0)
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.Contact.postal_code" + BaseVectorizer.KEY_VALUE_DELIMITER + "123")
-                        .addValue(1.0)
-                        .build()
+                toBuilder(
+                        new String[] {"age", "sex", "isLive", "Contact.postal_code"},
+                        new String[] {"11", "female", "true", "123"},
+                        defaultInteractionName,
+                        defaultInteractionValue1,
+                        defaultInteractionValue2
+                ).build()
         );
         // 5
         result.add(
-                Vector.SparseVector.newBuilder()
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.age" + BaseVectorizer.KEY_VALUE_DELIMITER + "11")
-                        .addValue(1.0)
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "female")
-                        .addValue(1.0)
-                        .addIndex("age-sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "female")
-                        .addValue(1.0)
-                        .build()
+                toBuilder(
+                        defaultCategoricalName,
+                        defaultCategoricalValue,
+                        defaultInteractionName,
+                        defaultInteractionValue1,
+                        defaultInteractionValue2
+                ).build()
         );
         // 6
         result.add(
-                Vector.SparseVector.newBuilder()
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.age" + BaseVectorizer.KEY_VALUE_DELIMITER + "11")
-                        .addValue(1.0)
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "female")
-                        .addValue(1.0)
-                        .addIndex("age-sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "female")
-                        .addValue(1.0)
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.Education.school_name" + BaseVectorizer.KEY_VALUE_DELIMITER + "ntu")
-                        .addValue(1.0)
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.Education.school_name" + BaseVectorizer.KEY_VALUE_DELIMITER + "hsnu")
-                        .addValue(1.0)
-                        .addIndex("age-school_name" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "ntu")
-                        .addValue(1.0)
-                        .addIndex("age-school_name" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "hsnu")
-                        .addValue(1.0)
-                        .build()
+                toBuilder(
+                        new String[] {"age", "sex", "isLive", "Education.school_name", "Education.school_name"},
+                        new String[] {"11", "female", "true", "ntu", "hsnu"},
+                        new String[] {"age-sex", "age-school_name", "age-school_name"},
+                        new String[] {"11", "11", "11"},
+                        new String[] {"female", "ntu", "hsnu"}
+                ).build()
         );
         // 7
         result.add(
-                Vector.SparseVector.newBuilder()
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.age" + BaseVectorizer.KEY_VALUE_DELIMITER + "11")
-                        .addValue(1.0)
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "female")
-                        .addValue(1.0)
-                        .addIndex("age-sex" + BaseVectorizer.KEY_VALUE_DELIMITER + "11" + BaseVectorizer.ROW_DELIMITER + "female")
-                        .addValue(1.0)
-                        .addIndex("com.github.wush978.test.PersonOuterClass.Person.country_code" + BaseVectorizer.KEY_VALUE_DELIMITER + "TW")
-                        .addValue(1.0)
-                        .build()
+                toBuilder(
+                        new String[] {"age", "sex", "isLive", "country_code"},
+                        new String[] {"11", "female", "true", "TW"},
+                        defaultInteractionName,
+                        defaultInteractionValue1,
+                        defaultInteractionValue2
+                ).build()
         );
 
         return result;

@@ -37,4 +37,7 @@ message Person {
   //'@categorical
   optional CountryCode country_code = 6;
 
+  //'@categorical
+  required bool isLive = 7;
+
 }
