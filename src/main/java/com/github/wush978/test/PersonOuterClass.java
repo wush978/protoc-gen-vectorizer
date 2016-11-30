@@ -139,11 +139,19 @@ public final class PersonOuterClass {
     com.github.wush978.test.PersonOuterClass.Person.CountryCode getCountryCode();
 
     /**
-     * <code>required bool isLive = 7;</code>
+     * <pre>
+     *'&#64;categorical
+     * </pre>
+     *
+     * <code>required bool is_live = 7;</code>
      */
     boolean hasIsLive();
     /**
-     * <code>required bool isLive = 7;</code>
+     * <pre>
+     *'&#64;categorical
+     * </pre>
+     *
+     * <code>required bool is_live = 7;</code>
      */
     boolean getIsLive();
   }
@@ -2281,16 +2289,24 @@ public final class PersonOuterClass {
       return result == null ? com.github.wush978.test.PersonOuterClass.Person.CountryCode.TW : result;
     }
 
-    public static final int ISLIVE_FIELD_NUMBER = 7;
+    public static final int IS_LIVE_FIELD_NUMBER = 7;
     private boolean isLive_;
     /**
-     * <code>required bool isLive = 7;</code>
+     * <pre>
+     *'&#64;categorical
+     * </pre>
+     *
+     * <code>required bool is_live = 7;</code>
      */
     public boolean hasIsLive() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
-     * <code>required bool isLive = 7;</code>
+     * <pre>
+     *'&#64;categorical
+     * </pre>
+     *
+     * <code>required bool is_live = 7;</code>
      */
     public boolean getIsLive() {
       return isLive_;
@@ -2477,7 +2493,7 @@ public final class PersonOuterClass {
         hash = (53 * hash) + countryCode_;
       }
       if (hasIsLive()) {
-        hash = (37 * hash) + ISLIVE_FIELD_NUMBER;
+        hash = (37 * hash) + IS_LIVE_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
             getIsLive());
       }
@@ -3479,19 +3495,31 @@ public final class PersonOuterClass {
 
       private boolean isLive_ ;
       /**
-       * <code>required bool isLive = 7;</code>
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>required bool is_live = 7;</code>
        */
       public boolean hasIsLive() {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
-       * <code>required bool isLive = 7;</code>
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>required bool is_live = 7;</code>
        */
       public boolean getIsLive() {
         return isLive_;
       }
       /**
-       * <code>required bool isLive = 7;</code>
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>required bool is_live = 7;</code>
        */
       public Builder setIsLive(boolean value) {
         bitField0_ |= 0x00000040;
@@ -3500,7 +3528,11 @@ public final class PersonOuterClass {
         return this;
       }
       /**
-       * <code>required bool isLive = 7;</code>
+       * <pre>
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>required bool is_live = 7;</code>
        */
       public Builder clearIsLive() {
         bitField0_ = (bitField0_ & ~0x00000040);
@@ -3582,17 +3614,17 @@ public final class PersonOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\033src/main/proto/person.proto\022\027com.githu" +
-      "b.wush978.test\"\230\003\n\006Person\022\n\n\002id\030\001 \002(\t\022\013\n" +
+      "b.wush978.test\"\231\003\n\006Person\022\n\n\002id\030\001 \002(\t\022\013\n" +
       "\003age\030\002 \002(\005\022\013\n\003sex\030\003 \002(\t\0228\n\007contact\030\004 \002(\013" +
       "2\'.com.github.wush978.test.Person.Contac" +
       "t\022<\n\teducation\030\005 \003(\0132).com.github.wush97" +
       "8.test.Person.Education\022A\n\014country_code\030" +
       "\006 \001(\0162+.com.github.wush978.test.Person.C" +
-      "ountryCode\022\016\n\006isLive\030\007 \002(\010\032\\\n\007Contact\022\017\n" +
-      "\007address\030\001 \001(\t\022\023\n\013postal_code\030\002 \001(\t\022\024\n\014p" +
-      "hone_number\030\003 \001(\t\022\025\n\remail_address\030\004 \002(\t",
-      "\032 \n\tEducation\022\023\n\013school_name\030\001 \002(\t\"\035\n\013Co" +
-      "untryCode\022\006\n\002TW\020\000\022\006\n\002SG\020\001"
+      "ountryCode\022\017\n\007is_live\030\007 \002(\010\032\\\n\007Contact\022\017" +
+      "\n\007address\030\001 \001(\t\022\023\n\013postal_code\030\002 \001(\t\022\024\n\014" +
+      "phone_number\030\003 \001(\t\022\025\n\remail_address\030\004 \002(",
+      "\t\032 \n\tEducation\022\023\n\013school_name\030\001 \002(\t\"\035\n\013C" +
+      "ountryCode\022\006\n\002TW\020\000\022\006\n\002SG\020\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

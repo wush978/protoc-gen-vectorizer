@@ -38,6 +38,6 @@ message Person {
   optional CountryCode country_code = 6;
 
   //'@categorical
-  required bool isLive = 7;
+  required bool is_live = 7;
 
 }
