@@ -154,6 +154,25 @@ public final class PersonOuterClass {
      * <code>required bool is_live = 7;</code>
      */
     boolean getIsLive();
+
+    /**
+     * <pre>
+     *'&#64;user com.github.wush978.util.SecondToHour.SecondToHour
+     *'&#64;categorical
+     * </pre>
+     *
+     * <code>required int64 created_at = 8;</code>
+     */
+    boolean hasCreatedAt();
+    /**
+     * <pre>
+     *'&#64;user com.github.wush978.util.SecondToHour.SecondToHour
+     *'&#64;categorical
+     * </pre>
+     *
+     * <code>required int64 created_at = 8;</code>
+     */
+    long getCreatedAt();
   }
   /**
    * Protobuf type {@code com.github.wush978.test.Person}
@@ -173,6 +192,7 @@ public final class PersonOuterClass {
       education_ = java.util.Collections.emptyList();
       countryCode_ = 0;
       isLive_ = false;
+      createdAt_ = 0L;
     }
 
     @java.lang.Override
@@ -256,6 +276,11 @@ public final class PersonOuterClass {
             case 56: {
               bitField0_ |= 0x00000020;
               isLive_ = input.readBool();
+              break;
+            }
+            case 64: {
+              bitField0_ |= 0x00000040;
+              createdAt_ = input.readInt64();
               break;
             }
           }
@@ -2312,6 +2337,31 @@ public final class PersonOuterClass {
       return isLive_;
     }
 
+    public static final int CREATED_AT_FIELD_NUMBER = 8;
+    private long createdAt_;
+    /**
+     * <pre>
+     *'&#64;user com.github.wush978.util.SecondToHour.SecondToHour
+     *'&#64;categorical
+     * </pre>
+     *
+     * <code>required int64 created_at = 8;</code>
+     */
+    public boolean hasCreatedAt() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <pre>
+     *'&#64;user com.github.wush978.util.SecondToHour.SecondToHour
+     *'&#64;categorical
+     * </pre>
+     *
+     * <code>required int64 created_at = 8;</code>
+     */
+    public long getCreatedAt() {
+      return createdAt_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -2335,6 +2385,10 @@ public final class PersonOuterClass {
         return false;
       }
       if (!hasIsLive()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasCreatedAt()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -2375,6 +2429,9 @@ public final class PersonOuterClass {
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeBool(7, isLive_);
       }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeInt64(8, createdAt_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2408,6 +2465,10 @@ public final class PersonOuterClass {
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(7, isLive_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(8, createdAt_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2457,6 +2518,11 @@ public final class PersonOuterClass {
         result = result && (getIsLive()
             == other.getIsLive());
       }
+      result = result && (hasCreatedAt() == other.hasCreatedAt());
+      if (hasCreatedAt()) {
+        result = result && (getCreatedAt()
+            == other.getCreatedAt());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2496,6 +2562,11 @@ public final class PersonOuterClass {
         hash = (37 * hash) + IS_LIVE_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
             getIsLive());
+      }
+      if (hasCreatedAt()) {
+        hash = (37 * hash) + CREATED_AT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getCreatedAt());
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2639,6 +2710,8 @@ public final class PersonOuterClass {
         bitField0_ = (bitField0_ & ~0x00000020);
         isLive_ = false;
         bitField0_ = (bitField0_ & ~0x00000040);
+        createdAt_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -2700,6 +2773,10 @@ public final class PersonOuterClass {
           to_bitField0_ |= 0x00000020;
         }
         result.isLive_ = isLive_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.createdAt_ = createdAt_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -2790,6 +2867,9 @@ public final class PersonOuterClass {
         if (other.hasIsLive()) {
           setIsLive(other.getIsLive());
         }
+        if (other.hasCreatedAt()) {
+          setCreatedAt(other.getCreatedAt());
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -2809,6 +2889,9 @@ public final class PersonOuterClass {
           return false;
         }
         if (!hasIsLive()) {
+          return false;
+        }
+        if (!hasCreatedAt()) {
           return false;
         }
         if (!getContact().isInitialized()) {
@@ -3540,6 +3623,58 @@ public final class PersonOuterClass {
         onChanged();
         return this;
       }
+
+      private long createdAt_ ;
+      /**
+       * <pre>
+       *'&#64;user com.github.wush978.util.SecondToHour.SecondToHour
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>required int64 created_at = 8;</code>
+       */
+      public boolean hasCreatedAt() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <pre>
+       *'&#64;user com.github.wush978.util.SecondToHour.SecondToHour
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>required int64 created_at = 8;</code>
+       */
+      public long getCreatedAt() {
+        return createdAt_;
+      }
+      /**
+       * <pre>
+       *'&#64;user com.github.wush978.util.SecondToHour.SecondToHour
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>required int64 created_at = 8;</code>
+       */
+      public Builder setCreatedAt(long value) {
+        bitField0_ |= 0x00000080;
+        createdAt_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       *'&#64;user com.github.wush978.util.SecondToHour.SecondToHour
+       *'&#64;categorical
+       * </pre>
+       *
+       * <code>required int64 created_at = 8;</code>
+       */
+      public Builder clearCreatedAt() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        createdAt_ = 0L;
+        onChanged();
+        return this;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -3614,17 +3749,18 @@ public final class PersonOuterClass {
   static {
     java.lang.String[] descriptorData = {
       "\n\033src/main/proto/person.proto\022\027com.githu" +
-      "b.wush978.test\"\231\003\n\006Person\022\n\n\002id\030\001 \002(\t\022\013\n" +
+      "b.wush978.test\"\255\003\n\006Person\022\n\n\002id\030\001 \002(\t\022\013\n" +
       "\003age\030\002 \002(\005\022\013\n\003sex\030\003 \002(\t\0228\n\007contact\030\004 \002(\013" +
       "2\'.com.github.wush978.test.Person.Contac" +
       "t\022<\n\teducation\030\005 \003(\0132).com.github.wush97" +
       "8.test.Person.Education\022A\n\014country_code\030" +
       "\006 \001(\0162+.com.github.wush978.test.Person.C" +
-      "ountryCode\022\017\n\007is_live\030\007 \002(\010\032\\\n\007Contact\022\017" +
-      "\n\007address\030\001 \001(\t\022\023\n\013postal_code\030\002 \001(\t\022\024\n\014" +
-      "phone_number\030\003 \001(\t\022\025\n\remail_address\030\004 \002(",
-      "\t\032 \n\tEducation\022\023\n\013school_name\030\001 \002(\t\"\035\n\013C" +
-      "ountryCode\022\006\n\002TW\020\000\022\006\n\002SG\020\001"
+      "ountryCode\022\017\n\007is_live\030\007 \002(\010\022\022\n\ncreated_a" +
+      "t\030\010 \002(\003\032\\\n\007Contact\022\017\n\007address\030\001 \001(\t\022\023\n\013p" +
+      "ostal_code\030\002 \001(\t\022\024\n\014phone_number\030\003 \001(\t\022\025",
+      "\n\remail_address\030\004 \002(\t\032 \n\tEducation\022\023\n\013sc" +
+      "hool_name\030\001 \002(\t\"\035\n\013CountryCode\022\006\n\002TW\020\000\022\006" +
+      "\n\002SG\020\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3643,7 +3779,7 @@ public final class PersonOuterClass {
     internal_static_com_github_wush978_test_Person_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_github_wush978_test_Person_descriptor,
-        new java.lang.String[] { "Id", "Age", "Sex", "Contact", "Education", "CountryCode", "IsLive", });
+        new java.lang.String[] { "Id", "Age", "Sex", "Contact", "Education", "CountryCode", "IsLive", "CreatedAt", });
     internal_static_com_github_wush978_test_Person_Contact_descriptor =
       internal_static_com_github_wush978_test_Person_descriptor.getNestedTypes().get(0);
     internal_static_com_github_wush978_test_Person_Contact_fieldAccessorTable = new
