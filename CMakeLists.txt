@@ -11,7 +11,7 @@ add_subdirectory(src)
 # copy testing protos
 file(COPY test/project DESTINATION ${PROJECT_BINARY_DIR}/test)
 file(COPY test/proto DESTINATION ${PROJECT_BINARY_DIR}/test)
-file(DOWNLOAD https://raw.githubusercontent.com/wush978/protoc-gen-vectorizer/java/src/main/proto/person.proto test/proto/person.proto)
+file(DOWNLOAD https://raw.githubusercontent.com/wush978/protoc-gen-vectorizer/java-0.1.2/src/main/proto/person.proto test/proto/person.proto)
 
 find_package (Maven)
 find_package(Protobuf REQUIRED)
