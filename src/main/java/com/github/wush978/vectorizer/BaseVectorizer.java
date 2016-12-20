@@ -58,6 +58,12 @@ public class BaseVectorizer {
         return builder;
     }
 
+    protected static Vector.SparseVector.Builder categorical(String fieldName, Long input, Vector.SparseVector.Builder builder) {
+        builder.addIndex(getName(fieldName, Long.toString(input)));
+        builder.addValue(CATEGORICAL_VALUE);
+        return builder;
+    }
+
     protected static Vector.SparseVector.Builder categorical(String fieldName, Double input, Vector.SparseVector.Builder builder) {
         builder.addIndex(getName(fieldName, Double.toString(input)));
         builder.addValue(CATEGORICAL_VALUE);

@@ -80,6 +80,8 @@ public class Vectorizer extends BaseVectorizer {
 
         categorical(prefix + "is_live", (src.getIsLive() ? "true" : "false"), builder);
 
+        categorical(prefix + "created_at", com.github.wush978.util.SecondToHour.SecondToHour(src.getCreatedAt()), builder);
+
         apply(interaction, builder);
 
         return builder;

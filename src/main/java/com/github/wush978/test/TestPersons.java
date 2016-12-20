@@ -26,6 +26,7 @@ public class TestPersons {
                         .setEmailAddress("email@example.com")
                 )
                 .setIsLive(true)
+                .setCreatedAt(1482200580922L)
                 .build()
         );
         // 1
@@ -79,8 +80,8 @@ public class TestPersons {
     public static List<Vector.SparseVector> getExpectedVectors() {
         List<Vector.SparseVector> result = new ArrayList();
         String
-                defaultCategoricalName[] = {"age", "sex", "is_live"},
-                defaultCategoricalValue[] = {"11", "female", "true"},
+                defaultCategoricalName[] = {"age", "sex", "is_live", "created_at"},
+                defaultCategoricalValue[] = {"11", "female", "true", "2"},
                 defaultInteractionName[] = {"age-sex"},
                 defaultInteractionValue1[] = {"11"},
                 defaultInteractionValue2[] = {"female"};
@@ -103,7 +104,7 @@ public class TestPersons {
         result.add(
                 toBuilder(
                         defaultCategoricalName,
-                        new String[] {"12", "female", "false"},
+                        new String[] {"12", "female", "false", "2"},
                         defaultInteractionName,
                         new String[] {"12"},
                         defaultInteractionValue2
@@ -113,7 +114,7 @@ public class TestPersons {
         result.add(
                 toBuilder(
                         defaultCategoricalName,
-                        new String[] {"11", "male", "true"},
+                        new String[] {"11", "male", "true", "2"},
                         defaultInteractionName,
                         defaultInteractionValue1,
                         new String[] {"male"}
@@ -122,8 +123,8 @@ public class TestPersons {
         // 4
         result.add(
                 toBuilder(
-                        new String[] {"age", "sex", "is_live", "Contact.postal_code"},
-                        new String[] {"11", "female", "true", "123"},
+                        new String[] {"age", "sex", "is_live", "Contact.postal_code", "created_at"},
+                        new String[] {"11", "female", "true", "123", "2"},
                         defaultInteractionName,
                         defaultInteractionValue1,
                         defaultInteractionValue2
@@ -142,8 +143,8 @@ public class TestPersons {
         // 6
         result.add(
                 toBuilder(
-                        new String[] {"age", "sex", "is_live", "Education.school_name", "Education.school_name"},
-                        new String[] {"11", "female", "true", "ntu", "hsnu"},
+                        new String[] {"age", "sex", "is_live", "Education.school_name", "Education.school_name", "created_at"},
+                        new String[] {"11", "female", "true", "ntu", "hsnu", "2"},
                         new String[] {"age-sex", "age-school_name", "age-school_name"},
                         new String[] {"11", "11", "11"},
                         new String[] {"female", "ntu", "hsnu"}
@@ -152,8 +153,8 @@ public class TestPersons {
         // 7
         result.add(
                 toBuilder(
-                        new String[] {"age", "sex", "is_live", "country_code"},
-                        new String[] {"11", "female", "true", "TW"},
+                        new String[] {"age", "sex", "is_live", "country_code", "created_at"},
+                        new String[] {"11", "female", "true", "TW", "2"},
                         defaultInteractionName,
                         defaultInteractionValue1,
                         defaultInteractionValue2

@@ -9,7 +9,7 @@
 
 	<groupId>com.github.wush978</groupId>
 	<artifactId>protobuf-vectorizer</artifactId>
-	<version>0.1.1</version>
+	<version>0.1.2</version>
 	<packaging>jar</packaging>
 
 	<licenses>
@@ -129,6 +129,7 @@
 							<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
 							<branch>refs/heads/mvn-repo</branch>
 							<includes><include>**/*</include></includes>
+							<merge>true</merge>
 						</configuration>
 					</execution>
 				</executions>

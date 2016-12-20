@@ -2,7 +2,6 @@ package com.github.wush978.test;
 
 message Person {
   required string id = 1;
-  //'@user bin int32
   //'@categorical
   //'@interaction age-sex
   //'@interaction age-school_name
@@ -39,5 +38,9 @@ message Person {
 
   //'@categorical
   required bool is_live = 7;
+
+  //'@user com.github.wush978.util.SecondToHour.SecondToHour
+  //'@categorical
+  required int64 created_at = 8;
 
 }
