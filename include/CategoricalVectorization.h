@@ -29,7 +29,13 @@ public:
 
     out << "categorical(prefix + \"" << getDescriptor()->lowercase_name() << "\", ";
 //    generateResult(out);
-    out << getGetter();
+    if (getInner().get() == nullptr) {
+      out << getGetter();
+    } else {
+      out << "(";
+      getInner()->generate(out);
+      out << ")";
+    }
     out << ", builder);" << std::endl;
 
     // interaction

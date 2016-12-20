@@ -17,6 +17,7 @@
 #include <MessageFieldVectorization.h>
 #include <CategoricalVectorization.h>
 #include <NumericalVectorization.h>
+#include <UserVectorization.h>
 #include <InteractionIndex.h>
 
 namespace vectorizer {
@@ -58,7 +59,13 @@ Vectorization* MessageVectorization::getVectorization(const google::protobuf::Fi
         return new Vectorization();
       }
       InteractionIndex::getInstance().set_index(tokens[1], retval);
-    } else  {
+    } else if (tokens[0].compare("user") == 0) {
+      if (tokens.size() != 2) {
+        error->append("//'@user <user-function-full-name>");
+        return new Vectorization();
+      }
+      retval = new UserVectorization(tokens[1], descriptor, retval);
+    } else {
       std::cerr << "Unknown annotation: " << tokens[0] << std::endl;
     }
   }
