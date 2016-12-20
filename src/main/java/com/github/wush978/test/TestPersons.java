@@ -79,7 +79,7 @@ public class TestPersons {
     public static List<Vector.SparseVector> getExpectedVectors() {
         List<Vector.SparseVector> result = new ArrayList();
         String
-                defaultCategoricalName[] = {"age", "sex", "isLive"},
+                defaultCategoricalName[] = {"age", "sex", "is_live"},
                 defaultCategoricalValue[] = {"11", "female", "true"},
                 defaultInteractionName[] = {"age-sex"},
                 defaultInteractionValue1[] = {"11"},
@@ -122,7 +122,7 @@ public class TestPersons {
         // 4
         result.add(
                 toBuilder(
-                        new String[] {"age", "sex", "isLive", "Contact.postal_code"},
+                        new String[] {"age", "sex", "is_live", "Contact.postal_code"},
                         new String[] {"11", "female", "true", "123"},
                         defaultInteractionName,
                         defaultInteractionValue1,
@@ -142,7 +142,7 @@ public class TestPersons {
         // 6
         result.add(
                 toBuilder(
-                        new String[] {"age", "sex", "isLive", "Education.school_name", "Education.school_name"},
+                        new String[] {"age", "sex", "is_live", "Education.school_name", "Education.school_name"},
                         new String[] {"11", "female", "true", "ntu", "hsnu"},
                         new String[] {"age-sex", "age-school_name", "age-school_name"},
                         new String[] {"11", "11", "11"},
@@ -152,7 +152,7 @@ public class TestPersons {
         // 7
         result.add(
                 toBuilder(
-                        new String[] {"age", "sex", "isLive", "country_code"},
+                        new String[] {"age", "sex", "is_live", "country_code"},
                         new String[] {"11", "female", "true", "TW"},
                         defaultInteractionName,
                         defaultInteractionValue1,

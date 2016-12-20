@@ -78,7 +78,7 @@ public class Vectorizer extends BaseVectorizer {
 
         if (src.hasCountryCode()) categorical(prefix + "country_code", src.getCountryCode(), builder);
 
-        categorical(prefix + "isLive", (src.getIsLive() ? "true" : "false"), builder);
+        categorical(prefix + "is_live", (src.getIsLive() ? "true" : "false"), builder);
 
         apply(interaction, builder);
 
